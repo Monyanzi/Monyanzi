@@ -41,7 +41,7 @@ const HeroSection = () => {
               </p>
               <p className="text-base text-muted-foreground leading-relaxed max-w-lg">
                 Providing independent consulting in capital strategy, risk management, 
-                and portfolio optimization for institutional clients across Africa.
+                and portfolio optimization for global institutional clients.
               </p>
             </div>
 
@@ -103,7 +103,7 @@ const HeroSection = () => {
             <CredentialCard
               metric="$100M+"
               label="Portfolios Managed"
-              sublabel="Across African Markets"
+              sublabel="Global Markets"
               delay={500}
             />
             <CredentialCard
@@ -113,9 +113,9 @@ const HeroSection = () => {
               delay={600}
             />
             <CredentialCard
-              metric="FIA"
-              label="Fellow Actuary"
-              sublabel="Institute and Faculty of Actuaries"
+              metric="ASA"
+              label="Associate Actuary"
+              sublabel="Society of Actuaries"
               delay={700}
             />
           </div>
