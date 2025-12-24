@@ -6,7 +6,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Custom domain mosesnyanzi.co.za - root path
+  // Vercel deployment - root path
   base: "/",
   server: {
     host: "::",
