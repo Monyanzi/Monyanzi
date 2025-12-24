@@ -36,7 +36,7 @@ const HeroSection = () => {
 
               {/* Mobile Profile Photo - shown only on small screens */}
               <div className="lg:hidden flex justify-center animate-fade-in" style={{ animationDelay: '150ms' }}>
-                <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden shadow-lg border border-border">
+                <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden shadow-xl border border-border">
                   <img
                     src={heroProfile}
                     alt="Moses Nyanzi"
