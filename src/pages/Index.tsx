@@ -4,29 +4,31 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ValuePropositionSection from "@/components/ValuePropositionSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
-import CareerSection from "@/components/CareerSection";
+import ProofSection from "@/components/ProofSection";
 import EngagementSection from "@/components/EngagementSection";
+import BackToTop from "@/components/BackToTop";
 
 const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Moses Nyanzi | Actuarial Strategist & Capital Risk Advisor</title>
+        <title>Moses Nyanzi | Strategy. Logic. Results.</title>
         <meta
           name="description"
-          content="Moses Nyanzi provides independent actuarial consulting, capital strategy, and risk advisory services for institutional clients. 8+ years experience managing $100M+ portfolios globally."
+          content="Independent consulting for senior leaders. I help organisations grow faster through AI, automation, and smarter strategy, with the rigour to make it stick."
         />
-        <meta name="keywords" content="Moses Nyanzi, Actuarial Consultant, Risk Advisory, Capital Strategy, Portfolio Optimization, INSEAD MBA" />
+        <meta name="keywords" content="Moses Nyanzi, Capital Strategy, Actuarial Consultant, Risk Advisory, Portfolio Optimisation, Independent Consultant, INSEAD" />
       </Helmet>
 
       <div className="min-h-screen bg-background">
         <Navigation />
         <HeroSection />
-        <AboutSection />
         <ValuePropositionSection />
+        <AboutSection />
         <ExpertiseSection />
-        <CareerSection />
+        <ProofSection />
         <EngagementSection />
+        <BackToTop />
       </div>
     </>
   );

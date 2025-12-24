@@ -1,0 +1,200 @@
+MOSES KANALUZALA NYANZI
+Master CV | Skills Bank
+
+LinkedIn: www.linkedin.com/in/moses-nyanzi
+Email: moses.k.nyanzi@gmail.com
+Mobility: Open to relocation
+Languages: English (native); French (beginner)
+
+================================================================================
+SUMMARY
+================================================================================
+
+Actuarial leader (AMASSA) and INSEAD Global Executive MBA graduate with 9+ years in P&C (re)insurance, specialising in data-driven strategy, capital optimisation, and operational transformation.
+
+I bridge the gap between deep actuarial analysis and modern data platforms. Led an end-to-end data transformation that moved critical analytics from manual spreadsheets into a consolidated SQL and Power BI solution, accelerating analytical turnarounds by 80%, reducing errors by 45%, and releasing 30% of staff capacity.
+
+Core positioning: Strategy. Rigour. Results.
+
+================================================================================
+EDUCATION
+================================================================================
+
+INSEAD | Fontainebleau, France | Singapore
+Global Executive MBA | 2024 - Present
+Relevant Coursework: Corporate Finance, Strategy, Private Equity, M&As & Alliances, Negotiations, Process & Operations Management
+
+Electives:
+- Negotiations: Behavioural and analytical frameworks for complex interactions
+- Private Equity: MBO valuation, PE partnership models, active investing
+- Blue Ocean Strategy: Creating uncontested market space
+- Building GenAI Business Solutions: Fine-tuning foundation models, responsible AI deployment
+- Identifying New Business Opportunities: Renaissance Innovation methods, discovery-driven planning
+
+UNIVERSITY OF CAPE TOWN GRADUATE SCHOOL OF BUSINESS | Cape Town, South Africa
+Leadership Development Programme | 2023 - 2024
+
+UNIVERSITY OF THE WITWATERSRAND | Johannesburg, South Africa
+B.Sc. Honours Actuarial Science | 2016
+B.Sc. Actuarial Science & Mathematical Statistics | 2011 - 2014
+
+================================================================================
+PROFESSIONAL EXPERIENCE
+================================================================================
+
+OLD MUTUAL INSURE | Johannesburg, South Africa | 2017 - 2025
+Leading South African insurer, part of the pan-African Old Mutual group, ~US$1B revenue.
+
+SENIOR MANAGER: TREATY REINSURANCE | 2021 - 2025
+
+Data Strategy & Transformation
+- Architected and led core data transformation solving critical Gross-to-Net portfolio visibility problem
+- Transitioned from Excel to consolidated SQL and Power BI solution ("Excel-less Team Drive")
+- Impact: 80% faster analytical turnaround, 45% fewer errors, 30% staff capacity released
+- Primary driver for Employee of the Year 2022 award
+
+Portfolio Analytics & Capital Optimisation
+- Evaluated and optimised treaty effectiveness for $100M+ multi-line portfolio
+- Drove strategic adjustments improving Return on Capital and reducing facultative spend
+- Designed customised capital solutions balancing risk appetite against ROC
+
+Global Stakeholder & C-Suite Engagement
+- Cultivated strategic partnerships with global panel of brokers and reinsurers (Europe, US)
+- Produced analysis and briefings for Chief Actuary and senior leadership
+- Developed strategic pitch materials for major conferences (e.g., Baden-Baden, Monte Carlo)
+
+System Implementation
+- Contributed to rollout of core reinsurance system (Sapiens Reinsurance Master)
+- Consolidated processes across placement, accounting, and compliance
+
+SENIOR SPECIALIST: ACTUARIAL CONTROL FUNCTION | 2021
+
+Regulatory Capital & Risk Management
+- Recalculated SCR and cover ratios for major cell captives under FSI standards
+- Reviewed capital adequacy and solvency alignment
+- Evaluated Alternative Risk Transfer (ART) feasibility
+
+ORSA & Risk Framework
+- Led analysis for Own Risk and Solvency Assessment
+- Documented risk framework and identified key emerging risks
+- Aligned monitoring and mitigation to organisational risk appetite
+
+IFRS 17 & Crisis Reserving
+- Collaborated on IFRS 17 implementation for improved external financial reporting
+- Calculated COVID-19 Business Interruption reserves across South Africa and African regions
+- Provided decision-grade inputs during heightened uncertainty
+
+ACTUARIAL UNDERWRITING & PRICING SPECIALIST | 2017 - 2020
+
+Pricing Strategy & Portfolio Profitability
+- Re-engineered commercial and personal lines pricing models to improve profitability
+- Conducted in-depth premium-rate comparisons and market analytics
+- Built multi-claim models targeting frequency/severity drivers to reduce losses
+
+Platform Implementation & Recognition
+- Played crucial role in rollout of Radar Live pricing platform
+- Cut new premium deployment from 6 months to under 24 hours
+- Employee of the Quarter Q3 2019
+
+Data Operations & Reporting
+- Streamlined data pipelines (SQL, SAS)
+- Built automated portfolio management dashboards (Power BI)
+- Delivered clear monthly reporting to senior stakeholders
+
+EARLIER CAREER
+Investments Intern, Stanlib, Uganda | 2015
+Intern, Alexander Forbes, Uganda | 2013 - 2014
+
+================================================================================
+SKILLS INVENTORY
+================================================================================
+
+ACTUARIAL & RISK ARCHITECTURE
+- Reinsurance Treaty Structuring ($100M+ programmes)
+- Regulatory Capital Calculation (SCR, Solvency II equivalents)
+- Alternative Risk Transfer (ART) evaluation
+- ORSA & Risk Framework development
+- IFRS 17 transition and implementation
+- Crisis Reserving (high-uncertainty events)
+- Contract analysis and treaty interpretation
+
+DATA SCIENCE, ENGINEERING & AUTOMATION
+- Workflow Transformation (Excel to SQL/Power BI)
+- Process Automation (30% capacity release)
+- Pricing Platform Implementation (Radar Live)
+- Dashboard Architecture (Power BI, real-time insights)
+- GenAI Business Solutions (fine-tuning, enterprise deployment)
+- Technical Stack: SQL, Python, Power BI, SAS, Databricks
+
+CORPORATE STRATEGY & INNOVATION
+- Blue Ocean Strategy (creating uncontested market space)
+- Business Model Innovation (audits, disruptive opportunity identification)
+- Strategic Pricing & Game Theory
+- Macroeconomic Monitoring (inflation, FX, monetary policy)
+- International Political Analysis
+
+INVESTMENT, FINANCE & DEAL EXECUTION
+- M&A Due Diligence (actuarial perspective)
+- Private Equity & Valuation (MBOs, PE partnership models)
+- DCF & Financial Modelling
+- Equity Analysis & Valuation
+- Derivative Securities (options, futures, forwards)
+- Portfolio Management (multi-line, cashflow modelling)
+- Financial Statement Analysis
+
+LEADERSHIP, NEGOTIATION & STAKEHOLDER MANAGEMENT
+- High-Stakes Negotiation (INSEAD trained)
+- Fundraising & Business Development (conference pitch materials)
+- Marketing Strategy (segmentation, value propositions)
+- Change Leadership (organisational transformation)
+- Executive Communication (C-suite briefings)
+- Global Stakeholder Alignment (brokers, reinsurers, partners)
+
+================================================================================
+KEY ACHIEVEMENTS (QUANTIFIED)
+================================================================================
+
+- 80% faster: Analytical turnaround after Excel-to-SQL/Power BI migration
+- 45% fewer errors: Through process automation and data consolidation
+- 30% capacity released: Staff time freed through automation
+- 6 months to 24 hours: Rate deployment acceleration via Radar Live
+- $100M+ portfolio: Treaty optimisation and capital allocation
+- Employee of the Year 2022: Leadership and innovation recognition
+- Employee of the Quarter Q3 2019: Radar Live platform rollout
+
+================================================================================
+ROLE-SPECIFIC NARRATIVES
+================================================================================
+
+FOR PRIVATE EQUITY / VENTURE CAPITAL:
+"I am an investor and operator. I conduct M&A due diligence, analyse capital structures, and create value. I have managed a $100M+ portfolio, developed fundraising materials, and led operational turnarounds that boost profitability (30% capacity release, 80% faster turnaround)."
+
+FOR PRODUCT MANAGEMENT / TECH:
+"I am a technical, data-driven product leader. I build solutions for complex problems. I've launched platforms that cut deployment from 6 months to 24 hours, built pricing models from scratch, and created automated dashboards that serve as the source of truth for portfolio managers."
+
+FOR STRATEGY CONSULTING:
+"I am a strategic problem solver. I diagnose operational and strategic failures, create data-backed solutions, and get C-suite buy-in for implementation. Track record includes 30% capacity release and 80% process acceleration."
+
+================================================================================
+PROFESSIONAL AFFILIATIONS
+================================================================================
+
+Associate Member, Actuarial Society of South Africa (AMASSA) | 2024 - Present
+
+================================================================================
+ADDITIONAL INFORMATION
+================================================================================
+
+Interests: Distance running, football, cycling, golf
+
+================================================================================
+DOCUMENT NOTES
+================================================================================
+
+This is a comprehensive Master CV / Skills Bank. For specific applications:
+1. Select 4-5 most relevant bullet points per role
+2. Tailor the summary to match the position
+3. Highlight relevant INSEAD coursework
+4. Use appropriate role-specific narrative
+
+Last updated: December 2024

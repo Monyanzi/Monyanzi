@@ -1,16 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 
 const navItems = [
-  { label: "About", href: "#about" },
+  { label: "Who You Work With", href: "#about" },
   { label: "Expertise", href: "#expertise" },
-  { label: "Track Record", href: "#track-record" },
-  { label: "Contact", href: "#contact" },
+  { label: "Track Record", href: "#proof" },
 ];
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems.map(item => item.href.slice(1));
+      const scrollPosition = window.scrollY + 100;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          return;
+        }
+      }
+      setActiveSection("");
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleNavClick = () => {
     setIsOpen(false);
@@ -22,32 +41,26 @@ const Navigation = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <a href="#" className="font-display text-xl lg:text-2xl font-semibold tracking-tight text-foreground">
-              Moses Nyanzi
+              MN
             </a>
-            
+
             <div className="hidden lg:flex items-center gap-10">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+                  className={`text-sm transition-colors duration-300 ${activeSection === item.href.slice(1)
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                    }`}
                 >
                   {item.label}
                 </a>
               ))}
             </div>
 
-            <Button 
-              variant="executive" 
-              size="sm" 
-              className="hidden lg:flex"
-              asChild
-            >
-              <a href="#contact">Engage</a>
-            </Button>
-
             {/* Mobile menu button */}
-            <button 
+            <button
               onClick={() => setIsOpen(true)}
               className="lg:hidden p-2 -mr-2 text-foreground"
               aria-label="Open menu"
@@ -73,22 +86,20 @@ const Navigation = () => {
       </nav>
 
       {/* Mobile menu overlay */}
-      <div 
-        className={`fixed inset-0 z-50 bg-background/80 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+      <div
+        className={`fixed inset-0 z-50 bg-background/80 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
         onClick={() => setIsOpen(false)}
       />
 
       {/* Mobile menu drawer */}
-      <div 
-        className={`fixed top-0 right-0 bottom-0 z-50 w-72 bg-background border-l border-border transition-transform duration-300 ease-out lg:hidden ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+      <div
+        className={`fixed top-0 right-0 bottom-0 z-50 w-72 bg-background border-l border-border transition-transform duration-300 ease-out lg:hidden ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex items-center justify-between p-6 border-b border-border">
           <span className="font-display text-lg font-semibold text-foreground">Menu</span>
-          <button 
+          <button
             onClick={() => setIsOpen(false)}
             className="p-1 text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Close menu"
@@ -96,7 +107,7 @@ const Navigation = () => {
             <X className="w-5 h-5" />
           </button>
         </div>
-        
+
         <nav className="p-6">
           <ul className="space-y-1">
             {navItems.map((item) => (
@@ -111,17 +122,6 @@ const Navigation = () => {
               </li>
             ))}
           </ul>
-          
-          <div className="mt-8 pt-8 border-t border-border">
-            <Button 
-              variant="executive" 
-              className="w-full"
-              asChild
-              onClick={handleNavClick}
-            >
-              <a href="#contact">Engage for Consulting</a>
-            </Button>
-          </div>
         </nav>
       </div>
     </>
