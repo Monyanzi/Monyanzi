@@ -6,12 +6,12 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Moses Nyanzi | Actuarial Strategist & Capital Risk Expert</title>
+        <title>Moses Nyanzi | Actuarial Strategist & Capital Risk Advisor</title>
         <meta
           name="description"
-          content="Moses Nyanzi - Actuarial Strategist, Capital & Risk Expert, and INSEAD Executive MBA 2026. 8+ years of experience managing $100M+ portfolios in Johannesburg, South Africa."
+          content="Moses Nyanzi provides independent actuarial consulting, capital strategy, and risk advisory services for institutional clients. 8+ years experience managing $100M+ portfolios across Africa."
         />
-        <meta name="keywords" content="Moses Nyanzi, Actuarial, Risk Management, Capital, INSEAD, MBA, Finance, Johannesburg" />
+        <meta name="keywords" content="Moses Nyanzi, Actuarial Consultant, Risk Advisory, Capital Strategy, Portfolio Optimization, Africa, INSEAD MBA" />
       </Helmet>
 
       <div className="min-h-screen bg-background">
@@ -19,23 +19,20 @@ const Index = () => {
         <HeroSection />
         
         {/* Placeholder sections for smooth scroll targets */}
-        <section id="about" className="min-h-screen flex items-center justify-center">
-          <p className="text-muted-foreground">About section coming soon...</p>
+        <section id="about" className="min-h-[50vh] py-24 flex items-center justify-center border-b border-border">
+          <p className="text-muted-foreground text-sm tracking-wide">About section</p>
         </section>
-        <section id="career" className="min-h-screen flex items-center justify-center">
-          <p className="text-muted-foreground">Career section coming soon...</p>
+        <section id="expertise" className="min-h-[50vh] py-24 flex items-center justify-center border-b border-border">
+          <p className="text-muted-foreground text-sm tracking-wide">Expertise section</p>
         </section>
-        <section id="achievements" className="min-h-screen flex items-center justify-center">
-          <p className="text-muted-foreground">Achievements section coming soon...</p>
+        <section id="track-record" className="min-h-[50vh] py-24 flex items-center justify-center border-b border-border">
+          <p className="text-muted-foreground text-sm tracking-wide">Track Record section</p>
         </section>
-        <section id="education" className="min-h-screen flex items-center justify-center">
-          <p className="text-muted-foreground">Education section coming soon...</p>
+        <section id="credentials" className="min-h-[50vh] py-24 flex items-center justify-center border-b border-border">
+          <p className="text-muted-foreground text-sm tracking-wide">Credentials section</p>
         </section>
-        <section id="skills" className="min-h-screen flex items-center justify-center">
-          <p className="text-muted-foreground">Skills section coming soon...</p>
-        </section>
-        <section id="contact" className="min-h-screen flex items-center justify-center">
-          <p className="text-muted-foreground">Contact section coming soon...</p>
+        <section id="contact" className="min-h-[50vh] py-24 flex items-center justify-center">
+          <p className="text-muted-foreground text-sm tracking-wide">Contact section</p>
         </section>
       </div>
     </>

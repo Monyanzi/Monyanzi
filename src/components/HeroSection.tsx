@@ -1,74 +1,82 @@
-import { MapPin, Users, UserCheck, Briefcase, DollarSign, GraduationCap, ArrowRight } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import MetricCard from "./MetricCard";
+import CredentialCard from "./CredentialCard";
 import ProfilePhoto from "./ProfilePhoto";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen gradient-hero geometric-pattern overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.02]" style={{
-        backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
-                          linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-        backgroundSize: '60px 60px'
-      }} />
+    <section className="relative min-h-screen bg-background overflow-hidden">
+      {/* Subtle grid pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.015]" 
+        style={{
+          backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
+                            linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+          backgroundSize: '80px 80px'
+        }} 
+      />
 
-      <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="container mx-auto px-6 lg:px-12 pt-32 lg:pt-40 pb-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
           {/* Left content */}
-          <div className="space-y-8">
-            {/* Name */}
-            <div className="space-y-4 animate-fade-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium">
-                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                Available for Strategic Roles
-              </div>
+          <div className="space-y-10">
+            {/* Positioning statement */}
+            <div className="space-y-6 animate-fade-in">
+              <p className="text-sm font-medium tracking-[0.2em] uppercase text-muted-foreground">
+                Strategic Advisory
+              </p>
               
-              <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-foreground leading-[0.9]">
+              <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-foreground leading-[1.1]">
                 Moses<br />
-                <span className="text-gradient">Nyanzi</span>
+                Nyanzi
               </h1>
+
+              <div className="w-16 h-px bg-foreground/20" />
             </div>
 
-            {/* Headline */}
-            <p className="text-xl lg:text-2xl text-slate-300 font-medium leading-relaxed animate-fade-in-delay-1">
-              <span className="text-foreground">Actuarial Strategist</span>
-              <span className="mx-3 text-accent">|</span>
-              <span className="text-foreground">Capital & Risk Expert</span>
-              <span className="mx-3 text-accent">|</span>
-              <span className="text-gradient-gold font-semibold">INSEAD EMBA 2026</span>
-            </p>
+            {/* Professional title */}
+            <div className="space-y-4 animate-fade-in-delay-1">
+              <p className="text-xl lg:text-2xl text-foreground font-light leading-relaxed">
+                Actuarial Strategist & Capital Risk Advisor
+              </p>
+              <p className="text-base text-muted-foreground leading-relaxed max-w-lg">
+                Providing independent consulting in capital strategy, risk management, 
+                and portfolio optimization for institutional clients across Africa.
+              </p>
+            </div>
 
-            {/* Location & Stats */}
-            <div className="flex flex-wrap items-center gap-4 text-muted-foreground animate-fade-in-delay-2">
+            {/* Location & Availability */}
+            <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground animate-fade-in-delay-2">
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-accent" />
+                <MapPin className="w-4 h-4" />
                 <span>Johannesburg, South Africa</span>
               </div>
-              <span className="hidden sm:block text-border">•</span>
               <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-accent" />
-                <span>500+ connections</span>
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span>Available for Engagements</span>
               </div>
-              <span className="hidden sm:block text-border">•</span>
-              <div className="flex items-center gap-2">
-                <UserCheck className="w-4 h-4 text-accent" />
-                <span>1,122 followers</span>
-              </div>
+            </div>
+
+            {/* Services offered */}
+            <div className="flex flex-wrap gap-3 animate-fade-in-delay-2">
+              {["Strategic Consulting", "Capital & Risk Advisory", "Portfolio Optimization"].map((service) => (
+                <span 
+                  key={service}
+                  className="px-4 py-2 text-xs font-medium tracking-wide uppercase border border-border text-muted-foreground"
+                >
+                  {service}
+                </span>
+              ))}
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 animate-fade-in-delay-3">
-              <Button variant="hero" size="xl" className="group">
-                View Full Profile
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <div className="flex flex-wrap gap-4 pt-4 animate-fade-in-delay-3">
+              <Button variant="executive" size="xl" className="group">
+                Engage for Consulting
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="heroOutline" size="xl">
-                Let's Connect
+              <Button variant="executiveOutline" size="xl">
+                View Credentials
               </Button>
             </div>
           </div>
@@ -79,31 +87,43 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Metrics Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-20">
-          <MetricCard
-            value="8+"
-            label="Years Experience"
-            icon={<Briefcase className="w-6 h-6" />}
-            delay={100}
-          />
-          <MetricCard
-            value="$100M+"
-            label="Portfolio Managed"
-            icon={<DollarSign className="w-6 h-6" />}
-            delay={200}
-          />
-          <MetricCard
-            value="INSEAD"
-            label="Executive MBA 2026"
-            icon={<GraduationCap className="w-6 h-6" />}
-            delay={300}
-          />
+        {/* Credentials Section */}
+        <div className="mt-24 lg:mt-32">
+          <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted-foreground mb-8 animate-fade-in-delay-3">
+            Professional Credentials
+          </p>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <CredentialCard
+              metric="8+"
+              label="Years Experience"
+              sublabel="Actuarial & Risk Strategy"
+              delay={400}
+            />
+            <CredentialCard
+              metric="$100M+"
+              label="Portfolios Managed"
+              sublabel="Across African Markets"
+              delay={500}
+            />
+            <CredentialCard
+              metric="INSEAD"
+              label="Executive MBA"
+              sublabel="Class of 2026"
+              delay={600}
+            />
+            <CredentialCard
+              metric="FIA"
+              label="Fellow Actuary"
+              sublabel="Institute and Faculty of Actuaries"
+              delay={700}
+            />
+          </div>
         </div>
       </div>
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      {/* Bottom border accent */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-border" />
     </section>
   );
 };
