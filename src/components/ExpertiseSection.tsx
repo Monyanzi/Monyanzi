@@ -1,38 +1,59 @@
 const expertiseCategories = [
   {
-    title: "Actuarial",
+    title: "Actuarial & Risk Architecture",
     skills: [
-      "Reserving & IBNR Analysis",
-      "Pricing & Product Development",
-      "IFRS 17 Implementation",
-      "Capital Modeling"
+      "Reinsurance Treaty Structuring ($100M+)",
+      "Regulatory Capital Calculation (SCR)",
+      "Alternative Risk Transfer (ART)",
+      "ORSA & Risk Frameworks",
+      "IFRS 17 Transition",
+      "Crisis Reserving",
+      "Contract Analysis"
     ]
   },
   {
-    title: "Financial",
+    title: "Data Science & Automation",
     skills: [
-      "Asset-Liability Management",
-      "Portfolio Optimization",
-      "Risk-Adjusted Returns",
-      "Solvency Assessment"
+      "SQL, Python, Power BI, SAS",
+      "Workflow Transformation (80% faster)",
+      "Process Automation (45% error reduction)",
+      "Pricing Platform Implementation",
+      "Dashboard Architecture",
+      "GenAI Business Solutions",
+      "Databricks, Radar Live, Emblem"
     ]
   },
   {
-    title: "Strategic",
+    title: "Corporate Strategy",
+    skills: [
+      "Blue Ocean Strategy",
+      "Business Model Innovation",
+      "Strategic Pricing & Game Theory",
+      "Macroeconomic Analysis",
+      "International Political Analysis",
+      "Market Entry & Positioning"
+    ]
+  },
+  {
+    title: "Investment & Finance",
     skills: [
       "M&A Due Diligence",
-      "Market Entry Analysis",
-      "Regulatory Strategy",
-      "Stakeholder Management"
+      "Private Equity & Valuation",
+      "Derivative Securities Valuation",
+      "Portfolio Optimization",
+      "Financial Statement Analysis",
+      "Capital Structure Advisory"
     ]
   },
   {
-    title: "Technical",
+    title: "Leadership & Execution",
     skills: [
-      "SQL & Python",
-      "Power BI & Visualization",
-      "Risk Management Systems",
-      "Actuarial Software"
+      "High-Stakes Negotiation",
+      "Fundraising & Business Development",
+      "Marketing Strategy",
+      "Change Leadership",
+      "Stakeholder Management",
+      "Team Transformation"
     ]
   }
 ];
@@ -41,6 +62,7 @@ const industries = [
   "Life Insurance",
   "Non-Life Insurance", 
   "Reinsurance",
+  "Private Equity",
   "Asset Management",
   "Pension Funds"
 ];
@@ -60,21 +82,21 @@ const ExpertiseSection = () => {
           <div className="w-12 h-px bg-foreground/20" />
         </div>
 
-        {/* Skills grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border">
+        {/* Skills grid - 5 columns on large screens */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-border border border-border">
           {expertiseCategories.map((category, index) => (
             <div 
               key={index} 
-              className="bg-background p-8"
+              className="bg-background p-6 lg:p-8"
             >
-              <h3 className="text-sm font-medium tracking-wide uppercase text-foreground mb-6">
+              <h3 className="text-xs font-medium tracking-wide uppercase text-foreground mb-5">
                 {category.title}
               </h3>
-              <ul className="space-y-2.5">
+              <ul className="space-y-2">
                 {category.skills.map((skill, i) => (
                   <li 
                     key={i} 
-                    className="text-sm text-muted-foreground"
+                    className="text-xs text-muted-foreground leading-relaxed"
                   >
                     {skill}
                   </li>
