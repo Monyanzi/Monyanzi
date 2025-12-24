@@ -6,8 +6,8 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // GitHub Pages subdirectory (change to "/" when using custom domain)
-  base: "/moses-nyanzi-profile-hero/",
+  // User-level GitHub Pages (Monyanzi.github.io) - root path
+  base: "/",
   server: {
     host: "::",
     port: 8080,
