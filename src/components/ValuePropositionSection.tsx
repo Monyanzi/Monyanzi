@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
 interface ValueProp {
   icon: string;
@@ -29,10 +30,37 @@ const valuePropositions: ValueProp[] = [
 ];
 
 const ValuePropositionSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Parallax for background elements
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const gradientY = useTransform(scrollYProgress, [0, 1], [200, -200]);
+  const glassY = useTransform(scrollYProgress, [0, 1], [100, -150]);
+
   return (
-    <section className="py-24 lg:py-32 bg-[hsl(160,15%,96%)] relative overflow-hidden">
-      {/* Subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/50 to-transparent pointer-events-none" />
+    <section ref={sectionRef} className="py-24 lg:py-32 bg-[hsl(160,15%,96%)] relative overflow-hidden">
+      {/* Parallax gradient background */}
+      <motion.div
+        style={{ y: gradientY }}
+        className="absolute inset-0 pointer-events-none will-change-transform"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/50 to-transparent" />
+      </motion.div>
+
+      {/* Glassmorphic floating accent */}
+      <motion.div
+        style={{ y: glassY }}
+        className="absolute top-1/4 -right-32 w-64 h-64 rounded-full opacity-30 will-change-transform"
+      >
+        <div
+          className="w-full h-full rounded-full backdrop-blur-xl"
+          style={{ background: 'radial-gradient(circle, hsl(38 82% 50% / 0.15) 0%, transparent 70%)' }}
+        />
+      </motion.div>
 
       <div className="container mx-auto px-6 lg:px-12 relative">
         {/* Section header */}

@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
 interface ExpertiseCategory {
   icon: string;
@@ -68,19 +69,63 @@ const industries = [
 const softSkills = "Plus: Executive communication • Stakeholder alignment • Change leadership • Global market insight";
 
 const ExpertiseSection = () => {
-  return (
-    <section id="expertise" className="py-28 lg:py-36 bg-[hsl(210,55%,30%)] relative overflow-hidden">
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(210,60%,25%)] via-transparent to-[hsl(210,50%,35%)] opacity-50 pointer-events-none" />
+  const sectionRef = useRef<HTMLElement>(null);
 
-      {/* Subtle dot texture */}
-      <div
-        className="absolute inset-0 opacity-[0.02] pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(hsl(40 35% 98%) 1px, transparent 1px)`,
-          backgroundSize: '24px 24px'
-        }}
-      />
+  // Parallax for background elements
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const gradientY = useTransform(scrollYProgress, [0, 1], [150, -150]);
+  const dotsY = useTransform(scrollYProgress, [0, 1], [40, -80]);
+  const glassY = useTransform(scrollYProgress, [0, 1], [180, -100]);
+  const glassRotate = useTransform(scrollYProgress, [0, 1], [0, 30]);
+
+  return (
+    <section id="expertise" ref={sectionRef} className="py-28 lg:py-36 bg-[hsl(210,55%,30%)] relative overflow-hidden">
+      {/* Parallax gradient overlay */}
+      <motion.div
+        style={{ y: gradientY }}
+        className="absolute inset-0 pointer-events-none will-change-transform"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(210,60%,25%)] via-transparent to-[hsl(210,50%,35%)] opacity-50" />
+      </motion.div>
+
+      {/* Glassmorphic floating shapes - MORE VISIBLE */}
+      <motion.div
+        style={{ y: glassY, rotate: glassRotate }}
+        className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full will-change-transform"
+      >
+        <div
+          className="w-full h-full rounded-full backdrop-blur-3xl"
+          style={{ background: 'radial-gradient(circle, hsl(38 82% 50% / 0.15) 0%, hsl(38 82% 50% / 0.08) 40%, transparent 70%)' }}
+        />
+      </motion.div>
+
+      <motion.div
+        style={{ y: useTransform(scrollYProgress, [0, 1], [-50, 80]) }}
+        className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full will-change-transform"
+      >
+        <div
+          className="w-full h-full rounded-full backdrop-blur-2xl"
+          style={{ background: 'radial-gradient(circle, hsl(160 45% 40% / 0.1) 0%, transparent 70%)' }}
+        />
+      </motion.div>
+
+      {/* Subtle dot texture with parallax */}
+      <motion.div
+        style={{ y: dotsY }}
+        className="absolute inset-0 opacity-[0.02] pointer-events-none will-change-transform"
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(hsl(40 35% 98%) 1px, transparent 1px)`,
+            backgroundSize: '24px 24px'
+          }}
+        />
+      </motion.div>
 
       <div className="container mx-auto px-6 lg:px-12 relative">
         {/* Section header */}
@@ -110,7 +155,7 @@ const ExpertiseSection = () => {
                 ease: "easeOut"
               }}
               whileHover={{ y: -12, transition: { duration: 0.2, ease: "easeOut" } }}
-              className="group p-8 rounded-2xl border bg-white/5 border-white/10 hover:border-[hsl(38,82%,50%)]/50 hover:bg-white/[0.12] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.4)] cursor-default will-change-transform"
+              className="group p-8 rounded-2xl border bg-white/5 border-white/10 backdrop-blur-sm hover:border-[hsl(38,82%,50%)]/50 hover:bg-white/[0.12] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.4)] cursor-default will-change-transform"
             >
               <div className="flex items-start gap-4">
                 <span className="text-3xl text-[hsl(38,82%,50%)] group-hover:scale-125 transition-transform duration-200 ease-out">

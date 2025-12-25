@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
 const services = [
   "Independent Consulting",
@@ -23,24 +24,47 @@ const deliveryPoints = [
 ];
 
 const AboutSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Parallax scroll effects
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [100, -150]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [80, -200]);
+  const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 30]);
+  const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -20]);
+
   return (
-    <section id="about" className="py-28 lg:py-36 bg-background relative overflow-hidden">
-      {/* Organic floating shapes */}
+    <section id="about" ref={sectionRef} className="py-28 lg:py-36 bg-background relative overflow-hidden">
+      {/* Organic floating shapes with parallax */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="absolute -top-20 -left-20 w-[400px] h-[400px] opacity-[0.04] animate-float-slow"
-          style={{
-            background: 'radial-gradient(circle, hsl(140 18% 30%) 0%, transparent 70%)',
-            borderRadius: '60% 40% 50% 50% / 50% 60% 40% 50%'
-          }}
-        />
-        <div
-          className="absolute bottom-0 right-0 w-[350px] h-[350px] opacity-[0.05] animate-float-medium"
-          style={{
-            background: 'radial-gradient(circle, hsl(20 55% 53%) 0%, transparent 70%)',
-            borderRadius: '40% 60% 55% 45% / 55% 45% 55% 45%'
-          }}
-        />
+        <motion.div
+          style={{ y: y1, rotate: rotate1 }}
+          className="absolute -top-10 -left-10 w-[500px] h-[500px] opacity-[0.12] will-change-transform"
+        >
+          <div
+            className="w-full h-full animate-float-slow"
+            style={{
+              background: 'radial-gradient(circle, hsl(140 18% 30%) 0%, transparent 70%)',
+              borderRadius: '60% 40% 50% 50% / 50% 60% 40% 50%'
+            }}
+          />
+        </motion.div>
+        <motion.div
+          style={{ y: y2, rotate: rotate2 }}
+          className="absolute bottom-0 right-0 w-[450px] h-[450px] opacity-[0.10] will-change-transform"
+        >
+          <div
+            className="w-full h-full animate-float-medium"
+            style={{
+              background: 'radial-gradient(circle, hsl(20 55% 53%) 0%, transparent 70%)',
+              borderRadius: '40% 60% 55% 45% / 55% 45% 55% 45%'
+            }}
+          />
+        </motion.div>
         {/* Subtle dot texture */}
         <div
           className="absolute inset-0 opacity-[0.012]"
@@ -158,7 +182,7 @@ const AboutSection = () => {
                   </div>
                 </div>
                 <p className="text-white/80 leading-relaxed mb-6">
-                  I don't just advise. I <em className="text-white not-italic font-medium">execute</em>. Actuary training means I build the models myself: valuations, stress tests, pricing frameworks. MBA means I translate them into strategy your board will back. You get rigorous analysis <em className="text-white not-italic">and</em> clear recommendations from one advisor.
+                  I don't just advise. I <em className="text-white not-italic font-medium">execute</em>. Actuarial training means I build the models myself: valuations, stress tests, pricing frameworks. MBA means I translate them into strategy your board will back. You get rigorous analysis <em className="text-white not-italic">and</em> clear recommendations from one advisor.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <span className="px-4 py-2 rounded-full bg-white/10 text-sm text-white/90 hover:bg-white/20 transition-colors cursor-default">Actuary</span>
