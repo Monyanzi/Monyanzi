@@ -38,7 +38,113 @@ const HeroSection = () => {
         </div>
 
         <div className="container mx-auto px-6 lg:px-12 pt-28 lg:pt-36 pb-20 relative z-10">
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-stretch">
+          {/* Mobile Layout (Image Background + Overlay) */}
+          <div className="lg:hidden -mx-6 -mt-28 mb-12">
+            {/* Hero Image Background Container */}
+            <div className="relative h-[85vh] min-h-[600px] w-full flex flex-col justify-end pb-12 px-6">
+              {/* Image & Gradient Overlay */}
+              <div className="absolute inset-0 z-0">
+                <img
+                  src={heroProfile}
+                  alt="Moses Nyanzi"
+                  className="w-full h-full object-cover object-top"
+                />
+                {/* Gradient overlays for readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+              </div>
+
+              {/* Content Overlay */}
+              <div className="relative z-10 space-y-6 text-white animate-fade-in">
+                <p className="text-[10px] font-bold tracking-[0.3em] uppercase opacity-90">
+                  Strategy · Logic · Results
+                </p>
+
+                <div className="space-y-2">
+                  <h1 className="font-display text-6xl font-semibold tracking-tight leading-[1] text-white drop-shadow-sm">
+                    Moses<br />
+                    Nyanzi
+                  </h1>
+                  <p className="text-base font-medium tracking-wide opacity-90">
+                    Actuary | MBA
+                  </p>
+                </div>
+
+                <div className="w-16 h-[1px] bg-white/50" />
+
+                <div className="space-y-4 max-w-sm">
+                  <p className="text-lg leading-relaxed font-light text-white/90">
+                    For senior leaders who need clarity on complex decisions, fast.
+                  </p>
+                  <p className="text-sm leading-relaxed text-white/80">
+                    I build the models, run the analysis, and translate it into strategy.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* White Card Section below image */}
+            <div className="bg-background px-6 pt-10 pb-4 relative z-10 -mt-6 rounded-t-3xl shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]">
+              {/* Problem recognition card */}
+              <div className="rounded-xl p-6 relative overflow-hidden border-l-[3px] border-l-[hsl(38,82%,50%)] bg-transparent">
+                <p className="text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground mb-4">
+                  I work with leaders facing
+                </p>
+                <ul className="space-y-3 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[hsl(38,82%,50%)] mt-1.5 flex-shrink-0" />
+                    <span>Strategic decisions that need rigorous analysis before executives commit</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[hsl(38,82%,50%)] mt-1.5 flex-shrink-0" />
+                    <span>Operations drowning in manual processes that competitors have automated</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[hsl(38,82%,50%)] mt-1.5 flex-shrink-0" />
+                    <span>M&A or capital decisions where missing something means overpaying</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Location & Links */}
+              <div className="mt-8 space-y-8">
+                <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4" />
+                    <span>Johannesburg</span>
+                  </div>
+
+                  <a
+                    href="https://www.linkedin.com/in/moses-nyanzi/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-[hsl(20,55%,53%)]"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    <span className="border-b border-[hsl(20,55%,53%)]/40">LinkedIn</span>
+                  </a>
+                </div>
+
+                <div className="flex flex-col gap-4">
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full inline-flex justify-center items-center gap-3 bg-[hsl(38,82%,50%)] text-[hsl(210,55%,12%)] font-bold tracking-wide uppercase text-xs px-8 py-4 rounded-full shadow-lg"
+                  >
+                    <span>Let's Talk</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+
+                  <a href="#proof" className="w-full inline-flex justify-center items-center gap-2 text-sm text-muted-foreground py-2">
+                    <span>See results I've delivered</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Layout (Original Grid) */}
+          <div className="hidden lg:grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-stretch">
             {/* Left content */}
             <div className="space-y-8 flex flex-col justify-center">
               {/* Positioning statement */}
@@ -58,17 +164,6 @@ const HeroSection = () => {
                 </div>
 
                 <div className="w-16 h-[1px] bg-gradient-to-r from-foreground/30 to-transparent" />
-              </div>
-
-              {/* Mobile Profile Photo - shown only on small screens, full image */}
-              <div className="lg:hidden flex justify-center animate-fade-in my-4" style={{ animationDelay: '150ms' }}>
-                <div className="w-full max-w-xs sm:max-w-sm rounded-2xl overflow-hidden shadow-xl border border-border">
-                  <img
-                    src={heroProfile}
-                    alt="Moses Nyanzi"
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
               </div>
 
               {/* Professional title + value statement */}
