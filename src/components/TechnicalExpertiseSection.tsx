@@ -100,7 +100,7 @@ const TechnicalExpertiseSection = () => {
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
                         whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                        className="rounded-2xl overflow-visible cursor-default bg-white border border-border"
+                        className="rounded-2xl overflow-hidden cursor-default bg-white border border-border"
                         style={{
                             boxShadow: "0 8px 32px -12px rgba(0,0,0,0.1)"
                         }}
