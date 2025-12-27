@@ -65,10 +65,10 @@ const ReinsuranceTower = () => {
                             className={`${layer.height} rounded-r-lg flex items-center justify-between px-4 origin-left`}
                             style={{ background: layer.color }}
                         >
-                            <span className="text-white text-sm font-medium truncate">
+                            <span className="text-white text-xs sm:text-sm font-medium truncate">
                                 {layer.label}
                             </span>
-                            <span className="text-white/60 text-xs hidden sm:block">
+                            <span className="text-white/60 text-[10px] sm:text-xs">
                                 {layer.sublabel}
                             </span>
                         </motion.div>
