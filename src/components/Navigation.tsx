@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { motion, useScroll, useSpring } from "motion/react";
 import { X } from "lucide-react";
 
 const navItems = [
@@ -11,17 +11,19 @@ const navItems = [
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Use Framer Motion for smooth scroll progress
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = navItems.map(item => item.href.slice(1));
       const scrollPosition = window.scrollY + 100;
-
-      // Calculate scroll progress
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (window.scrollY / totalHeight) * 100;
-      setScrollProgress(Math.min(progress, 100));
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = document.getElementById(sections[i]);
@@ -44,10 +46,10 @@ const Navigation = () => {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
-        {/* Scroll progress indicator */}
-        <div
-          className="absolute bottom-0 left-0 h-[2px] bg-[hsl(38,82%,50%)] transition-all duration-150 ease-out"
-          style={{ width: `${scrollProgress}%` }}
+        {/* Scroll progress indicator - smooth motion */}
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-[hsl(38,82%,50%)] origin-left"
+          style={{ scaleX }}
         />
 
         <div className="container mx-auto px-6 lg:px-12">

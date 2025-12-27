@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ValuePropositionSection from "@/components/ValuePropositionSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
+import TechnicalExpertiseSection from "@/components/TechnicalExpertiseSection";
 import ProofSection from "@/components/ProofSection";
 import EngagementSection from "@/components/EngagementSection";
 import BackToTop from "@/components/BackToTop";
@@ -26,6 +27,7 @@ const Index = () => {
         <ValuePropositionSection />
         <AboutSection />
         <ExpertiseSection />
+        <TechnicalExpertiseSection />
         <ProofSection />
         <EngagementSection />
         <BackToTop />
