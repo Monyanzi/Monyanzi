@@ -100,47 +100,35 @@ const ProofSection = () => {
                     >
                         <div className="h-44 p-6 flex items-center justify-center relative" style={{ background: "linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(210 55% 20%) 100%)" }}>
                             <div className="flex items-center gap-4">
-                                {/* Before: Multiple calendar pages - staggered fade out */}
+                                {/* Before: Multiple calendar pages - VISIBLE */}
                                 <div className="relative w-16 h-16">
+                                    {/* Before: Calendar pages - VISIBLE */}
                                     {[0, 1, 2, 3, 4].map((i) => (
-                                        <motion.div
+                                        <div
                                             key={i}
                                             className="absolute w-10 h-12 rounded border border-white/20"
                                             style={{
                                                 left: i * 3,
                                                 top: i * 2,
                                                 zIndex: 5 - i,
-                                                background: `hsl(140 18% ${45 + i * 5}%)`
+                                                background: `hsl(140 18% ${45 + i * 5}%)`,
+                                                opacity: 0.15 + (5 - i) * 0.15
                                             }}
-                                            initial={{ opacity: 0.8, x: 0 }}
-                                            whileInView={{ opacity: 0.15, x: -i * 2 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: 0.3 + i * 0.08, duration: 0.5 }}
                                         />
                                     ))}
                                     <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 whitespace-nowrap">6 months</span>
                                 </div>
 
-                                {/* Arrow - Gold animated */}
-                                <motion.div
-                                    initial={{ opacity: 0, scaleX: 0 }}
-                                    whileInView={{ opacity: 1, scaleX: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.8, duration: 0.3 }}
-                                    className="text-2xl origin-left"
+                                {/* Arrow - Gold - VISIBLE */}
+                                <div
+                                    className="text-2xl"
                                     style={{ color: "hsl(var(--gold))" }}
                                 >
                                     →
-                                </motion.div>
+                                </div>
 
-                                {/* After: Single glowing circle */}
-                                <motion.div
-                                    initial={{ scale: 0, opacity: 0 }}
-                                    whileInView={{ scale: 1, opacity: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 1, type: "spring", stiffness: 200 }}
-                                    className="relative"
-                                >
+                                {/* After: Single glowing circle - VISIBLE */}
+                                <div className="relative">
                                     <div
                                         className="w-14 h-14 rounded-full flex items-center justify-center font-bold"
                                         style={{
@@ -152,7 +140,7 @@ const ProofSection = () => {
                                         24h
                                     </div>
                                     <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] whitespace-nowrap font-medium" style={{ color: "hsl(var(--gold))" }}>real-time</span>
-                                </motion.div>
+                                </div>
                             </div>
                         </div>
 
@@ -176,7 +164,7 @@ const ProofSection = () => {
                         className="group rounded-2xl border bg-card border-border overflow-hidden gradient-border-top hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.15)] cursor-default"
                     >
                         <div className="h-44 p-4 flex items-center justify-center relative" style={{ background: "linear-gradient(135deg, hsl(var(--forest)) 0%, hsl(140 18% 30%) 100%)" }}>
-                            {/* Treemap - using color palette */}
+                            {/* Treemap - using color palette - ALL VISIBLE */}
                             <div className="grid grid-cols-4 grid-rows-3 gap-1 w-full h-full max-w-[180px]">
                                 {[
                                     { span: "col-span-2 row-span-2", color: "hsl(var(--forest))", label: "Property" },
@@ -186,33 +174,25 @@ const ProofSection = () => {
                                     { span: "col-span-2 row-span-1", color: "hsl(210 35% 45%)", label: "Liability" },
                                     { span: "col-span-2 row-span-1", color: "hsl(var(--forest-light))", label: "Other" },
                                 ].map((block, i) => (
-                                    <motion.div
+                                    <div
                                         key={i}
-                                        initial={{ scale: 0, opacity: 0 }}
-                                        whileInView={{ scale: 1, opacity: 1 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.3 + i * 0.1, type: "spring", stiffness: 200 }}
                                         className={`${block.span} rounded-md flex items-center justify-center`}
                                         style={{ background: block.color }}
                                     >
                                         {block.label && (
                                             <span className="text-[9px] text-white/90 font-medium">{block.label}</span>
                                         )}
-                                    </motion.div>
+                                    </div>
                                 ))}
                             </div>
 
-                            {/* Value badge - Gold with Navy text */}
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 1 }}
+                            {/* Value badge - Gold with Navy text - VISIBLE */}
+                            <div
                                 className="absolute top-3 right-3 px-2 py-1 rounded font-bold text-lg"
                                 style={{ background: "hsl(var(--gold))", color: "hsl(var(--navy))" }}
                             >
                                 $100M+
-                            </motion.div>
+                            </div>
                         </div>
 
                         <div className="p-5">
@@ -308,64 +288,40 @@ const ProofSection = () => {
                     >
                         <div className="h-44 p-6 flex items-center justify-center relative" style={{ background: "linear-gradient(135deg, hsl(var(--forest)) 0%, hsl(140 18% 28%) 100%)" }}>
                             <div className="flex items-center gap-6">
-                                {/* Before: Chaos with staggered particles */}
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    whileInView={{ opacity: 0.5 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.3 }}
-                                    className="relative w-20 h-20"
-                                >
+                                {/* Before: Chaos - ALL VISIBLE */}
+                                <div className="relative w-20 h-20" style={{ opacity: 0.5 }}>
                                     {[
-                                        { x: 5, y: 8, size: 10, delay: 0 },
-                                        { x: 35, y: 5, size: 8, delay: 0.05 },
-                                        { x: 55, y: 15, size: 6, delay: 0.1 },
-                                        { x: 10, y: 40, size: 12, delay: 0.15 },
-                                        { x: 45, y: 35, size: 8, delay: 0.2 },
-                                        { x: 25, y: 60, size: 10, delay: 0.25 },
-                                        { x: 55, y: 55, size: 6, delay: 0.3 },
+                                        { x: 5, y: 8, size: 10 },
+                                        { x: 35, y: 5, size: 8 },
+                                        { x: 55, y: 15, size: 6 },
+                                        { x: 10, y: 40, size: 12 },
+                                        { x: 45, y: 35, size: 8 },
+                                        { x: 25, y: 60, size: 10 },
+                                        { x: 55, y: 55, size: 6 },
                                     ].map((dot, i) => (
-                                        <motion.div
+                                        <div
                                             key={i}
                                             className="absolute rounded-full bg-white/40"
                                             style={{ left: dot.x, top: dot.y, width: dot.size, height: dot.size }}
-                                            initial={{ scale: 0 }}
-                                            whileInView={{ scale: 1 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: 0.3 + dot.delay, type: "spring" }}
                                         />
                                     ))}
                                     <svg className="absolute inset-0 w-full h-full opacity-30">
-                                        <motion.path d="M 10 20 Q 30 40, 50 25" stroke="white" strokeWidth="1" fill="none"
-                                            initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
-                                        />
-                                        <motion.path d="M 15 50 Q 35 30, 55 60" stroke="white" strokeWidth="1" fill="none"
-                                            initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ delay: 0.6 }}
-                                        />
+                                        <path d="M 10 20 Q 30 40, 50 25" stroke="white" strokeWidth="1" fill="none" />
+                                        <path d="M 15 50 Q 35 30, 55 60" stroke="white" strokeWidth="1" fill="none" />
                                     </svg>
                                     <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] text-white/40">manual</span>
-                                </motion.div>
+                                </div>
 
-                                {/* Arrow - Gold */}
-                                <motion.div
-                                    initial={{ scale: 0 }}
-                                    whileInView={{ scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.8, type: "spring" }}
+                                {/* Arrow - Gold - VISIBLE */}
+                                <div
                                     className="text-2xl"
                                     style={{ color: "hsl(var(--gold))" }}
                                 >
                                     →
-                                </motion.div>
+                                </div>
 
-                                {/* After: Clean system with Forest/Gold */}
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 1, type: "spring" }}
-                                    className="relative w-20 h-20 flex items-center justify-center"
-                                >
+                                {/* After: Clean system - VISIBLE */}
+                                <div className="relative w-20 h-20 flex items-center justify-center">
                                     <div
                                         className="w-16 h-16 rounded-xl flex items-center justify-center"
                                         style={{
@@ -374,34 +330,26 @@ const ProofSection = () => {
                                         }}
                                     >
                                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                                            <motion.path
+                                            <path
                                                 d="M9 12L11 14L15 10"
                                                 stroke="white"
                                                 strokeWidth="2.5"
                                                 strokeLinecap="round"
                                                 strokeLinejoin="round"
-                                                initial={{ pathLength: 0 }}
-                                                whileInView={{ pathLength: 1 }}
-                                                viewport={{ once: true }}
-                                                transition={{ delay: 1.2, duration: 0.3 }}
                                             />
                                             <circle cx="12" cy="12" r="9" stroke="white" strokeWidth="2" />
                                         </svg>
                                     </div>
                                     <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] font-medium" style={{ color: "hsl(var(--gold))" }}>automated</span>
-                                </motion.div>
+                                </div>
                             </div>
 
-                            {/* Label */}
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 1.3 }}
+                            {/* Label - VISIBLE */}
+                            <div
                                 className="absolute top-3 right-3 px-2 py-1 rounded text-[10px] font-medium text-white/80 bg-white/10"
                             >
                                 Ships, not slides
-                            </motion.div>
+                            </div>
                         </div>
 
                         <div className="p-5">
