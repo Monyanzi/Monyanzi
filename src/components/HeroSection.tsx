@@ -25,8 +25,20 @@ const HeroSection = () => {
     <>
       {/* Light cream background for Hero */}
       <section className="relative min-h-screen overflow-hidden" style={{ background: "hsl(40 35% 98%)" }}>
-        {/* Subtle background elements */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+
+        {/* Mobile Background Photo - visible only on mobile */}
+        <div className="lg:hidden absolute inset-0 z-0">
+          <img
+            src={heroProfile}
+            alt="Moses Nyanzi"
+            className="w-full h-full object-cover object-top"
+          />
+          {/* Gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-[hsl(40_35%_98%)]" />
+        </div>
+
+        {/* Subtle background elements - desktop only */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden hidden lg:block">
           {/* Subtle gradient orbs */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -71,7 +83,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-xs font-semibold tracking-[0.3em] uppercase text-muted-foreground"
+                className="text-xs font-semibold tracking-[0.3em] uppercase text-white lg:text-muted-foreground"
               >
                 Strategy · Logic · Results
               </motion.p>
@@ -83,7 +95,7 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
-                    className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight"
+                    className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white lg:text-foreground tracking-tight"
                   >
                     Moses<br className="hidden sm:block" /> Nyanzi
                   </motion.h1>
@@ -91,7 +103,7 @@ const HeroSection = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="text-sm font-medium text-muted-foreground whitespace-nowrap"
+                    className="text-sm font-medium text-[hsl(38_82%_50%)] whitespace-nowrap"
                   >
                     Actuary | MBA
                   </motion.span>
@@ -103,7 +115,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
-                className="text-lg md:text-xl text-muted-foreground max-w-md leading-relaxed"
+                className="text-lg md:text-xl text-white/90 lg:text-muted-foreground max-w-md leading-relaxed"
               >
                 For senior leaders who need clarity on complex decisions, fast.
               </motion.p>
@@ -115,7 +127,7 @@ const HeroSection = () => {
                 transition={{ delay: 0.7 }}
                 className="space-y-3"
               >
-                <p className="text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground">
+                <p className="text-xs font-semibold tracking-[0.2em] uppercase text-white/70 lg:text-muted-foreground">
                   Core Expertise
                 </p>
                 <div className="flex flex-wrap gap-3">
@@ -277,10 +289,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Mobile Layout */}
-        <div className="lg:hidden absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[hsl(40_35%_98%)]/95 to-[hsl(40_35%_98%)]" />
-        </div>
+
       </section>
 
       <DiagnosticFlow isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

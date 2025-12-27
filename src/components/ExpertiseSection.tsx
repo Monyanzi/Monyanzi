@@ -31,18 +31,11 @@ const expertiseCategories: ExpertiseCategory[] = [
 
         {/* Chess piece (king) - strategic leadership with floating animation */}
         <motion.g
-          initial={{ scale: 0, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, type: "spring" }}
+          animate={{ y: [0, -12, 0], rotate: [0, 3, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         >
-          <motion.g
-            animate={{ y: [0, -12, 0], rotate: [0, 3, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          >
-            <circle cx="130" cy="60" r="22" fill="white" fillOpacity="0.2" />
-            <path d="M130 45 L130 55 M125 50 L135 50 M122 68 L138 68 L135 58 L125 58 Z" stroke="white" strokeWidth="2.5" fill="none" />
-          </motion.g>
+          <circle cx="130" cy="60" r="22" fill="white" fillOpacity="0.2" />
+          <path d="M130 45 L130 55 M125 50 L135 50 M122 68 L138 68 L135 58 L125 58 Z" stroke="white" strokeWidth="2.5" fill="none" />
         </motion.g>
 
         {/* Growth arrow */}
@@ -51,10 +44,6 @@ const expertiseCategories: ExpertiseCategory[] = [
           stroke="white"
           strokeWidth="3"
           strokeLinecap="round"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.7 }}
         />
         <motion.path
           d="M170 45 L175 45 L175 50"
@@ -62,10 +51,6 @@ const expertiseCategories: ExpertiseCategory[] = [
           strokeWidth="3"
           fill="none"
           strokeLinecap="round"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.9 }}
         />
       </svg>
     ),
@@ -160,7 +145,7 @@ const expertiseCategories: ExpertiseCategory[] = [
     visual: (
       <svg className="w-full h-full" viewBox="0 0 200 120">
         {/* Balance scale - risk/reward balance */}
-        <motion.line
+        <line
           x1="100"
           y1="25"
           x2="100"
@@ -168,10 +153,6 @@ const expertiseCategories: ExpertiseCategory[] = [
           stroke="white"
           strokeOpacity="0.4"
           strokeWidth="3"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
         />
 
         {/* Scale beam - with gentle rocking animation */}
@@ -183,54 +164,29 @@ const expertiseCategories: ExpertiseCategory[] = [
           stroke="white"
           strokeWidth="3"
           strokeLinecap="round"
-          initial={{ pathLength: 0, rotate: 0 }}
-          whileInView={{ pathLength: 1 }}
           animate={{ rotate: [-6, 6, -6] }}
-          viewport={{ once: true }}
-          transition={{
-            pathLength: { duration: 0.6, delay: 0.3 },
-            rotate: { repeat: Infinity, duration: 2.5, ease: "easeInOut" }
-          }}
+          transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
           style={{ transformOrigin: "100px 45px" }}
         />
 
         {/* Left pan - Risk */}
-        <motion.g
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-        >
+        <g>
           <line x1="50" y1="45" x2="35" y2="70" stroke="white" strokeOpacity="0.5" strokeWidth="1.5" />
           <line x1="50" y1="45" x2="65" y2="70" stroke="white" strokeOpacity="0.5" strokeWidth="1.5" />
           <ellipse cx="50" cy="72" rx="18" ry="6" fill="white" fillOpacity="0.25" />
           <text x="50" y="90" fill="white" fillOpacity="0.7" fontSize="9" textAnchor="middle">Risk</text>
-        </motion.g>
+        </g>
 
         {/* Right pan - Capital */}
-        <motion.g
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.7 }}
-        >
+        <g>
           <line x1="150" y1="45" x2="135" y2="65" stroke="white" strokeOpacity="0.5" strokeWidth="1.5" />
           <line x1="150" y1="45" x2="165" y2="65" stroke="white" strokeOpacity="0.5" strokeWidth="1.5" />
           <ellipse cx="150" cy="67" rx="18" ry="6" fill="hsl(38 82% 50%)" fillOpacity="0.6" />
           <text x="150" y="85" fill="white" fontSize="9" textAnchor="middle">Capital</text>
-        </motion.g>
+        </g>
 
         {/* Balance indicator */}
-        <motion.circle
-          cx="100"
-          cy="25"
-          r="6"
-          fill="hsl(38 82% 50%)"
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.9, type: "spring" }}
-        />
+        <circle cx="100" cy="25" r="6" fill="hsl(38 82% 50%)" />
       </svg>
     ),
   },
@@ -243,12 +199,7 @@ const expertiseCategories: ExpertiseCategory[] = [
     visual: (
       <svg className="w-full h-full" viewBox="0 0 200 120">
         {/* Database/data layers with pulsing glow */}
-        <motion.g
-          initial={{ opacity: 0, x: -10 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-        >
+        <g>
           <motion.ellipse
             cx="45" cy="40" rx="20" ry="8"
             fill="white"
@@ -259,50 +210,32 @@ const expertiseCategories: ExpertiseCategory[] = [
           <rect x="25" y="40" width="40" height="20" fill="white" fillOpacity="0.2" />
           <ellipse cx="45" cy="60" rx="20" ry="8" fill="white" fillOpacity="0.3" />
           <line x1="35" y1="50" x2="55" y2="50" stroke="white" strokeOpacity="0.3" strokeWidth="1" />
-        </motion.g>
+        </g>
 
         {/* Processing arrows */}
-        <motion.path
+        <path
           d="M75 50 L95 50"
           stroke="hsl(38 82% 50%)"
           strokeWidth="2"
           strokeDasharray="3 2"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
         />
 
         {/* Code/function symbol */}
-        <motion.g
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, type: "spring" }}
-        >
+        <g>
           <rect x="100" y="35" width="30" height="30" rx="4" fill="white" fillOpacity="0.2" />
           <text x="115" y="55" fill="white" fontSize="14" fontFamily="monospace" textAnchor="middle">f(x)</text>
-        </motion.g>
+        </g>
 
         {/* Output arrow */}
-        <motion.path
+        <path
           d="M140 50 L160 50"
           stroke="hsl(38 82% 50%)"
           strokeWidth="2"
           strokeDasharray="3 2"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
         />
 
         {/* Insight output with pulsing animation */}
-        <motion.g
-          initial={{ opacity: 0, x: 10 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.7 }}
-        >
+        <g>
           <motion.rect
             x="165" y="38" width="28" height="24" rx="12"
             fill="hsl(38 82% 50%)"
@@ -311,7 +244,7 @@ const expertiseCategories: ExpertiseCategory[] = [
             style={{ transformOrigin: "179px 50px" }}
           />
           <path d="M173 50 L182 50 M177 46 L177 54" stroke="hsl(210 45% 25%)" strokeWidth="2" strokeLinecap="round" />
-        </motion.g>
+        </g>
 
         {/* Labels */}
         <text x="45" y="80" fill="white" fillOpacity="0.6" fontSize="8" textAnchor="middle">Data</text>
