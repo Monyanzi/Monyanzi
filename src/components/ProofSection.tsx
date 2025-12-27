@@ -254,74 +254,49 @@ const ProofSection = () => {
                         <div className="h-44 p-6 flex items-center justify-center" style={{ background: "linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(210 55% 20%) 100%)" }}>
                             {/* Deal flow funnel - palette colors */}
                             <svg className="w-full h-full max-w-[240px]" viewBox="0 0 200 100">
-                                {/* Funnel segments with staggered animation */}
-                                <motion.path
+                                {/* Funnel segments - ALL VISIBLE */}
+                                <path
                                     d="M 10 10 L 60 10 L 55 28 L 15 28 Z"
                                     fill="hsl(210 40% 50%)"
                                     fillOpacity="0.6"
-                                    initial={{ opacity: 0, y: -10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.3, duration: 0.3 }}
                                 />
-                                <motion.path
+                                <path
                                     d="M 15 30 L 55 30 L 48 48 L 22 48 Z"
                                     fill="hsl(var(--forest))"
                                     fillOpacity="0.7"
-                                    initial={{ opacity: 0, y: -10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.5, duration: 0.3 }}
                                 />
-                                <motion.path
+                                <path
                                     d="M 22 50 L 48 50 L 42 68 L 28 68 Z"
                                     fill="hsl(var(--gold))"
                                     fillOpacity="0.85"
-                                    initial={{ opacity: 0, y: -10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.7, duration: 0.3 }}
                                 />
-                                <motion.path
+                                <path
                                     d="M 28 70 L 42 70 L 38 85 L 32 85 Z"
                                     fill="hsl(var(--terracotta))"
-                                    initial={{ opacity: 0, y: -10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.9, duration: 0.3 }}
                                 />
 
-                                {/* Labels */}
-                                <motion.text x="75" y="22" fill="white" fillOpacity="0.5" fontSize="9"
-                                    initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>
+                                {/* Labels - VISIBLE */}
+                                <text x="75" y="22" fill="white" fillOpacity="0.5" fontSize="9">
                                     Screen
-                                </motion.text>
-                                <motion.text x="75" y="42" fill="white" fillOpacity="0.6" fontSize="9"
-                                    initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.6 }}>
+                                </text>
+                                <text x="75" y="42" fill="white" fillOpacity="0.6" fontSize="9">
                                     Value
-                                </motion.text>
-                                <motion.text x="75" y="62" fill="white" fillOpacity="0.8" fontSize="9"
-                                    initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.8 }}>
+                                </text>
+                                <text x="75" y="62" fill="white" fillOpacity="0.8" fontSize="9">
                                     Structure
-                                </motion.text>
-                                <motion.text x="75" y="80" fill="hsl(var(--gold))" fontSize="9" fontWeight="600"
-                                    initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1 }}>
+                                </text>
+                                <text x="75" y="80" fill="hsl(var(--gold))" fontSize="9" fontWeight="600">
                                     Close ✓
-                                </motion.text>
+                                </text>
 
-                                {/* Output document */}
-                                <motion.g
-                                    initial={{ opacity: 0, x: 20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 1.1, type: "spring" }}
-                                >
+                                {/* Output document - VISIBLE */}
+                                <g>
                                     <rect x="150" y="30" width="40" height="50" rx="4" fill="white" fillOpacity="0.1" stroke="white" strokeOpacity="0.2" />
                                     <line x1="156" y1="43" x2="184" y2="43" stroke="white" strokeOpacity="0.4" strokeWidth="2" />
                                     <line x1="156" y1="51" x2="180" y2="51" stroke="white" strokeOpacity="0.3" strokeWidth="2" />
                                     <line x1="156" y1="59" x2="176" y2="59" stroke="white" strokeOpacity="0.2" strokeWidth="2" />
                                     <text x="170" y="74" fill="hsl(var(--gold))" fontSize="8" textAnchor="middle" fontWeight="600">Ready</text>
-                                </motion.g>
+                                </g>
                             </svg>
                         </div>
 
