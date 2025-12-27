@@ -111,28 +111,19 @@ const expertiseCategories: ExpertiseCategory[] = [
           ))}
         </motion.g>
 
-        {/* Flow arrow to result */}
-        <motion.path
+        {/* Flow arrow to result - VISIBLE */}
+        <path
           d="M115 60 L145 60"
           stroke="hsl(38 82% 50%)"
           strokeWidth="2.5"
           strokeDasharray="4 3"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
         />
 
-        {/* Checkmark result */}
-        <motion.g
-          initial={{ scale: 0, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.7, type: "spring" }}
-        >
+        {/* Checkmark result - VISIBLE */}
+        <g>
           <circle cx="165" cy="60" r="18" fill="hsl(38 82% 50%)" />
           <path d="M156 60 L162 66 L174 54" stroke="hsl(140 18% 25%)" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-        </motion.g>
+        </g>
       </svg>
     ),
   },
