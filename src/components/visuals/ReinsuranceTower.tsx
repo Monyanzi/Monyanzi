@@ -150,16 +150,12 @@ const ReinsuranceTower = () => {
                 </div>
             </div>
 
-            {/* Legend / explanation */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 1 }}
-                className="mt-6 text-center text-xs text-white/40"
+            {/* Legend / explanation - VISIBLE */}
+            <div
+                className="mt-6 text-center text-xs text-muted-foreground"
             >
                 <p>Hover over layers for details</p>
-            </motion.div>
+            </div>
         </div>
     );
 };

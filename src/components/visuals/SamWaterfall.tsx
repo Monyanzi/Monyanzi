@@ -120,9 +120,9 @@ const SamWaterfall = () => {
                                     />
                                 )}
 
-                                {/* Label below - VISIBLE */}
+                                {/* Label below - VISIBLE with dark text */}
                                 <span
-                                    className="absolute -bottom-10 text-[10px] text-white/70 text-center leading-tight w-full px-1"
+                                    className="absolute -bottom-10 text-[10px] text-muted-foreground text-center leading-tight w-full px-1"
                                 >
                                     {bar.label}
                                 </span>
@@ -152,9 +152,9 @@ const SamWaterfall = () => {
                 </div>
             </div>
 
-            {/* Legend - VISIBLE */}
+            {/* Legend - VISIBLE with dark text */}
             <div
-                className="mt-14 flex justify-center gap-6 text-xs text-white/70"
+                className="mt-14 flex justify-center gap-6 text-xs text-muted-foreground"
             >
                 <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded" style={{ background: "hsl(140 50% 45%)" }} />
