@@ -16,9 +16,9 @@ const Index = () => {
         <title>Moses Nyanzi | Strategy. Logic. Results.</title>
         <meta
           name="description"
-          content="Independent consulting for senior leaders. I help organisations grow faster through AI, automation, and smarter strategy, with the rigour to make it stick."
+          content="Independent consulting for senior leaders. I help organizations grow faster through AI, automation, and smarter strategy, with the rigor to make it stick."
         />
-        <meta name="keywords" content="Moses Nyanzi, Capital Strategy, Actuarial Consultant, Risk Advisory, Portfolio Optimisation, Independent Consultant, M&A Valuation" />
+        <meta name="keywords" content="Moses Nyanzi, Capital Strategy, Actuarial Consultant, Risk Advisory, Portfolio Optimization, Independent Consultant, M&A Valuation" />
       </Helmet>
 
       <div className="min-h-screen bg-background">

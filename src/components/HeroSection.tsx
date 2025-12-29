@@ -9,7 +9,7 @@ const HeroSection = () => {
 
   // Core expertise items with unique icons
   const coreExpertise = [
-    { icon: <Settings className="w-5 h-5" />, title: "Strategic Analysis", subtitle: "& Modelling" },
+    { icon: <Settings className="w-5 h-5" />, title: "Strategic Analysis", subtitle: "& Modeling" },
     { icon: <TrendingUp className="w-5 h-5" />, title: "Process", subtitle: "Optimization" },
     { icon: <Search className="w-5 h-5" />, title: "M&A Due", subtitle: "Diligence" },
   ];

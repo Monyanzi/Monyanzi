@@ -15,8 +15,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Cormorant Garamond", "Georgia", "serif"],
-        body: ["Outfit", "system-ui", "sans-serif"],
+        display: ["Fraunces", "Georgia", "serif"],
+        body: ["Manrope", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "Consolas", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",

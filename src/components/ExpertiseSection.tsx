@@ -182,9 +182,9 @@ const expertiseCategories: ExpertiseCategory[] = [
     ),
   },
   {
-    title: "Analytics & Modelling",
+    title: "Analytics & Modeling",
     tagline: "Data → Decisions you can defend",
-    skills: ["SQL, Python, Power BI", "Cash Flow Modelling", "Equity Analysis", "Scenario Modelling"],
+    skills: ["SQL, Python, Power BI", "Cash Flow Modeling", "Equity Analysis", "Scenario Modeling"],
     bgColor: "linear-gradient(135deg, hsl(210 45% 55%) 0%, hsl(210 45% 48%) 100%)",
     accentColor: "hsl(210 45% 55%)",
     visual: (

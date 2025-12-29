@@ -177,7 +177,7 @@ const ValuePropositionSection = () => {
                 Quantify the uncertainty
               </h3>
               <p className="text-sm text-muted-foreground">
-                Scenario Modelling • Stress Testing • Portfolio Optimisation
+                Scenario Modeling • Stress Testing • Portfolio Optimization
               </p>
             </div>
           </motion.div>
