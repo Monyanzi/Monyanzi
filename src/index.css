@@ -853,13 +853,26 @@
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-50%);
     }
   }
 
   .animate-marquee {
-    animation: marquee 40s linear infinite;
+    animation: marquee 15s linear infinite;
+  }
+
+  @media (min-width: 640px) {
+    .animate-marquee {
+      animation: marquee 25s linear infinite;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .animate-marquee {
+      animation: marquee 40s linear infinite;
+    }
   }
 
   /* Gradient text animation */
