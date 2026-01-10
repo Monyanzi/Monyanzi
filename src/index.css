@@ -848,30 +848,30 @@
     }
   }
 
-  /* Marquee animation for scrolling ticker */
+  /* Marquee animation for scrolling ticker
+   * - Uses -25% because we have 4 identical copies
+   * - When it translates 25%, copy 2 is where copy 1 was = seamless loop
+   * - will-change for GPU acceleration
+   * - Linear timing for consistent speed */
   @keyframes marquee {
     0% {
       transform: translateX(0);
     }
 
     100% {
-      transform: translateX(-50%);
+      transform: translateX(-25%);
     }
   }
 
   .animate-marquee {
-    animation: marquee 8s linear infinite;
+    animation: marquee 25s linear infinite;
+    will-change: transform;
   }
 
-  @media (min-width: 640px) {
+  /* Mobile: Faster animation since less content visible on screen */
+  @media (max-width: 768px) {
     .animate-marquee {
-      animation: marquee 25s linear infinite;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .animate-marquee {
-      animation: marquee 40s linear infinite;
+      animation: marquee 20s linear infinite;
     }
   }
 
