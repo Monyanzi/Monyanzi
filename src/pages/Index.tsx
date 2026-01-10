@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
+import MarqueeTicker from "@/components/MarqueeTicker";
 import AboutSection from "@/components/AboutSection";
 import ValuePropositionSection from "@/components/ValuePropositionSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
@@ -24,6 +25,7 @@ const Index = () => {
       <div className="min-h-screen bg-background">
         <Navigation />
         <HeroSection />
+        <MarqueeTicker />
         <ValuePropositionSection />
         <AboutSection />
         <ExpertiseSection />

@@ -105,7 +105,7 @@ const HeroSection = () => {
                     transition={{ delay: 0.5 }}
                     className="text-sm font-medium text-[hsl(38_82%_50%)] whitespace-nowrap"
                   >
-                    Actuary | MBA
+                    Actuary | INSEAD MBA
                   </motion.span>
                 </div>
               </div>
