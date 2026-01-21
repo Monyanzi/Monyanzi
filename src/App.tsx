@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { SmoothScrollProvider } from "./components/SmoothScrollProvider";
@@ -10,6 +11,7 @@ const App = () => {
   return (
         <>
       <Analytics />
+      <SpeedInsights />
     <SmoothScrollProvider>
       {isValidPath ? <Index /> : <NotFound />}
     </SmoothScrollProvider>
