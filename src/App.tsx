@@ -1,6 +1,7 @@
 import { useState, useEffect, lazy, Suspense, useMemo } from "react";
 import { AnimatePresence } from "motion/react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { SmoothScrollProvider } from "./components/SmoothScrollProvider";
 import CookieConsent from "./components/CookieConsent";
 import GoogleAnalytics from "./components/GoogleAnalytics";
@@ -105,6 +106,7 @@ const App = () => {
   return (
     <>
       <Analytics />
+      <SpeedInsights />
       {shouldLoadGoogleAnalytics && <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />}
       <SmoothScrollProvider>
         <Suspense fallback={<main className="min-h-screen bg-background" aria-busy="true" />}>
