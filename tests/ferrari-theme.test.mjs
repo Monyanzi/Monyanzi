@@ -61,7 +61,7 @@ for (const url of [
   "https://notebooklm.google/",
   "https://github.com",
   "https://lovable.dev",
-  "https://replit.com",
+  "https://n8n.io",
 ]) {
   assert.match(hero, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")), `Hero should link the ${url} tile directly`);
 }

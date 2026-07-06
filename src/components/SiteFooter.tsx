@@ -19,7 +19,7 @@ const SiteFooter = ({ className = "" }: SiteFooterProps) => {
               <span className="font-display text-sm font-bold text-foreground">AI</span>
             </div>
             <p className="text-[0.8125rem] leading-relaxed text-foreground-muted">
-              Practical AI tools and builds. No fluff.
+              AI tools and builds. No fluff.
             </p>
           </div>
 

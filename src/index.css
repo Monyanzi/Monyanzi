@@ -8,7 +8,7 @@
        PREMIUM LIGHT PALETTE — Quiet Luxury Edition
        Refined from audit: subtler, warmer, more editorial
     ───────────────────────────────────────────── */
-    --background: 270 6% 97%;          /* Warm off-white with lavender hint */
+    --background: 245 14% 97%;         /* Crisp off-white with a cool editorial cast */
     --surface: 0 0% 100%;              /* Pure white cards */
     --surface-2: 0 0% 96%;             /* Slightly dimmed panels */
     --foreground: 0 0% 10%;            /* Near-black #1a1a1a */
@@ -73,7 +73,7 @@
   }
 
   body {
-    background-color: hsl(270, 6%, 97%);
+    background-color: hsl(var(--background));
     background-attachment: fixed;
     color: hsl(var(--foreground));
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -83,12 +83,12 @@
     text-rendering: optimizeLegibility;
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
     
-    /* Aurora Mesh Gradient — subtler, cream-to-lavender */
-    background-image: 
-      radial-gradient(circle at 10% 0%, hsla(150, 40%, 88%, 0.5), transparent 60%),
-      radial-gradient(circle at 90% 30%, hsla(270, 40%, 91%, 0.6), transparent 60%),
-      radial-gradient(circle at 30% 100%, hsla(270, 30%, 88%, 0.5), transparent 70%),
-      radial-gradient(circle at 80% 90%, hsla(150, 30%, 88%, 0.4), transparent 70%),
+    background-image:
+      linear-gradient(118deg, hsl(150 32% 91% / 0.72), transparent 34%),
+      linear-gradient(248deg, hsl(260 38% 94% / 0.82), transparent 42%),
+      linear-gradient(0deg, hsl(245 14% 97% / 0.92), hsl(245 14% 97% / 0.92)),
+      repeating-linear-gradient(90deg, rgba(17, 17, 17, 0.025) 0, rgba(17, 17, 17, 0.025) 1px, transparent 1px, transparent 72px),
+      repeating-linear-gradient(0deg, rgba(17, 17, 17, 0.02) 0, rgba(17, 17, 17, 0.02) 1px, transparent 1px, transparent 72px),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E");
     min-height: 100dvh;
   }
@@ -100,10 +100,10 @@
 
   /* ─── Typography Baseline ─── */
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Outfit", -apple-system, sans-serif;
+    font-family: "Newsreader", "Georgia", "Cambria", "Times New Roman", serif;
     font-weight: 700;
     line-height: 1.05;
-    letter-spacing: -0.025em;
+    letter-spacing: 0;
     color: hsl(var(--foreground));
   }
 
@@ -211,9 +211,9 @@
 
   /* ─── Section Heading ─── */
   .heading-display {
-    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-size: 4rem;
     font-weight: 700;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
     line-height: 1.0;
     color: hsl(var(--foreground));
   }
@@ -388,6 +388,17 @@
     background: linear-gradient(135deg, hsl(var(--jacarta) / 0.06), hsl(var(--accent) / 0.04));
     border: 1px solid hsl(var(--jacarta) / 0.12);
     border-radius: 2rem;
+  }
+
+  .concept-article-grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    .concept-article-grid {
+      grid-template-columns: 1.05fr 0.85fr 0.95fr;
+    }
   }
 }
 

@@ -24,7 +24,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
-        display: ["Outfit", "-apple-system", "sans-serif"],
+        display: ["Newsreader", "Georgia", "Cambria", "Times New Roman", "serif"],
         mono: ["JetBrains Mono", "Consolas", "monospace"],
       },
       colors: {
@@ -83,12 +83,11 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontSize: {
-        // Fluid type scale
-        "display-xl": ["clamp(3.5rem, 8vw, 7rem)", { lineHeight: "1.0", letterSpacing: "-0.035em" }],
-        "display-lg": ["clamp(2.5rem, 6vw, 4.5rem)", { lineHeight: "1.02", letterSpacing: "-0.03em" }],
-        "display-md": ["clamp(2rem, 4vw, 3.5rem)", { lineHeight: "1.05", letterSpacing: "-0.025em" }],
-        "display-sm": ["clamp(1.5rem, 3vw, 2.25rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        "body-lg": ["clamp(1rem, 1.2vw, 1.125rem)", { lineHeight: "1.8" }],
+        "display-xl": ["5rem", { lineHeight: "1.0", letterSpacing: "0" }],
+        "display-lg": ["3.75rem", { lineHeight: "1.02", letterSpacing: "0" }],
+        "display-md": ["2.85rem", { lineHeight: "1.05", letterSpacing: "0" }],
+        "display-sm": ["2.1rem", { lineHeight: "1.1", letterSpacing: "0" }],
+        "body-lg": ["1.125rem", { lineHeight: "1.8" }],
       },
       spacing: {
         "18": "4.5rem",

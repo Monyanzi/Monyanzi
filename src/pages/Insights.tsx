@@ -160,6 +160,7 @@ const Insights = () => {
               <div className="flex flex-col gap-3">
                 {/* Compact search button */}
                 <button
+                  aria-label="Search articles (Ctrl+K)"
                   onClick={() => setIsSearchOpen(true)}
                   className="group inline-flex items-center gap-3 rounded-2xl border border-border bg-surface px-4 py-3 text-left transition-all duration-200 hover:border-border-strong hover:shadow-card focus:outline-none"
                 >

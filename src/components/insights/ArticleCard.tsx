@@ -47,7 +47,7 @@ const ShareButtons = ({ articleUrl }: { articleUrl: string }) => {
         aria-label="Copy link"
         className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-md transition-all duration-200 hover:bg-black/50"
       >
-        {copied ? <Check className="h-3.5 w-3.5 text-jacarta" /> : <Link2 className="h-3.5 w-3.5" />}
+        {copied ? <Check className="h-3.5 w-3.5 text-accent" /> : <Link2 className="h-3.5 w-3.5" />}
       </button>
     </div>
   );
@@ -139,10 +139,10 @@ const ArticleCard = memo(({ id, category, title, image, featured = false }: Arti
               {readingTime} min read
             </span>
           )}
-          <h2 className="mb-4 text-[1rem] font-bold leading-snug tracking-tight text-foreground transition-colors duration-200 group-hover:text-jacarta flex-1 line-clamp-2">
+          <h2 className="mb-4 text-[1rem] font-bold leading-snug tracking-tight text-foreground transition-colors duration-200 group-hover:text-accent flex-1 line-clamp-2">
             {title}
           </h2>
-          <div className="mt-auto flex items-center gap-1.5 text-[13px] font-semibold text-jacarta">
+          <div className="mt-auto flex items-center gap-1.5 text-[13px] font-semibold text-accent">
             Read →
           </div>
         </div>
