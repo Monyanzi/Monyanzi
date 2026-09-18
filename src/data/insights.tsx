@@ -9,17 +9,17 @@ import fashionTechDesk from "@/assets/insights/fashion-tech-desk.webp";
 
 // Tech Stack logos
 import chatgptLogo from "@/assets/insights/tech-stack/chatgpt-logo.png";
-import claudeLogo from "@/assets/insights/tech-stack/claude-logo.webp";
+import claudeLogo from "@/assets/insights/tech-stack/claude-spark.svg";
 import geminiLogo from "@/assets/insights/tech-stack/gemini-logo.webp";
-import grokLogo from "@/assets/insights/tech-stack/grok-logo.png";
+import grokLogo from "@/assets/insights/tech-stack/grok-logo.svg";
 import kimiLogo from "@/assets/insights/tech-stack/kimi-logo.png";
-import antigravityLogo from "@/assets/insights/tech-stack/gemini-logo.webp";
-import claudeCodeLogo from "@/assets/insights/tech-stack/claude-logo.webp";
-import codexLogo from "@/assets/insights/tech-stack/codex-logo.png";
+import antigravityLogo from "@/assets/insights/tech-stack/antigravity-logo.png";
+import claudeCodeLogo from "@/assets/insights/tech-stack/claude-code-logo.svg";
+import codexLogo from "@/assets/insights/tech-stack/codex-icon.svg";
 import githubLogo from "@/assets/insights/tech-stack/github-logo.png";
-import lovableLogo from "@/assets/insights/tech-stack/lovable-logo.png";
+import lovableLogo from "@/assets/insights/tech-stack/lovable-icon.svg";
 import replitLogo from "@/assets/insights/tech-stack/replit-logo.png";
-import notebookLmLogo from "@/assets/insights/tech-stack/notebooklm-logo.svg";
+import geminiNotebookLogo from "@/assets/insights/tech-stack/gemini-notebook-logo.svg";
 import techStackHero from "@/assets/insights/tech-stack/tech-stack-hero.jpg";
 
 export interface ArticleContent {
@@ -634,7 +634,7 @@ export const articles: Record<string, ArticleContent> = {
                         </div>
                         <div className="pl-12">
                             <p className="text-foreground/80 text-base lg:text-lg leading-relaxed mb-4">
-                                You now have a dense, factual report. But reading 50 pages of research is friction. <strong><a href="https://notebooklm.google/" target="_blank" rel="noopener noreferrer" className="text-[hsl(var(--accent))] hover:underline">NotebookLM</a> turns research into conversation.</strong>
+                                You now have a dense, factual report. But reading 50 pages of research is friction. <strong><a href="https://notebook.google/" target="_blank" rel="noopener noreferrer" className="text-[hsl(var(--accent))] hover:underline">NotebookLM</a> turns research into conversation.</strong>
                             </p>
                             <p className="text-foreground/80 text-base lg:text-lg leading-relaxed mb-6">
                                 Upload your Deep Research report (PDF/Doc) directly into NotebookLM.
@@ -1533,16 +1533,16 @@ export const articles: Record<string, ArticleContent> = {
                             </div>
                         </a>
 
-                        {/* NotebookLM */}
-                        <a href="https://notebooklm.google/" target="_blank" rel="noopener noreferrer" className="group block">
+                        {/* Gemini Notebook */}
+                        <a href="https://notebook.google/" target="_blank" rel="noopener noreferrer" className="group block">
                             <div className="p-5 lg:p-6 rounded-xl border border-border bg-card/30 hover:border-[hsl(var(--jacarta)/0.3)] hover:card-premium glass tint-jacarta transition-all duration-300 h-full">
                                 <div className="flex items-center gap-4 mb-4">
                                     <div className="w-12 h-12 rounded-lg overflow-hidden bg-white flex items-center justify-center p-1.5">
-                                        <img src={notebookLmLogo} alt="NotebookLM" className="w-full h-full object-contain" />
+                                        <img src={geminiNotebookLogo} alt="Gemini Notebook" className="w-full h-full object-contain" />
                                     </div>
-                                    <h3 className="font-display font-semibold text-foreground group-hover:text-[hsl(var(--accent))] transition-colors">NotebookLM</h3>
+                                    <h3 className="font-display font-semibold text-foreground group-hover:text-[hsl(var(--accent))] transition-colors">Gemini Notebook</h3>
                                 </div>
-                                <p className="text-sm text-foreground/70">Google's research workspace that grounds responses in your sources, can ingest web pages, YouTube videos, and PDFs, and uses Audio Overviews to turn them into a podcast-style briefing.</p>
+                                <p className="text-sm text-foreground/70">Google's research workspace (formerly NotebookLM) that grounds responses in your sources, can ingest web pages, YouTube videos, and PDFs, and uses Audio Overviews to turn them into a podcast-style briefing.</p>
                             </div>
                         </a>
                     </div>

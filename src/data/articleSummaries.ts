@@ -123,9 +123,9 @@ export const entrepreneurResources = [
   },
   {
     category: "Research",
-    title: "NotebookLM",
-    description: "Turn documents and notes into grounded summaries, briefings, and audio overviews.",
-    url: "https://notebooklm.google/",
+    title: "Gemini Notebook",
+    description: "Turn documents and notes into grounded summaries, briefings, and audio overviews (formerly NotebookLM).",
+    url: "https://notebook.google/",
     ctaText: "Open ↗",
   },
   {

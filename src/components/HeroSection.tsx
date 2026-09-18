@@ -4,48 +4,23 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import chatgptLogo from "@/assets/insights/tech-stack/chatgpt-logo.png";
-import claudeLogo from "@/assets/insights/tech-stack/claude-logo.webp";
+import claudeLogo from "@/assets/insights/tech-stack/claude-spark.svg";
 import geminiLogo from "@/assets/insights/tech-stack/gemini-logo.webp";
-import grokLogo from "@/assets/insights/tech-stack/grok-logo.png";
+import grokLogo from "@/assets/insights/tech-stack/grok-logo.svg";
 import kimiLogo from "@/assets/insights/tech-stack/kimi-logo.png";
-import claudeCodeLogo from "@/assets/insights/tech-stack/claude-logo.webp";
-import codexLogo from "@/assets/insights/tech-stack/codex-logo.png";
+import antigravityLogo from "@/assets/insights/tech-stack/antigravity-logo.png";
+import claudeCodeLogo from "@/assets/insights/tech-stack/claude-code-logo.svg";
+import codexLogo from "@/assets/insights/tech-stack/codex-icon.svg";
+import geminiNotebookLogo from "@/assets/insights/tech-stack/gemini-notebook-logo.svg";
 import githubLogo from "@/assets/insights/tech-stack/github-logo.png";
-import lovableLogo from "@/assets/insights/tech-stack/lovable-logo.png";
-import notebookLmLogo from "@/assets/insights/tech-stack/notebooklm-logo.svg";
-
-/** Inline brand SVG — Antigravity green diamond */
-const AntigravityIcon = () => (
-  <svg viewBox="0 0 28 28" className="h-7 w-7" aria-hidden="true">
-    <defs>
-      <linearGradient id="ag-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#34d399" />
-        <stop offset="100%" stopColor="#059669" />
-      </linearGradient>
-    </defs>
-    <path d="M14 2 L26 14 L14 26 L2 14 Z" fill="url(#ag-grad)" />
-    <path d="M14 8 L20 14 L14 20 L8 14 Z" fill="white" fillOpacity="0.55" />
-  </svg>
-);
-
-/** Inline brand SVG — n8n logo */
-const N8nIcon = () => (
-  <svg viewBox="0 0 28 28" className="h-7 w-7" aria-hidden="true">
-    <rect x="2" y="8" width="8" height="12" rx="2" fill="#ff3f7f" />
-    <rect x="10" y="4" width="8" height="20" rx="2" fill="#ea2f6c" />
-    <rect x="18" y="8" width="8" height="12" rx="2" fill="#ff3f7f" />
-    <circle cx="6" cy="14" r="1.5" fill="white" />
-    <circle cx="14" cy="14" r="1.5" fill="white" />
-    <circle cx="22" cy="14" r="1.5" fill="white" />
-  </svg>
-);
+import lovableLogo from "@/assets/insights/tech-stack/lovable-icon.svg";
+import n8nLogo from "@/assets/insights/tech-stack/n8n-icon.svg";
 
 interface Tool {
   name: string;
   logo?: string;
   icon?: LucideIcon;
   iconColor?: string;
-  customIcon?: "antigravity" | "n8n";
   href: string;
   description: string;
   tooltip: string;
@@ -59,13 +34,13 @@ const tools: Tool[] = [
   { name: "Gemini", logo: geminiLogo, href: "https://gemini.google.com", description: "Multimodal research", tooltip: "Best for deep research", delay: 0.08 },
   { name: "Grok", logo: grokLogo, href: "https://grok.com", description: "Real-time X/web search", tooltip: "Fast real-time answers", delay: 0.12 },
   { name: "Kimi", logo: kimiLogo, href: "https://kimi.moonshot.cn", description: "Massive context windows", tooltip: "Handles enormous documents", delay: 0.16 },
-  { name: "Antigravity", customIcon: "antigravity", href: "https://antigravity.google", description: "Agentic code editor", tooltip: "Full codebase AI editing", delay: 0.2 },
+  { name: "Antigravity", logo: antigravityLogo, href: "https://antigravity.google", description: "Agentic code editor", tooltip: "Full codebase AI editing", delay: 0.2 },
   { name: "Claude Code", logo: claudeCodeLogo, href: "https://docs.anthropic.com/en/docs/claude-code", description: "Terminal coding agent", tooltip: "My go-to coding agent", delay: 0.24, primary: true },
   { name: "Codex", logo: codexLogo, href: "https://openai.com/codex", description: "Cloud-based coding agent", tooltip: "Async background coding", delay: 0.28 },
-  { name: "NotebookLM", logo: notebookLmLogo, href: "https://notebooklm.google/", description: "Research synthesis & audio", tooltip: "Turns docs into podcasts", delay: 0.32, primary: true },
+  { name: "Gemini Notebook", logo: geminiNotebookLogo, href: "https://notebook.google/", description: "Research synthesis & audio", tooltip: "Formerly NotebookLM — research & podcast audio", delay: 0.32, primary: true },
   { name: "GitHub", logo: githubLogo, href: "https://github.com", description: "Version control & CI/CD", tooltip: "Where it all ships", delay: 0.36 },
   { name: "Lovable", logo: lovableLogo, href: "https://lovable.dev", description: "AI-native app builder", tooltip: "Built this site with it", delay: 0.4, primary: true },
-  { name: "n8n", customIcon: "n8n", href: "https://n8n.io", description: "Cloud-based automation", tooltip: "Automation workflow builder", delay: 0.44 },
+  { name: "n8n", logo: n8nLogo, href: "https://n8n.io", description: "Cloud-based automation", tooltip: "Automation workflow builder", delay: 0.44 },
 ];
 
 const ToolCard = ({
@@ -116,11 +91,7 @@ const ToolCard = ({
     >
       <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
       <div className="flex h-10 w-10 items-center justify-center rounded-[0.95rem] bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.92),0_10px_20px_-16px_rgba(17,17,17,0.85)]">
-        {tool.customIcon === "antigravity" ? (
-          <AntigravityIcon />
-        ) : tool.customIcon === "n8n" ? (
-          <N8nIcon />
-        ) : tool.logo ? (
+        {tool.logo ? (
           <img src={tool.logo} alt={`${tool.name} logo`} className="h-7 w-7 object-contain" loading="eager" />
         ) : Icon ? (
           <Icon className="h-7 w-7" style={{ color: tool.iconColor }} />
