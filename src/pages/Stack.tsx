@@ -5,8 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import { toolsData } from "@/data/tools";
 import { articleSummaries } from "@/data/articleSummaries";
 import { SITE_NAME, SITE_URL, SOCIAL_IMAGE_URL } from "@/config/site";
-import { ExternalLink, Layers, ArrowRight } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { ExternalLink } from "lucide-react";
 
 const STACK_URL = `${SITE_URL}/stack`;
 const STACK_TITLE = `Production AI Stack & Tools (2026) | ${SITE_NAME}`;
@@ -75,13 +74,9 @@ const Stack = () => {
         <Navigation />
 
         {/* Hero Section */}
-        <section className="relative overflow-hidden border-b border-border pt-28 pb-16 lg:pt-36 lg:pb-20">
+        <section className="relative border-b border-border pt-28 pb-16 lg:pt-36 lg:pb-20">
           <div className="page-container relative z-10">
             <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-1.5 rounded-md border border-accent/20 bg-accent/10 px-3 py-1 font-mono text-[11px] font-semibold text-accent mb-4">
-                <Layers className="h-3 w-3" />
-                Production Stack
-              </span>
               <h1 className="text-display-lg text-balance text-foreground">
                 The 2026 AI Tool Stack
               </h1>
@@ -89,17 +84,9 @@ const Stack = () => {
                 The software I use to build apps, automate tasks, and run research. Filter by category or start with the core three.
               </p>
 
-              {/* Metrics strip */}
-              <div className="mt-6 flex flex-wrap items-center gap-3 text-xs font-medium text-foreground-muted">
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-border bg-surface px-3 py-1">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                  {coreCount} Core Models (Claude · ChatGPT · Gemini)
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-border bg-surface px-3 py-1">
-                  <span className="h-1.5 w-1.5 rounded-full bg-foreground-subtle" />
-                  {toolsData.length - coreCount} Specialized Tools
-                </span>
-              </div>
+              <p className="mt-6 font-mono text-[12px] text-foreground-muted">
+                {coreCount} core models &middot; {toolsData.length - coreCount} specialised tools
+              </p>
             </div>
           </div>
         </section>
@@ -107,8 +94,8 @@ const Stack = () => {
         {/* Tools Section */}
         <section className="py-section">
           <div className="page-container">
-            {/* Filter pills */}
-            <div className="mb-10 flex flex-nowrap items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none">
+            {/* Filter tabs */}
+            <div className="mb-8 flex flex-nowrap items-center gap-6 overflow-x-auto border-b border-border scrollbar-none">
               {categories.map((cat) => {
                 const count = categoryCounts[cat] ?? 0;
                 const active = selectedCategory === cat;
@@ -117,104 +104,168 @@ const Stack = () => {
                     key={cat}
                     type="button"
                     onClick={() => setSelectedCategory(cat)}
-                    className={`relative shrink-0 rounded-md px-3.5 py-1.5 text-[12px] font-semibold tracking-wide outline-none transition-colors duration-200 ${active ? "bg-foreground text-background" : "border border-border bg-surface text-foreground-muted hover:text-foreground"
-                      }`}
+                    className={`shrink-0 text-sm pb-2 border-b-2 transition-colors duration-150 ${
+                      active
+                        ? "border-foreground text-foreground font-medium"
+                        : "border-transparent text-foreground-muted hover:text-foreground"
+                    }`}
                   >
-                    <span className="flex items-center gap-1.5">
-                      <span>{cat}</span>
-                      <span className={`rounded-md px-1.5 py-0.5 text-[10px] font-mono leading-none ${active ? "bg-background/20 text-background" : "bg-surface-2 text-foreground-subtle"}`}>
-                        {count}
-                      </span>
+                    {cat}
+                    <span className="font-mono text-[11px] text-foreground-subtle ml-1">
+                      {count}
                     </span>
                   </button>
                 );
               })}
             </div>
 
-            {/* Tool Cards Grid */}
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              <AnimatePresence mode="popLayout">
-                {filteredTools.map((tool) => (
-                  <motion.div
-                    key={tool.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.96 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.96 }}
-                    transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex flex-col justify-between rounded-lg border border-border bg-surface p-6 transition-interactive duration-300 hover:border-border-strong"
-                  >
-                    <div>
-                      {/* Top Bar: Logo + Badges */}
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-white shadow-sm">
-                          <img src={tool.logo} alt={`${tool.name} logo`} className="h-7 w-7 object-contain" />
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="rounded-md border border-border bg-surface-2 px-2 py-0.5 font-mono text-[11px] text-foreground-subtle">
-                            {tool.category}
-                          </span>
+            {/* Desktop Table (lg and up) */}
+            <div className="hidden lg:block overflow-x-auto">
+              <table className="w-full border-t border-border text-left">
+                <thead>
+                  <tr className="border-b border-border font-mono text-[11px] uppercase tracking-[0.08em] text-foreground-subtle">
+                    <th className="py-3 pr-6 font-medium">Tool</th>
+                    <th className="py-3 pr-6 font-medium">Category</th>
+                    <th className="py-3 pr-6 font-medium">What I use it for</th>
+                    <th className="py-3 pr-6 font-medium">Featured in</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredTools.map((tool) => (
+                    <tr key={tool.id} className="border-b border-border">
+                      <td className="py-4 pr-6 align-top">
+                        <div className="flex items-center gap-2.5">
+                          <img
+                            src={tool.logo}
+                            alt={`${tool.name} logo`}
+                            className="h-5 w-5 object-contain"
+                          />
+                          <a
+                            href={tool.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-medium text-foreground hover:text-accent transition-colors inline-flex items-center gap-1"
+                          >
+                            <span>{tool.name}</span>
+                            <ExternalLink className="h-3 w-3 text-foreground-subtle" />
+                          </a>
                           {tool.primary && (
-                            <span className="inline-flex items-center gap-1 rounded-md border border-accent/30 bg-accent/10 px-2 py-0.5 font-mono text-[11px] text-accent font-medium">
-                              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                            <span className="font-mono text-[11px] text-foreground-muted">
                               Core
                             </span>
                           )}
                         </div>
-                      </div>
+                      </td>
 
-                      {/* Title & Description */}
-                      <div className="flex items-center gap-1.5">
-                        <h2 className="text-lg font-bold text-foreground">{tool.name}</h2>
-                        <a
-                          href={tool.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-foreground-subtle hover:text-foreground transition-colors p-1"
-                          aria-label={`Visit ${tool.name} website`}
-                        >
-                          <ExternalLink className="h-3.5 w-3.5" />
-                        </a>
-                      </div>
+                      <td className="py-4 pr-6 align-top font-mono text-[11px] text-foreground-muted">
+                        {tool.category}
+                      </td>
 
-                      <p className="mt-2 text-xs leading-relaxed text-foreground-muted">
-                        {tool.description}
-                      </p>
-
-                      {/* Founder Notes */}
-                      <div className="mt-4 rounded-lg border border-border/60 bg-surface-2/60 p-3 text-[11px] leading-relaxed text-foreground-muted">
-                        <span className="font-semibold text-foreground">Field Note: </span>
-                        {tool.notes}
-                      </div>
-                    </div>
-
-                    {/* Linked Articles footer */}
-                    {tool.relatedArticleIds.length > 0 && (
-                      <div className="mt-6 pt-4 border-t border-border/60">
-                        <p className="text-[10px] font-mono font-semibold text-foreground-subtle mb-2">
-                          Featured in:
+                      <td className="py-4 pr-6 align-top max-w-md">
+                        <p className="text-sm text-foreground">
+                          {tool.description}
                         </p>
-                        <div className="space-y-1.5">
-                          {tool.relatedArticleIds.map((artId) => {
-                            const art = articleMap[artId];
-                            if (!art) return null;
-                            return (
-                              <a
-                                key={artId}
-                                href={`/insights/${artId}`}
-                                className="group flex items-center justify-between text-xs font-medium text-foreground-muted hover:text-accent transition-colors"
-                              >
-                                <span className="line-clamp-1 flex-1 pr-2">{art.title}</span>
-                                <ArrowRight className="h-3 w-3 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
-                              </a>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    )}
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+                        {tool.notes && (
+                          <p className="mt-1 text-sm text-foreground-muted">
+                            <span className="text-foreground-subtle font-mono text-[11px] mr-1">Note:</span>
+                            {tool.notes}
+                          </p>
+                        )}
+                      </td>
+
+                      <td className="py-4 pr-6 align-top text-sm">
+                        {tool.relatedArticleIds.length > 0 ? (
+                          <div className="text-sm text-foreground-muted">
+                            {tool.relatedArticleIds.map((artId, idx) => {
+                              const art = articleMap[artId];
+                              if (!art) return null;
+                              return (
+                                <span key={artId}>
+                                  {idx > 0 && ", "}
+                                  <a
+                                    href={`/insights/${artId}`}
+                                    className="hover:text-foreground underline decoration-border-strong underline-offset-2 transition-colors"
+                                  >
+                                    {art.title}
+                                  </a>
+                                </span>
+                              );
+                            })}
+                          </div>
+                        ) : (
+                          <span className="font-mono text-[11px] text-foreground-subtle">&mdash;</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile / Tablet List (below lg) */}
+            <div className="lg:hidden divide-y divide-border border-y border-border">
+              {filteredTools.map((tool) => (
+                <div key={tool.id} className="py-4 space-y-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <img
+                        src={tool.logo}
+                        alt={`${tool.name} logo`}
+                        className="h-5 w-5 object-contain"
+                      />
+                      <a
+                        href={tool.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-foreground hover:text-accent transition-colors inline-flex items-center gap-1"
+                      >
+                        <span>{tool.name}</span>
+                        <ExternalLink className="h-3 w-3 text-foreground-subtle" />
+                      </a>
+                      {tool.primary && (
+                        <span className="font-mono text-[11px] text-foreground-muted">
+                          Core
+                        </span>
+                      )}
+                    </div>
+                    <span className="font-mono text-[11px] text-foreground-muted">
+                      {tool.category}
+                    </span>
+                  </div>
+
+                  <p className="text-sm text-foreground">
+                    {tool.description}
+                  </p>
+
+                  {tool.notes && (
+                    <p className="text-sm text-foreground-muted">
+                      <span className="text-foreground-subtle font-mono text-[11px] mr-1">Note:</span>
+                      {tool.notes}
+                    </p>
+                  )}
+
+                  {tool.relatedArticleIds.length > 0 && (
+                    <div className="pt-1 text-xs text-foreground-muted">
+                      <span className="font-mono text-[11px] text-foreground-subtle mr-1">Featured in:</span>
+                      {tool.relatedArticleIds.map((artId, idx) => {
+                        const art = articleMap[artId];
+                        if (!art) return null;
+                        return (
+                          <span key={artId}>
+                            {idx > 0 && ", "}
+                            <a
+                              href={`/insights/${artId}`}
+                              className="hover:text-foreground underline decoration-border-strong underline-offset-2 transition-colors"
+                            >
+                              {art.title}
+                            </a>
+                          </span>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>
