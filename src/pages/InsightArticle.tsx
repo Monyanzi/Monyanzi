@@ -300,7 +300,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             <p className="text-muted-foreground mb-6">The article you are looking for does not exist.</p>
             <a
               href="/insights"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm bg-jacarta text-white"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm bg-foreground text-background"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Insights
@@ -515,7 +515,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
               </div>
 
               <div ref={articleRef}>
-                <article className="article-body font-body text-lg lg:text-[21px] leading-[1.8] text-foreground max-w-4xl mx-auto selection:bg-jacarta selection:text-white">
+                <article className="article-body font-body text-lg lg:text-[21px] leading-[1.8] text-foreground max-w-4xl mx-auto selection:bg-accent/20 selection:text-foreground">
                   {article.content}
                 </article>
               </div>
@@ -623,7 +623,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
                         {relatedArticle.category}
                       </span>
 
-                      <h3 className="font-display text-lg lg:text-xl font-extrabold text-foreground leading-snug mb-2 group-hover:text-jacarta transition-colors duration-300 line-clamp-2">
+                      <h3 className="font-display text-lg lg:text-xl font-extrabold text-foreground leading-snug mb-2 group-hover:text-accent transition-colors duration-300 line-clamp-2">
                         {relatedArticle.title}
                       </h3>
 
@@ -634,7 +634,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
                         </span>
                       )}
 
-                      <div className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-jacarta">
+                      <div className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-accent">
                         Read <span aria-hidden="true" className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">→</span>
                       </div>
                     </div>

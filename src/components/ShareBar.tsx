@@ -40,7 +40,7 @@ const ShareBar = ({ url, title, className = "", variant = "inline" }: ShareBarPr
                 rel="noopener noreferrer"
                 aria-label="Share via email"
                 className={`${isSidebar ? "w-10 h-10" : "w-9 h-9"} rounded-full flex items-center justify-center border border-border bg-surface text-foreground-muted 
-            hover:text-foreground hover:border-jacarta/20 hover:bg-jacarta/5 transition-interactive duration-200`}
+            hover:text-foreground hover:border-border-strong hover:bg-surface-2 transition-interactive duration-200`}
             >
                 <Mail className={`${isSidebar ? "w-4 h-4" : "w-3.5 h-3.5"}`} />
             </a>
@@ -49,7 +49,7 @@ const ShareBar = ({ url, title, className = "", variant = "inline" }: ShareBarPr
                 onClick={handleCopy}
                 aria-label="Copy link"
                 className={`${isSidebar ? "w-10 h-10" : "w-9 h-9"} rounded-full flex items-center justify-center border border-border bg-surface text-foreground-muted 
-           hover:text-foreground hover:border-jacarta/20 hover:bg-jacarta/5 transition-interactive duration-200 relative`}
+           hover:text-foreground hover:border-border-strong hover:bg-surface-2 transition-interactive duration-200 relative`}
             >
                 <AnimatePresence mode="wait" initial={false}>
                     {copied ? (
@@ -60,7 +60,7 @@ const ShareBar = ({ url, title, className = "", variant = "inline" }: ShareBarPr
                             exit={{ scale: 0 }}
                             transition={{ duration: 0.15 }}
                         >
-                            <Check className={`${isSidebar ? "w-4 h-4" : "w-3.5 h-3.5"} text-jacarta`} />
+                            <Check className={`${isSidebar ? "w-4 h-4" : "w-3.5 h-3.5"} text-accent`} />
                         </motion.span>
                     ) : (
                         <motion.span
