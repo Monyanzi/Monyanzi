@@ -51,7 +51,7 @@ const HeroSection = () => {
             alt="A wooden workshop garage on a green hillside above a lake, with a builder working at a bench inside"
             width={1376}
             height={768}
-            fetchPriority="high"
+            loading="eager"
             className="absolute -inset-[2%] h-[104%] w-[104%] max-w-none object-cover object-[75%_bottom]"
           />
         </picture>

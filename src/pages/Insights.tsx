@@ -177,7 +177,7 @@ const Insights = () => {
               </div>
 
               {/* Audio briefing — full-width, below header */}
-              <div className="mt-8 audio-card">
+              <div className="mt-8">
                 <AudioBriefingCard briefing={insightsArticlesBriefing} className="w-full" />
               </div>
             </div>

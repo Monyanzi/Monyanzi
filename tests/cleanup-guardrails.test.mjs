@@ -8,7 +8,6 @@ const externalRuntimeSources = [
 ];
 
 const sourceFiles = [
-  "src/components/ui/liquid-effect-animation.tsx",
   "src/components/FeaturedInsightsSection.tsx",
   "src/components/SelectedWorkSection.tsx",
   "src/components/CollaborateSection.tsx",

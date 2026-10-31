@@ -96,7 +96,7 @@ const Navigation = () => {
               aria-label="AI Founder Garage · Home"
             >
               <span className="font-display text-lg font-medium tracking-tight text-foreground">
-                AI Founder Garage
+                <span>AI</span> Founder Garage
               </span>
             </a>
 

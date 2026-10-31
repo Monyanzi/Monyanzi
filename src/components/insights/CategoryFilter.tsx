@@ -10,7 +10,7 @@ interface CategoryFilterProps {
 
 const CategoryFilter = memo(({ categories, activeCategory, onCategoryChange, counts, totalCount }: CategoryFilterProps) => {
   return (
-    <div className="flex flex-nowrap items-center gap-6 overflow-x-auto scrollbar-none max-w-full">
+    <div className="flex flex-nowrap items-center gap-6 overflow-x-auto scrollbar-none max-w-full -mb-px">
       <button
         type="button"
         onClick={() => onCategoryChange(null)}

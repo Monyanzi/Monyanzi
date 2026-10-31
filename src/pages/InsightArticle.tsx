@@ -497,13 +497,11 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             {/* Article content */}
             <div>
               <div className="mb-6 lg:mb-8">
-                <div className="audio-card">
-                  <AudioBriefingCard
-                    briefing={insightsArticlesBriefing}
-                    compact
-                    className="w-full"
-                  />
-                </div>
+                <AudioBriefingCard
+                  briefing={insightsArticlesBriefing}
+                  compact
+                  className="w-full"
+                />
               </div>
 
               <div ref={articleRef}>

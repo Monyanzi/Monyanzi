@@ -313,12 +313,6 @@
     font-weight: 600;
   }
 
-  .audio-card {
-    background: hsl(var(--surface-2));
-    border: 1px solid hsl(var(--border));
-    border-radius: 12px;
-    padding: 16px;
-  }
 
   /* ─── Article H2 Left-border Style ─── */
   .article-body h2 {

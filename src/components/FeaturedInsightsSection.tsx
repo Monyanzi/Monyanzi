@@ -29,14 +29,14 @@ const FeaturedInsightsSection = () => {
   return (
     <section id="articles" className="relative z-10 border-b border-border bg-background py-14 lg:py-20">
       <div className="mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-12">
-        <div className="mb-10 flex flex-col gap-6 border-b border-border pb-6 lg:flex-row lg:items-end lg:justify-between">
-          <div>
+        <div className="mb-10 flex flex-col gap-4 border-b border-border lg:flex-row lg:items-end lg:justify-between">
+          <div className="pb-4">
             <h2 className="font-display text-3xl sm:text-4xl font-medium tracking-[-0.02em] text-foreground">
               Practical playbooks and checklists
             </h2>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 -mb-px">
             {topicChips.map((chip, index) => (
               <a
                 key={chip.label}
