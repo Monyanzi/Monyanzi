@@ -108,14 +108,14 @@ Everywhere else, remove uppercase and any `tracking-[...]`, `tracking-wide`, `tr
 ## Checklist of Tasks
 
 ### Phase P0: Safety and Production Blockers
-- [ ] **T0.1 Snapshot branch** — `git checkout -b deslop; git add -A; git commit -m "chore: snapshot WIP before deslop"`
-- [ ] **T0.2 Add npm scripts** — Add `"test": "node --test tests/"` and `"typecheck": "tsc -p tsconfig.app.json --noEmit"` to `package.json`.
-- [ ] **T0.3 Remove stale design tests** — Delete `tests/ferrari-theme.test.mjs` and `tests/home-redesign.test.mjs`.
-- [ ] **T0.4 Fix unused-import tsc errors** — Clean unused imports in `ThemeToggle.tsx`, `Insights.tsx`, `Stack.tsx`. Target: tsc errors = 5.
-- [ ] **T0.5 Remove lovable-tagger dependency** — Clean `vite.config.ts`, check usages, npm prune.
-- [ ] **T0.6 Self-host fonts** — Install `@fontsource-variable/{newsreader,instrument-sans,jetbrains-mono}`, update `main.tsx`, `index.html`, `tailwind.config.ts`, `src/index.css`.
-- [ ] **T0.7 SPA rewrite for /stack** — Update `vercel.json` and `tests/seo-route-integrity.test.mjs`.
-- [ ] **T0.8 Fix zero-padded hero counts** — Fix padding in `src/components/HeroSection.tsx`.
+- [x] **T0.1 Snapshot branch** — `git checkout -b deslop; git add -A; git commit -m "chore: snapshot WIP before deslop"`
+- [x] **T0.2 Add npm scripts** — Add `"test": "node --test tests/"` and `"typecheck": "tsc -p tsconfig.app.json --noEmit"` to `package.json`.
+- [x] **T0.3 Remove stale design tests** — Delete `tests/ferrari-theme.test.mjs` and `tests/home-redesign.test.mjs`.
+- [x] **T0.4 Fix unused-import tsc errors** — Clean unused imports in `ThemeToggle.tsx`, `Insights.tsx`, `Stack.tsx`. Target: tsc errors = 5.
+- [x] **T0.5 Remove lovable-tagger dependency** — Clean `vite.config.ts`, check usages, npm prune.
+- [x] **T0.6 Self-host fonts** — Install `@fontsource-variable/{newsreader,instrument-sans,jetbrains-mono}`, update `main.tsx`, `index.html`, `tailwind.config.ts`, `src/index.css`.
+- [x] **T0.7 SPA rewrite for /stack** — Update `vercel.json` and `tests/seo-route-integrity.test.mjs`.
+- [x] **T0.8 Fix zero-padded hero counts** — Fix padding in `src/components/HeroSection.tsx`.
 
 ### Phase P1: Spec and Tokens
 - [ ] **T1.1 Rewrite DESIGN.md** — Update with 8 sections matching §2.
@@ -165,14 +165,14 @@ Everywhere else, remove uppercase and any `tracking-[...]`, `tracking-wide`, `tr
 
 | Task | Status (DONE / BLOCKED / SKIPPED) | tsc errors | Notes |
 |---|---|---|---|
-| T0.1 | | | |
-| T0.2 | | | |
-| T0.3 | | | |
-| T0.4 | | 5 expected | |
-| T0.5 | | | |
-| T0.6 | | | |
-| T0.7 | | | |
-| T0.8 | | | |
+| T0.1 | DONE | 8 | Branch `deslop` created and WIP committed cleanly |
+| T0.2 | DONE | 8 | Added `test` and `typecheck` npm scripts |
+| T0.3 | DONE | 8 | Removed stale design tests (ferrari-theme, home-redesign) |
+| T0.4 | DONE | 5 | Removed unused imports from ThemeToggle, Insights, Stack |
+| T0.5 | DONE | 5 | Removed lovable-tagger plugin and pruned package |
+| T0.6 | DONE | 5 | Self-hosted Newsreader, Instrument Sans, JetBrains Mono; CSP passing |
+| T0.7 | DONE | 5 | Added /stack SPA fallback rewrite and updated route test |
+| T0.8 | DONE | 5 | Corrected zero-padding using padStart(2, "0") |
 | T1.1–T1.4 | | | |
 | T2.1–T2.10 | | 0 after T2.2 | |
 | T3.1–T3.9 | | | |
