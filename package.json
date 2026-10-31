@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "test": "node --test tests/",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit",
     "verify:content": "node scripts/verify-article-data-sync.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "build": "npm run verify:content && npm run sitemap && vite build",
