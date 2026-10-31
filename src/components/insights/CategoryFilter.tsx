@@ -10,19 +10,19 @@ interface CategoryFilterProps {
 
 const CategoryFilter = memo(({ categories, activeCategory, onCategoryChange, counts, totalCount }: CategoryFilterProps) => {
   return (
-    <div className="inline-flex flex-nowrap items-center gap-1 overflow-x-auto scrollbar-none max-w-full">
+    <div className="flex flex-nowrap items-center gap-6 overflow-x-auto scrollbar-none max-w-full">
       <button
         type="button"
         onClick={() => onCategoryChange(null)}
-        className={`shrink-0 rounded px-3 py-1.5 font-mono text-[11px] transition-colors duration-150 ${
+        className={`shrink-0 text-sm pb-2 border-b-2 transition-colors duration-150 ${
           activeCategory === null
-            ? "bg-foreground text-background font-semibold"
-            : "border border-border bg-surface text-foreground-muted hover:border-border-strong hover:text-foreground"
+            ? "border-foreground text-foreground font-medium"
+            : "border-transparent text-foreground-muted hover:text-foreground"
         }`}
       >
         <span>All</span>
         {totalCount !== undefined && (
-          <span className="ml-1.5 opacity-70 tabular-nums">({totalCount})</span>
+          <span className="font-mono text-[11px] text-foreground-subtle ml-1">{totalCount}</span>
         )}
       </button>
 
@@ -34,15 +34,15 @@ const CategoryFilter = memo(({ categories, activeCategory, onCategoryChange, cou
             key={category}
             type="button"
             onClick={() => onCategoryChange(category)}
-            className={`shrink-0 rounded px-3 py-1.5 font-mono text-[11px] transition-colors duration-150 ${
+            className={`shrink-0 text-sm pb-2 border-b-2 transition-colors duration-150 ${
               active
-                ? "bg-foreground text-background font-semibold"
-                : "border border-border bg-surface text-foreground-muted hover:border-border-strong hover:text-foreground"
+                ? "border-foreground text-foreground font-medium"
+                : "border-transparent text-foreground-muted hover:text-foreground"
             }`}
           >
             <span>{category}</span>
             {count !== undefined && (
-              <span className="ml-1.5 opacity-70 tabular-nums">({count})</span>
+              <span className="font-mono text-[11px] text-foreground-subtle ml-1">{count}</span>
             )}
           </button>
         );

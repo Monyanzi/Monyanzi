@@ -152,7 +152,7 @@ const Insights = () => {
                 {/* Left — title */}
                 <div>
                   <h1 className="text-display-lg text-balance text-foreground">
-                    Guides & Articles
+                    Guides &amp; Articles
                   </h1>
 
                   <p className="mt-4 max-w-lg text-body-lg text-foreground-muted">
@@ -162,13 +162,12 @@ const Insights = () => {
 
                 {/* Right — compact search */}
                 <div className="flex flex-col gap-3">
-                  {/* Compact search button */}
                   <button
                     aria-label="Search articles (/)"
                     onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
-                    className="group inline-flex items-center gap-3 rounded-lg border border-border bg-surface px-4 py-3 text-left transition-interactive duration-200 hover:border-border-strong hover:shadow-card focus:outline-none"
+                    className="group inline-flex items-center gap-3 rounded-md border border-border bg-surface px-4 py-3 text-left transition-colors duration-150 hover:border-border-strong focus:outline-none"
                   >
-                    <Search className="h-4 w-4 text-foreground-subtle transition-colors duration-200 group-hover:text-foreground-muted" />
+                    <Search className="h-4 w-4 text-foreground-subtle transition-colors duration-150 group-hover:text-foreground-muted" />
                     <span className="flex-1 text-sm text-foreground-subtle">Search articles</span>
                     <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded-md border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-[10px] font-medium text-foreground-subtle">
                       ⌘K
@@ -179,9 +178,6 @@ const Insights = () => {
 
               {/* Audio briefing — full-width, below header */}
               <div className="mt-8 audio-card">
-                <p className="mb-3 inline-flex items-center rounded-md bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold text-accent">
-                  Listen
-                </p>
                 <AudioBriefingCard briefing={insightsArticlesBriefing} className="w-full" />
               </div>
             </div>
@@ -191,16 +187,15 @@ const Insights = () => {
           <section className="py-section">
             <div className="page-container">
               {/* Controls */}
-              <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <h2 className="text-[1.375rem] font-bold text-foreground">Latest Articles</h2>
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <CategoryFilter
-                    categories={categories}
-                    activeCategory={activeCategory}
-                    onCategoryChange={handleCategoryChange}
-                    counts={categoryCounts}
-                    totalCount={articles.length}
-                  />
+              <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between border-b border-border">
+                <CategoryFilter
+                  categories={categories}
+                  activeCategory={activeCategory}
+                  onCategoryChange={handleCategoryChange}
+                  counts={categoryCounts}
+                  totalCount={articles.length}
+                />
+                <div className="pb-2">
                   <SortSelect value={sortOption} onChange={handleSortChange} />
                 </div>
               </div>
@@ -219,21 +214,20 @@ const Insights = () => {
                     </div>
                   )}
 
-                  {/* Grid — 2 columns */}
-                  <div className="grid gap-6 md:grid-cols-2">
-                    {remainingArticles.map((article) => (
-                      <div
-                        key={article.id}
-                      >
-                        <ArticleCard {...article} />
-                      </div>
-                    ))}
-                  </div>
+                  {/* Index list */}
+                  {remainingArticles.length > 0 && (
+                    <div className="divide-y divide-border border-y border-border">
+                      {remainingArticles.map((article) => (
+                        <ArticleCard key={article.id} {...article} />
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
           </section>
-          {/* Curated Reading Paths inspired by Appllama Flows */}
+
+          {/* Curated Reading Paths */}
           <ReadingPathsSection />
 
           {/* Resources section */}
@@ -241,7 +235,7 @@ const Insights = () => {
             <div className="page-container">
               {/* Section separator */}
               <div className="mb-10 border-t border-border pt-10 flex items-center gap-3">
-                <span className="inline-flex items-center rounded-md bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold text-accent">
+                <span className="inline-flex items-center rounded-md bg-accent/10 border border-accent/20 px-3 py-1 font-mono text-[11px] font-medium text-accent">
                   Ecosystem
                 </span>
               </div>
@@ -259,16 +253,16 @@ const Insights = () => {
                     href={resource.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group border border-border bg-surface flex flex-col p-7 lg:p-8"
+                    className="group border border-border bg-surface flex flex-col p-7 lg:p-8 rounded-lg transition-colors duration-150 hover:border-border-strong"
                   >
-                    <p className="label-mono mb-5 text-accent">{resource.category}</p>
-                    <h3 className="mb-3 text-[1.125rem] font-bold text-foreground transition-colors duration-200 group-hover:text-accent">
+                    <p className="font-mono text-[11px] mb-5 text-accent">{resource.category}</p>
+                    <h3 className="mb-3 text-[1.125rem] font-medium text-foreground transition-colors duration-150 group-hover:text-accent">
                       {resource.title}
                     </h3>
-                    <p className="mb-8 flex-grow text-[0.875rem] leading-relaxed text-foreground-muted">
+                    <p className="mb-8 flex-grow text-sm leading-relaxed text-foreground-muted">
                       {resource.description}
                     </p>
-                    <div className="mt-auto inline-flex items-center gap-2 text-[12px] font-bold tracking-wide text-foreground transition-colors duration-200 group-hover:text-accent">
+                    <div className="mt-auto inline-flex items-center gap-2 text-xs font-medium text-foreground transition-colors duration-150 group-hover:text-accent">
                       {resource.ctaText}
                     </div>
                   </a>

@@ -29,7 +29,7 @@ const ShareButtons = ({ articleUrl }: { articleUrl: string }) => {
       <button
         onClick={handleCopy}
         aria-label="Copy link"
-        className="flex h-7 w-7 items-center justify-center rounded border border-white/20 bg-black/60 text-white transition-colors duration-150 hover:bg-black/70"
+        className="flex h-7 w-7 items-center justify-center rounded-md border border-white/20 bg-black/60 text-white transition-colors duration-150 hover:bg-black/70"
       >
         {copied ? <Check className="h-3.5 w-3.5 text-white" /> : <Link2 className="h-3.5 w-3.5" />}
       </button>
@@ -55,7 +55,7 @@ const ArticleCard = memo(({ id, category, title, description, image, featured = 
                 alt={`${title} cover`}
                 loading="eager"
                 decoding="async"
-                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                className="h-full w-full object-cover"
               />
             ) : (
               <div className="h-full w-full bg-surface-2" />
@@ -67,8 +67,8 @@ const ArticleCard = memo(({ id, category, title, description, image, featured = 
             <div>
               <div className="mb-4 flex items-center justify-between border-b border-border/70 pb-3 font-mono text-[11px] tabular-nums">
                 <div className="flex items-center gap-2.5">
-                  <span className="badge-category">{category}</span>
-                  <span className="text-accent font-semibold">Lead Dispatch</span>
+                  <span className="font-mono text-[11px] text-foreground-muted">{category}</span>
+                  <span className="text-accent font-medium">Featured</span>
                 </div>
                 {readingTime && (
                   <span className="text-foreground-subtle">{readingTime} min read</span>
@@ -85,8 +85,8 @@ const ArticleCard = memo(({ id, category, title, description, image, featured = 
             </div>
 
             <div className="mt-8 flex items-center justify-between border-t border-border/70 pt-4 font-mono text-xs font-medium text-foreground group-hover:text-accent">
-              <span>Read complete guide</span>
-              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
+              <span>Read guide</span>
+              <ArrowRight className="h-3.5 w-3.5" />
             </div>
           </div>
         </a>
@@ -95,46 +95,27 @@ const ArticleCard = memo(({ id, category, title, description, image, featured = 
   }
 
   return (
-    <article className="group h-full">
-      <a
-        href={`/insights/${id}`}
-        className="flex h-full flex-col overflow-hidden rounded-lg border border-border bg-surface transition-colors duration-150 hover:border-border-strong hover:bg-surface-2/35"
-      >
-        <div className="relative aspect-[16/9] overflow-hidden border-b border-border bg-surface-2">
-          {image && (
-            <img
-              src={image}
-              alt={`${title} cover`}
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-            />
-          )}
-          <ShareButtons articleUrl={articleUrl} />
-        </div>
+    <a
+      href={`/insights/${id}`}
+      className="group grid gap-2 py-6 lg:grid-cols-[9rem_1fr_6rem] lg:gap-8 items-baseline transition-colors duration-150"
+    >
+      <div className="font-mono text-[11px] text-foreground-muted">
+        {category}
+      </div>
 
-        <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
-          <div>
-            <div className="mb-3 flex items-center justify-between font-mono text-[11px] tabular-nums">
-              <span className="badge-category">{category}</span>
-              {readingTime && (
-                <span className="text-foreground-subtle">{readingTime} min read</span>
-              )}
-            </div>
-            <h2 className="font-display text-xl font-medium leading-[1.18] text-foreground transition-colors duration-150 group-hover:text-accent line-clamp-2">
-              {title}
-            </h2>
-            <p className="mt-2 text-xs leading-relaxed text-foreground-muted line-clamp-2">
-              {description}
-            </p>
-          </div>
-          <div className="mt-5 flex items-center justify-between border-t border-border/60 pt-3.5 font-mono text-xs font-medium text-foreground group-hover:text-accent">
-            <span>Read guide</span>
-            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
-          </div>
-        </div>
-      </a>
-    </article>
+      <div>
+        <h2 className="font-display text-2xl font-medium leading-tight text-foreground transition-colors duration-150 group-hover:text-accent">
+          {title}
+        </h2>
+        <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
+          {description}
+        </p>
+      </div>
+
+      <div className="font-mono text-xs text-foreground-muted lg:text-right">
+        {readingTime ? `${readingTime} min` : ""}
+      </div>
+    </a>
   );
 });
 
