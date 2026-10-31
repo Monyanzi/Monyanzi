@@ -33,7 +33,8 @@ test("sitemap URLs map to valid app routes and known article slugs", () => {
     const isRoot = path === "/";
     const isInsights = path === "/insights";
     const isArticle = /^\/insights\/[^/]+$/.test(path);
-    assert.equal(isRoot || isInsights || isArticle, true, `Unexpected sitemap path: ${path}`);
+    const isStack = path === "/stack";
+    assert.equal(isRoot || isInsights || isArticle || isStack, true, `Unexpected sitemap path: ${path}`);
   }
 
   assert.equal(hasInsightsWildcardRewrite, true);

@@ -29,6 +29,14 @@
         {
             "source": "/insights/:path*",
             "destination": "/"
+        },
+        {
+            "source": "/stack",
+            "destination": "/"
+        },
+        {
+            "source": "/stack/",
+            "destination": "/"
         }
     ],
     "headers": [
