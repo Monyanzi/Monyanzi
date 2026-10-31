@@ -5,7 +5,7 @@ const starterPaths = [
   {
     index: "01",
     title: "Research & synthesis pipeline",
-    detail: "Prompt optimization, web research, and NotebookLM briefing workflow.",
+    detail: "Prompt optimisation, web research, and NotebookLM briefing workflow.",
     href: "/insights/2026-ai-power-workflow",
     cta: "Read workflow",
   },
