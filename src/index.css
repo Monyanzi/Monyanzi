@@ -8,40 +8,43 @@
        PREMIUM LIGHT PALETTE — Quiet Luxury Edition
        Refined from audit: subtler, warmer, more editorial
     ───────────────────────────────────────────── */
-    --background: 40 33% 95%;
+    --background: 0 0% 100%;
+    /* Pure white #FFFFFF */
     /* Crisp off-white with a cool editorial cast */
-    --surface: 40 50% 98%;
+    --surface: 0 0% 100%;
     /* Pure white cards */
-    --surface-2: 38 33% 91%;
+    --surface-2: 220 14% 94%;
     /* Slightly dimmed panels */
-    --foreground: 36 18% 10%;
+    --foreground: 222 47% 11%;
     /* Near-black #1a1a1a */
-    --foreground-muted: 34 12% 33%;
+    --foreground-muted: 215 16% 44%;
     /* Secondary text #666 */
-    --foreground-subtle: 36 9% 44%;
+    --foreground-subtle: 215 16% 62%;
     /* Tertiary / placeholders */
 
     /* Balanced premium accents */
-    --accent: 150 60% 30%;
+    --accent: 211 100% 45%;
+    /* Apple System Blue #0071E3 */
+    /* Apple (PRODUCT)RED #E11D48 */
     /* Forest Green */
-    --accent-light: 150 50% 90%;
+    --accent-light: 214 100% 97%;
     --accent-foreground: 0 0% 100%;
-    --jacarta: 28 28% 32%;
-    --gold: 38 75% 55%;
+    --jacarta: 222 47% 11%;
+    --gold: 211 100% 45%;
     /* Warm Amber/Gold — secondary accent */
-    --gold-light: 38 60% 92%;
+    --gold-light: 214 100% 97%;
 
     /* Structural */
-    --border: 40 20% 86%;
-    --border-strong: 0 0% 72%;
-    --ring: 28 28% 32%;
+    --border: 220 14% 88%;
+    --border-strong: 220 16% 76%;
+    --ring: 211 100% 45%;
 
     /* Alias tokens for shadcn compat */
-    --card: 40 50% 98%;
+    --card: 0 0% 100%;
     --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
-    --primary: 28 28% 32%;
+    --primary: 211 100% 45%;
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 10%;
@@ -50,7 +53,7 @@
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
     --input: 0 0% 96%;
-    --radius: 0.75rem;
+    --radius: 1rem;
 
     /* Layout */
     --container-max: 1360px;
@@ -87,7 +90,7 @@
     --foreground-muted: 0 0% 68%;
     --foreground-subtle: 0 0% 48%;
 
-    --accent: 150 65% 42%;
+    --accent: 210 100% 55%;
     --accent-light: 150 40% 18%;
     --accent-foreground: 0 0% 100%;
     --jacarta: 30 24% 72%;
@@ -96,13 +99,13 @@
 
     --border: 0 0% 18%;
     --border-strong: 0 0% 28%;
-    --ring: 150 65% 42%;
+    --ring: 350 89% 60%;
 
     --card: 0 0% 11%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 11%;
     --popover-foreground: 0 0% 98%;
-    --primary: 150 65% 42%;
+    --primary: 350 89% 60%;
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 98%;
@@ -138,7 +141,7 @@
   }
 
   ::selection {
-    background-color: hsl(var(--jacarta) / 0.12);
+    background-color: hsl(var(--accent) / 0.15);
     color: hsl(var(--foreground));
   }
 
@@ -149,7 +152,8 @@
   h4,
   h5,
   h6 {
-    font-family: "Newsreader Variable", "Georgia", "Cambria", "Times New Roman", serif;
+    font-family: "Instrument Sans Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: -0.025em;
     font-weight: 600;
     line-height: 1.05;
     letter-spacing: 0;
@@ -199,6 +203,43 @@
 }
 
 @layer components {
+
+  /* ─── Apple Studio Glassmorphic Surfaces ─── */
+  .glass-card {
+    background-color: hsl(var(--surface) / 0.8);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid hsl(var(--border) / 0.85);
+    box-shadow: 0 4px 20px -2px hsl(0 0% 0% / 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 0.85);
+  }
+
+  .dark .glass-card {
+    background-color: hsl(var(--surface) / 0.65);
+    border-color: hsl(var(--border) / 0.6);
+    box-shadow: 0 4px 20px -2px hsl(0 0% 0% / 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-panel {
+    background-color: hsl(var(--surface) / 0.6);
+    backdrop-filter: blur(24px) saturate(190%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%);
+    border: 1px solid hsl(var(--border) / 0.8);
+    box-shadow: 0 20px 48px -12px hsl(0 0% 0% / 0.07), inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+  }
+
+  .dark .glass-panel {
+    background-color: hsl(var(--surface) / 0.55);
+    border-color: hsl(var(--border) / 0.5);
+    box-shadow: 0 20px 48px -12px hsl(0 0% 0% / 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-pill {
+    background-color: hsl(var(--surface) / 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.8);
+    box-shadow: 0 2px 8px -1px hsl(0 0% 0% / 0.04), inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+  }
 
   /* ─── Layout ─── */
   .page-container {
@@ -297,9 +338,9 @@
   }
 
   .prose-editorial a {
-    color: hsl(var(--jacarta));
+    color: hsl(var(--accent));
     text-decoration: underline;
-    text-decoration-color: hsl(var(--jacarta) / 0.35);
+    text-decoration-color: hsl(var(--accent) / 0.35);
     text-underline-offset: 3px;
     transition: text-decoration-color 0.2s;
   }
@@ -359,15 +400,15 @@
     align-items: center;
     gap: 0.375rem;
     border-radius: 9999px;
-    border: 1px solid hsl(var(--jacarta) / 0.2);
-    background: hsl(var(--jacarta) / 0.06);
+    border: 1px solid hsl(var(--accent) / 0.25);
+    background: hsl(var(--accent) / 0.06);
     padding: 0.25rem 0.625rem;
     font-family: "JetBrains Mono Variable", monospace;
     font-size: 0.5625rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: hsl(var(--jacarta));
+    color: hsl(var(--accent));
   }
 
   /* ─── Status Pill ─── */
@@ -398,7 +439,7 @@
   }
 
   .status-pill .dot-progress {
-    background: hsl(var(--gold));
+    background: hsl(var(--accent));
   }
 
   /* ─── Newsletter CTA ─── */

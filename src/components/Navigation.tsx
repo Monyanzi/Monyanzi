@@ -91,12 +91,12 @@ const Navigation = () => {
             <a
               href="/"
               onClick={handleLogoClick}
-              className="group flex items-baseline gap-2.5 py-1"
-              aria-label="AI Founder Garage · Home"
+              className="group relative flex h-8 w-8 items-center justify-center rounded-full border border-border/80 bg-surface shadow-xs transition-all duration-200 hover:border-accent hover:shadow-craft active:scale-[0.95]"
+              aria-label="Home"
+              title="Home"
             >
-              <span className="font-display text-lg font-medium tracking-tight text-foreground">
-                <span>AI</span> Founder Garage
-              </span>
+              <span className="sr-only">AI</span>
+              <span className="h-2.5 w-2.5 rounded-full bg-accent transition-transform duration-200 group-hover:scale-125" />
             </a>
 
             <nav

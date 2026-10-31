@@ -1,5 +1,5 @@
 import { articleSummaries } from "@/data/articleSummaries";
-import heroGarage from "@/assets/hero-garage.jpg";
+import techStackHero from "@/assets/insights/tech-stack/tech-stack-hero.jpg";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { toolsData, type ToolItem } from "@/data/tools";
 
@@ -11,27 +11,27 @@ const ToolCard = ({ tool }: { tool: ToolItem }) => {
       rel="noopener noreferrer"
       title={tool.notes}
       aria-label={`Open ${tool.name}`}
-      className="group relative flex flex-col justify-between rounded-xl border border-border/80 bg-surface p-4 text-left shadow-[0_1px_2px_rgba(0,0,0,0.03),inset_0_1px_0_rgba(255,255,255,0.7)] transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-craft active:scale-[0.985] focus-visible:outline-accent"
+      className="glass-card group relative flex flex-col justify-between rounded-2xl p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-craft-hover active:scale-[0.985] focus-visible:outline-accent"
     >
-      <div className="flex w-full items-start justify-between mb-3.5">
-        <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/6 bg-white p-2 shadow-sm">
-          <img src={tool.logo} alt={`${tool.name} logo`} className="h-full w-full object-contain" loading="eager" />
-        </div>
-        {tool.primary ? (
-          <span className="inline-flex items-center rounded-full bg-accent/10 px-2 py-0.5 font-mono text-[10px] font-semibold text-accent">
+      <div>
+        <div className="flex w-full items-start justify-between mb-4">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-black/6 bg-white p-2.5 shadow-sm transition-transform duration-200 group-hover:scale-105">
+            <img src={tool.logo} alt={`${tool.name} logo`} className="h-full w-full object-contain" loading="eager" />
+          </div>
+          <span className="inline-flex items-center rounded-full bg-accent/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-accent">
             Core
           </span>
-        ) : (
-          <ArrowUpRight className="h-3.5 w-3.5 text-foreground-subtle transition-all duration-150 group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        )}
-      </div>
-      <div>
-        <span className="block text-sm font-semibold leading-tight text-foreground group-hover:text-accent transition-colors">
+        </div>
+        <span className="block font-display text-xl font-medium leading-tight text-foreground group-hover:text-accent transition-colors">
           {tool.name}
         </span>
-        <span className="mt-1.5 block text-xs leading-relaxed text-foreground-muted line-clamp-2">
+        <span className="mt-2 block text-xs sm:text-sm leading-relaxed text-foreground-muted">
           {tool.description}
         </span>
+      </div>
+      <div className="mt-6 flex items-center justify-between border-t border-border/40 pt-3.5 font-mono text-[11px] text-foreground-subtle">
+        <span>Daily stack</span>
+        <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </div>
     </a>
   );
@@ -39,28 +39,20 @@ const ToolCard = ({ tool }: { tool: ToolItem }) => {
 
 const HeroSection = () => {
   const articleCount = articleSummaries.length;
-  const coreToolCount = toolsData.filter((t) => t.primary).length;
+  const coreTools = toolsData.filter((t) => t.primary);
+  const coreToolCount = coreTools.length;
   const specialistCount = toolsData.length - coreToolCount;
 
   return (
-    <section className="relative border-b border-border">
-      <div className="relative overflow-hidden">
-        <picture>
-          <img
-            src={heroGarage}
-            alt="A wooden workshop garage on a green hillside above a lake, with a builder working at a bench inside"
-            width={1376}
-            height={768}
-            loading="eager"
-            className="absolute -inset-[2%] h-[104%] w-[104%] max-w-none object-cover object-[75%_bottom]"
-          />
-        </picture>
-        <div className="pointer-events-none absolute inset-0 bg-background/0 dark:bg-background/78 transition-colors duration-300" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background via-background/70 to-transparent" />
+    <section className="relative overflow-hidden border-b border-border bg-background pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24">
+      {/* Studio Radial Ambient Illumination */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,hsl(var(--accent)/0.09),transparent_70%)]" />
 
-        <div className="relative mx-auto flex min-h-[600px] w-full max-w-[1360px] flex-col justify-start px-5 pb-36 pt-28 sm:px-8 sm:pt-32 lg:min-h-[760px] lg:px-12 lg:pt-36">
-          <div className="max-w-[760px]">
-            <h1 className="mt-4 text-balance font-display text-[2.75rem] font-medium leading-[1.01] tracking-[-0.03em] text-foreground sm:text-[3.85rem] lg:text-[4.65rem]">
+      <div className="relative mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-12">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Left Column: Editorial Headline & Actions */}
+          <div className="lg:col-span-7">
+            <h1 className="text-balance font-display text-[2.75rem] font-medium leading-[1.02] tracking-[-0.03em] text-foreground sm:text-[3.85rem] lg:text-[4.65rem]">
               Practical AI for small business.
             </h1>
 
@@ -86,47 +78,72 @@ const HeroSection = () => {
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
               <a
                 href="/insights"
-                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-foreground px-6 py-2.5 text-sm font-medium text-background shadow-keycap transition-all duration-150 hover:bg-accent hover:shadow-[0_4px_16px_rgba(18,74,44,0.28)] active:scale-[0.98]"
+                className="inline-flex min-h-[46px] items-center justify-center gap-2 rounded-xl bg-foreground px-6 py-2.5 text-sm font-medium text-background shadow-keycap transition-all duration-200 hover:bg-accent hover:shadow-[0_4px_20px_rgba(0,113,227,0.35)] hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 Read guides
                 <ArrowRight className="h-3.5 w-3.5" />
               </a>
               <a
                 href="/stack"
-                className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-border-strong/60 bg-surface/80 backdrop-blur-sm px-6 py-2.5 text-sm font-medium text-foreground shadow-sm transition-all duration-150 hover:bg-surface-2 hover:border-foreground/30 active:scale-[0.98]"
+                className="glass-card inline-flex min-h-[46px] items-center gap-2 rounded-xl px-6 py-2.5 text-sm font-medium text-foreground transition-all duration-200 hover:bg-surface-2 hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 View stack
               </a>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Architectural Tool Stack Tray */}
-      <div className="relative z-10 mx-auto mt-12 w-full max-w-[1360px] px-5 pb-12 sm:px-8 lg:px-12 lg:pb-16">
-        <div className="overflow-hidden rounded-2xl border border-border/80 bg-surface/40 p-4 sm:p-6 backdrop-blur-sm shadow-sm">
-          <div className="flex items-center justify-between border-b border-border/60 pb-4 mb-4 sm:mb-5">
-            <div className="flex items-baseline gap-2.5">
-              <span className="font-display text-xl font-medium tracking-tight text-foreground">
-                Tool stack
-              </span>
-              <span className="font-mono text-[11px] text-foreground-subtle font-medium">
-                {toolsData.length} tools
-              </span>
+          {/* Right Column: Apple Studio Precision Engineering Workbench */}
+          <div className="lg:col-span-5">
+            <div className="glass-panel group relative overflow-hidden rounded-3xl p-3 sm:p-4 shadow-craft transition-all duration-500 hover:shadow-craft-hover">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-black/5 bg-surface-2">
+                <img
+                  src={techStackHero}
+                  alt="Precision engineering and drafting workbench with calibrated tools, dials, and instruments"
+                  width={1376}
+                  height={768}
+                  loading="eager"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+              </div>
+              
+              <div className="mt-3 flex items-center justify-between px-2 font-mono text-[11px] text-foreground-muted">
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
+                  <span className="font-medium text-foreground">Workbench</span>
+                </div>
+                <span className="text-foreground-subtle">Precision instruments</span>
+              </div>
             </div>
-            <a
-              href="/stack"
-              className="group inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:text-foreground transition-colors"
-            >
-              <span>View stack</span>
-              <ArrowRight className="h-3 w-3 transition-transform duration-150 group-hover:translate-x-0.5" />
-            </a>
           </div>
+        </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
-            {toolsData.map((tool) => (
-              <ToolCard key={tool.id} tool={tool} />
-            ))}
+        {/* 3 Core Tools Stack Tray */}
+        <div className="mt-14 sm:mt-18">
+          <div className="glass-panel overflow-hidden rounded-3xl p-5 sm:p-8">
+            <div className="flex items-center justify-between border-b border-border/60 pb-5 mb-6">
+              <div className="flex items-baseline gap-2.5">
+                <span className="font-display text-2xl font-medium tracking-tight text-foreground">
+                  Tool stack
+                </span>
+                <span className="font-mono text-xs text-foreground-subtle font-medium">
+                  3 core tools
+                </span>
+              </div>
+              <a
+                href="/stack"
+                className="group inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:text-foreground transition-colors"
+              >
+                <span>View stack</span>
+                <ArrowRight className="h-3 w-3 transition-transform duration-150 group-hover:translate-x-0.5" />
+              </a>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+              {coreTools.map((tool) => (
+                <ToolCard key={tool.id} tool={tool} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

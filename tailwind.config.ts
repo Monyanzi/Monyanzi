@@ -24,7 +24,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Instrument Sans Variable", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
-        display: ["Newsreader Variable", "Georgia", "serif"],
+        display: ["Instrument Sans Variable", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
         mono: ["JetBrains Mono Variable", "Consolas", "monospace"],
       },
       colors: {

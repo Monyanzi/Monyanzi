@@ -106,7 +106,7 @@ const Stack = () => {
                     onClick={() => setSelectedCategory(cat)}
                     className={`shrink-0 text-sm pb-2 border-b-2 transition-colors duration-150 ${
                       active
-                        ? "border-foreground text-foreground font-medium"
+                        ? "border-accent text-foreground font-semibold"
                         : "border-transparent text-foreground-muted hover:text-foreground"
                     }`}
                   >

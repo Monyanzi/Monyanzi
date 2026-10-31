@@ -26,19 +26,19 @@ const PILLARS = [
 
 const SelectedWorkSection = () => {
   return (
-    <section id="work" className="relative border-b border-border py-14 lg:py-20">
+    <section id="work" className="relative border-b border-border py-16 lg:py-24">
       <div className="page-container relative z-10">
         <div className="mb-10">
-          <h2 className="font-display text-3xl font-medium tracking-[-0.02em] text-foreground sm:text-4xl">
+          <h2 className="font-display text-3xl font-medium tracking-[-0.02em] text-foreground sm:text-4xl lg:text-5xl">
             Shipped: PAWZA
           </h2>
-          <p className="mt-2 max-w-xl text-base text-foreground-muted">
+          <p className="mt-3 max-w-xl text-base sm:text-lg text-foreground-muted">
             Consumer directory built with AI coding agents and structured data.
           </p>
         </div>
 
         {/* Top Specification Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-border/80 bg-surface/70 px-5 py-3 font-mono text-[11px] text-foreground-muted shadow-sm backdrop-blur-sm">
+        <div className="glass-card flex flex-wrap items-center justify-between gap-4 rounded-2xl px-6 py-3.5 font-mono text-[11px] text-foreground-muted shadow-sm">
           <div className="flex flex-wrap items-center gap-4">
             <span className="font-semibold text-foreground">
               Case study 01
@@ -61,26 +61,26 @@ const SelectedWorkSection = () => {
         </div>
 
         {/* Main Content Split */}
-        <div className="grid lg:grid-cols-[1fr_1.15fr] gap-8 lg:gap-12 py-8 items-start">
+        <div className="grid lg:grid-cols-[1fr_1.15fr] gap-8 lg:gap-14 py-10 items-start">
           {/* Left: Product Architecture & Specs */}
           <div className="flex flex-col justify-between">
             <div>
-              <span className="inline-flex items-center rounded-full bg-surface-2 px-2.5 py-0.5 font-mono text-[10px] font-medium text-foreground-muted">
+              <span className="inline-flex items-center rounded-full bg-surface-2 px-3 py-1 font-mono text-[11px] font-medium text-foreground-muted border border-border/50">
                 Web application
               </span>
-              <h3 className="mt-3 font-display text-2xl sm:text-3xl font-medium tracking-tight text-foreground">
+              <h3 className="mt-4 font-display text-2xl sm:text-3xl font-medium tracking-tight text-foreground">
                 PAWZA directory and emergency triage
               </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-foreground-muted">
+              <p className="mt-3 text-sm sm:text-base leading-relaxed text-foreground-muted">
                 Pet discovery and 24/7 emergency veterinary triage.
               </p>
 
               {/* 4 Architectural Pillars */}
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {PILLARS.map(({ title, description }) => (
-                  <div key={title} className="rounded-lg border border-border/70 bg-surface/70 p-3 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
-                    <dt className="font-semibold text-foreground text-xs">{title}</dt>
-                    <dd className="text-xs text-foreground-muted mt-1 leading-relaxed">
+                  <div key={title} className="glass-card rounded-2xl p-4 transition-transform duration-200 hover:-translate-y-0.5">
+                    <dt className="font-semibold text-foreground text-xs sm:text-sm">{title}</dt>
+                    <dd className="text-xs text-foreground-muted mt-1.5 leading-relaxed">
                       {description}
                     </dd>
                   </div>
@@ -88,12 +88,12 @@ const SelectedWorkSection = () => {
               </div>
             </div>
 
-            <div className="mt-8 flex items-center">
+            <div className="mt-10 flex items-center">
               <a
                 href="https://pawza.lovable.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-foreground px-6 py-2.5 text-sm font-medium text-background shadow-keycap transition-all duration-150 hover:bg-accent hover:shadow-[0_4px_16px_rgba(18,74,44,0.28)] active:scale-[0.98]"
+                className="inline-flex min-h-[46px] items-center justify-center gap-2 rounded-xl bg-foreground px-6 py-2.5 text-sm font-medium text-background shadow-keycap transition-all duration-200 hover:bg-accent hover:shadow-[0_4px_20px_rgba(0,113,227,0.35)] hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 Visit PAWZA
                 <ArrowUpRight className="h-3.5 w-3.5" />
@@ -101,37 +101,37 @@ const SelectedWorkSection = () => {
             </div>
           </div>
 
-          {/* Right: Clean Editorial Application Window */}
+          {/* Right: Jony Ive Machined Application Window Frame */}
           <a
             href="https://pawza.lovable.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="group block overflow-hidden rounded-2xl border border-border/80 bg-surface shadow-craft transition-all duration-300 hover:shadow-craft-hover hover:-translate-y-0.5"
+            className="glass-panel group block overflow-hidden rounded-3xl p-3 sm:p-4 shadow-craft transition-all duration-500 hover:shadow-craft-hover hover:-translate-y-1"
           >
             {/* Window titlebar */}
-            <div className="flex items-center justify-between border-b border-border/60 bg-surface-2/60 px-4 py-2.5">
-              <div className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-border-strong/50" />
-                <span className="h-2 w-2 rounded-full bg-border-strong/50" />
-                <span className="h-2 w-2 rounded-full bg-border-strong/50" />
+            <div className="flex items-center justify-between rounded-t-2xl border-b border-border/60 bg-surface-2/60 px-4 py-3">
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-border-strong/60" />
+                <span className="h-2.5 w-2.5 rounded-full bg-border-strong/60" />
+                <span className="h-2.5 w-2.5 rounded-full bg-border-strong/60" />
               </div>
-              <div className="flex items-center gap-1.5 rounded-full border border-border/80 bg-surface/90 px-3 py-0.5 font-mono text-[10px] text-foreground-muted shadow-xs">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+              <div className="flex items-center gap-2 rounded-full border border-border/80 bg-surface/90 px-3.5 py-1 font-mono text-[10px] text-foreground-muted shadow-xs">
+                <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
                 <span>pawza.lovable.app</span>
               </div>
               <div className="w-8" />
             </div>
 
-            <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-b-2xl bg-muted">
               <img
                 src={pawzaPreview}
                 alt="PAWZA live application interface preview"
                 loading="eager"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.01]"
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
               />
             </div>
 
-            <div className="flex items-center justify-between border-t border-border/60 bg-surface px-4 py-3 font-mono text-[11px] text-foreground-muted">
+            <div className="flex items-center justify-between px-3 py-3 font-mono text-[11px] text-foreground-muted">
               <span>PAWZA, South Africa</span>
               <span className="inline-flex items-center gap-1 font-medium text-foreground group-hover:text-accent transition-colors">
                 Open site

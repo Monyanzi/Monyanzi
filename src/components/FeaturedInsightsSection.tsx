@@ -1,4 +1,5 @@
 import { articleSummaries, READING_TIMES } from "@/data/articleSummaries";
+import { ArrowRight } from "lucide-react";
 
 const featuredArticles = articleSummaries.slice(0, 3);
 
@@ -23,33 +24,32 @@ const ReadingTime = ({ id }: { id: string }) => {
 };
 
 const FeaturedInsightsSection = () => {
-  const [featured] = featuredArticles;
-  const remainingArticles = featuredArticles.slice(1);
+  const [first, second, third] = featuredArticles;
 
   return (
-    <section id="articles" className="relative z-10 border-b border-border bg-background py-14 lg:py-20">
+    <section id="articles" className="relative z-10 border-b border-border bg-background py-16 lg:py-24">
       <div className="mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-12">
-        <div className="mb-10 flex flex-col gap-4 border-b border-border lg:flex-row lg:items-end lg:justify-between">
-          <div className="pb-4">
-            <h2 className="font-display text-3xl sm:text-4xl font-medium tracking-[-0.02em] text-foreground">
+        <div className="mb-10 flex flex-col gap-5 border-b border-border/60 pb-6 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.02em] text-foreground">
               Playbooks and checklists
             </h2>
           </div>
 
-          <div className="flex flex-wrap items-center gap-1.5 rounded-full border border-border/80 bg-surface-2/60 p-1">
+          <div className="glass-pill flex flex-wrap items-center gap-1.5 rounded-full p-1.5 border border-border/80">
             {topicChips.map((chip, index) => (
               <a
                 key={chip.label}
                 href={chip.href}
                 className={
                   index === 0
-                    ? "rounded-full bg-surface text-foreground font-semibold px-3.5 py-1 text-xs shadow-sm"
-                    : "rounded-full text-foreground-muted hover:text-foreground px-3.5 py-1 text-xs font-medium transition-colors"
+                    ? "rounded-full bg-accent text-accent-foreground font-medium px-4 py-1.5 text-xs shadow-sm shadow-accent/25 transition-all"
+                    : "rounded-full text-foreground-muted hover:text-foreground hover:bg-surface-2/80 px-3.5 py-1.5 text-xs font-medium transition-colors"
                 }
               >
                 <span>{chip.label}</span>
                 {chip.label === "All" && (
-                  <span className="font-mono text-[10px] text-foreground-subtle ml-1">
+                  <span className="font-mono text-[10px] text-accent-foreground/80 ml-1">
                     ({articleSummaries.length})
                   </span>
                 )}
@@ -58,62 +58,122 @@ const FeaturedInsightsSection = () => {
           </div>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.25fr_1fr] items-start">
-          {featured && (
+        {/* Apple-grade Balanced Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-7 items-stretch">
+          {/* Bento Card 1: Major Spotlight (7 columns) */}
+          {first && (
             <a
-              href={`/insights/${featured.id}`}
-              className="group block rounded-2xl border border-border/80 bg-surface p-5 sm:p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-craft"
+              href={`/insights/${first.id}`}
+              className="glass-card group flex flex-col justify-between rounded-3xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-craft-hover lg:col-span-7"
             >
-              {featured.image && (
-                <div className="aspect-[16/10] overflow-hidden rounded-xl border border-black/5 bg-surface-2 shadow-inner">
-                  <img
-                    src={featured.image}
-                    alt={featured.title}
-                    loading="eager"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                  />
-                </div>
-              )}
-              <div className="mt-5">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center rounded-full bg-surface-2 px-2.5 py-0.5 font-mono text-[10px] font-medium text-foreground-muted">
-                    {featured.category}
-                  </span>
-                  <div className="flex items-center gap-2 font-mono text-[11px] text-foreground-subtle">
-                    <ReadingTime id={featured.id} />
+              <div>
+                {first.image && (
+                  <div className="aspect-[16/10] overflow-hidden rounded-2xl border border-border/80 bg-surface-2 shadow-xs mb-5">
+                    <img
+                      src={first.image}
+                      alt={first.title}
+                      loading="eager"
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                    />
                   </div>
+                )}
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="inline-flex items-center rounded-full bg-surface-2 px-3 py-1 font-mono text-[11px] font-medium text-foreground-muted border border-border/60">
+                    {first.category}
+                  </span>
+                  <ReadingTime id={first.id} />
                 </div>
-                <h3 className="mt-3 font-display text-2xl font-medium leading-snug text-foreground group-hover:text-accent transition-colors">
-                  {featured.title}
+                <h3 className="font-display text-2xl sm:text-3xl font-medium leading-snug text-foreground group-hover:text-accent transition-colors">
+                  {first.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-foreground-muted line-clamp-2">
-                  {featured.description}
+                <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-foreground-muted">
+                  {first.description}
                 </p>
+              </div>
+              <div className="mt-5 flex items-center gap-1.5 font-mono text-xs font-medium text-accent">
+                <span>Read guide</span>
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-1" />
               </div>
             </a>
           )}
 
-          <div className="flex flex-col gap-4">
-            {remainingArticles.map((article) => (
+          {/* Bento Column 2: Secondary Features (5 columns) */}
+          <div className="flex flex-col gap-6 sm:gap-7 lg:col-span-5 justify-between">
+            {second && (
               <a
-                key={article.id}
-                href={`/insights/${article.id}`}
-                className="group block rounded-xl border border-border/80 bg-surface p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-craft"
+                href={`/insights/${second.id}`}
+                className="glass-card group flex flex-col sm:grid sm:grid-cols-[145px_1fr] gap-4 sm:gap-5 items-center rounded-3xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-craft-hover flex-1"
               >
-                <div className="flex items-center justify-between font-mono text-[11px] text-foreground-muted mb-2.5">
-                  <span className="inline-flex items-center rounded-full bg-surface-2 px-2.5 py-0.5 font-mono text-[10px] font-medium text-foreground-muted">
-                    {article.category}
-                  </span>
-                  <ReadingTime id={article.id} />
+                {second.image && (
+                  <div className="aspect-[4/3] w-full sm:w-[145px] shrink-0 overflow-hidden rounded-2xl border border-border/80 bg-surface-2 shadow-xs">
+                    <img
+                      src={second.image}
+                      alt={second.title}
+                      loading="eager"
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    />
+                  </div>
+                )}
+                <div className="flex flex-col justify-between h-full min-w-0 w-full">
+                  <div>
+                    <div className="flex items-center justify-between font-mono text-[11px] text-foreground-muted mb-2">
+                      <span className="inline-flex items-center rounded-full bg-surface-2 px-2.5 py-0.5 font-mono text-[10px] font-medium text-foreground-muted border border-border/60">
+                        {second.category}
+                      </span>
+                      <ReadingTime id={second.id} />
+                    </div>
+                    <h3 className="font-display text-base sm:text-lg font-medium leading-snug text-foreground group-hover:text-accent transition-colors line-clamp-2">
+                      {second.title}
+                    </h3>
+                    <p className="mt-1.5 text-xs leading-relaxed text-foreground-muted line-clamp-2">
+                      {second.description}
+                    </p>
+                  </div>
+                  <div className="mt-3 flex items-center gap-1.5 font-mono text-xs font-medium text-accent">
+                    <span>Read checklist</span>
+                    <ArrowRight className="h-3 w-3 transition-transform duration-150 group-hover:translate-x-1" />
+                  </div>
                 </div>
-                <h3 className="font-display text-xl font-medium leading-snug text-foreground group-hover:text-accent transition-colors">
-                  {article.title}
-                </h3>
-                <p className="mt-2 text-xs leading-relaxed text-foreground-muted line-clamp-2">
-                  {article.description}
-                </p>
               </a>
-            ))}
+            )}
+
+            {third && (
+              <a
+                href={`/insights/${third.id}`}
+                className="glass-card group flex flex-col sm:grid sm:grid-cols-[145px_1fr] gap-4 sm:gap-5 items-center rounded-3xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-craft-hover flex-1"
+              >
+                {third.image && (
+                  <div className="aspect-[4/3] w-full sm:w-[145px] shrink-0 overflow-hidden rounded-2xl border border-border/80 bg-surface-2 shadow-xs">
+                    <img
+                      src={third.image}
+                      alt={third.title}
+                      loading="eager"
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    />
+                  </div>
+                )}
+                <div className="flex flex-col justify-between h-full min-w-0 w-full">
+                  <div>
+                    <div className="flex items-center justify-between font-mono text-[11px] text-foreground-muted mb-2">
+                      <span className="inline-flex items-center rounded-full bg-surface-2 px-2.5 py-0.5 font-mono text-[10px] font-medium text-foreground-muted border border-border/60">
+                        {third.category}
+                      </span>
+                      <ReadingTime id={third.id} />
+                    </div>
+                    <h3 className="font-display text-base sm:text-lg font-medium leading-snug text-foreground group-hover:text-accent transition-colors line-clamp-2">
+                      {third.title}
+                    </h3>
+                    <p className="mt-1.5 text-xs leading-relaxed text-foreground-muted line-clamp-2">
+                      {third.description}
+                    </p>
+                  </div>
+                  <div className="mt-3 flex items-center gap-1.5 font-mono text-xs font-medium text-accent">
+                    <span>Read workflow</span>
+                    <ArrowRight className="h-3 w-3 transition-transform duration-150 group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </a>
+            )}
           </div>
         </div>
       </div>

@@ -27,36 +27,36 @@ const starterPaths = [
 
 const CollaborateSection = () => {
   return (
-    <section id="start" className="relative z-10 overflow-hidden pt-14 lg:pt-20">
+    <section id="start" className="relative z-10 overflow-hidden pt-16 lg:pt-24">
       <div className="page-container">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div className="max-w-md">
-            <h2 className="font-display text-3xl font-medium tracking-[-0.02em] leading-tight text-foreground sm:text-4xl">
+            <h2 className="font-display text-3xl font-medium tracking-[-0.02em] leading-tight text-foreground sm:text-4xl lg:text-5xl">
               Where to begin
             </h2>
-            <p className="mt-2 text-base leading-relaxed text-foreground-muted">
+            <p className="mt-3 text-base sm:text-lg leading-relaxed text-foreground-muted">
               Select a guide to get started.
             </p>
           </div>
 
-          <div className="flex flex-col gap-3.5">
+          <div className="flex flex-col gap-4">
             {starterPaths.map(({ index, title, detail, href, cta }) => (
               <a
                 key={title}
                 href={href}
-                className="group grid grid-cols-[auto_1fr_auto] items-start gap-5 p-5 sm:p-6 rounded-xl border border-border/80 bg-surface shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-craft active:scale-[0.99]"
+                className="glass-card group grid grid-cols-[auto_1fr_auto] items-start gap-5 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-craft-hover active:scale-[0.99]"
               >
-                <span className="flex h-7 w-7 items-center justify-center rounded-md bg-accent/10 font-mono text-xs font-semibold text-accent tabular-nums">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 font-mono text-xs font-semibold text-accent tabular-nums">
                   {index}
                 </span>
                 <div className="min-w-0">
                   <h3 className="font-display text-xl font-medium leading-snug text-foreground group-hover:text-accent transition-colors">
                     {title}
                   </h3>
-                  <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-foreground-muted">
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-foreground-muted">
                     {detail}
                   </p>
-                  <span className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] font-medium text-foreground group-hover:text-accent transition-colors">
+                  <span className="mt-4 inline-flex items-center gap-1.5 font-mono text-[11px] font-medium text-foreground group-hover:text-accent transition-colors">
                     {cta}
                   </span>
                 </div>

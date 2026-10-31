@@ -45,7 +45,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>AI Tools for Small Business | AI Founder Garage</title>
+        <title>AI Tools for Small Business</title>
         <meta
           name="description"
           content="Workflows, code, and guides to build software and automate operations."
@@ -64,14 +64,14 @@ const Index = () => {
         <meta property="og:image" content={SOCIAL_IMAGE_URL} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="AI Founder Garage resource hub" />
+        <meta property="og:image:alt" content="Resource hub" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content={HOME_URL} />
         <meta name="twitter:title" content="AI Tools for Small Business" />
         <meta name="twitter:description" content="Workflows, code, and guides to build software and automate operations." />
         <meta name="twitter:image" content={SOCIAL_IMAGE_URL} />
-        <meta name="twitter:image:alt" content="AI Founder Garage resource hub" />
+        <meta name="twitter:image:alt" content="Resource hub" />
 
         <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>

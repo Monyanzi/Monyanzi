@@ -13,10 +13,8 @@ const SiteFooter = ({ className = "" }: SiteFooterProps) => {
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr] border-b border-border/60 pb-10">
           {/* Brand + Editorial Colophon */}
           <div className="max-w-sm">
-            <div className="flex items-baseline gap-2.5 mb-3">
-              <span className="font-display text-lg font-medium tracking-tight text-foreground">
-                AI Founder Garage
-              </span>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="h-2 w-2 rounded-full bg-accent" />
               <span className="inline-flex items-center rounded-full bg-surface-2 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-foreground-subtle font-semibold">
                 Edition 2026
               </span>
