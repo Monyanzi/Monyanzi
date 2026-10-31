@@ -78,7 +78,7 @@ const Stack = () => {
         <section className="relative overflow-hidden border-b border-border pt-28 pb-16 lg:pt-36 lg:pb-20">
           <div className="page-container relative z-10">
             <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-1.5 rounded-md border border-accent/20 bg-accent/10 px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider text-accent mb-4">
+              <span className="inline-flex items-center gap-1.5 rounded-md border border-accent/20 bg-accent/10 px-3 py-1 font-mono text-[11px] font-semibold text-accent mb-4">
                 <Layers className="h-3 w-3" />
                 Production Stack
               </span>
@@ -191,7 +191,7 @@ const Stack = () => {
                     {/* Linked Articles footer */}
                     {tool.relatedArticleIds.length > 0 && (
                       <div className="mt-6 pt-4 border-t border-border/60">
-                        <p className="text-[10px] font-mono font-semibold uppercase tracking-wider text-foreground-subtle mb-2">
+                        <p className="text-[10px] font-mono font-semibold text-foreground-subtle mb-2">
                           Featured in:
                         </p>
                         <div className="space-y-1.5">

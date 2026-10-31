@@ -179,7 +179,7 @@ const Insights = () => {
 
               {/* Audio briefing — full-width, below header */}
               <div className="mt-8 audio-card">
-                <p className="mb-3 inline-flex items-center rounded-md bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
+                <p className="mb-3 inline-flex items-center rounded-md bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold text-accent">
                   Listen
                 </p>
                 <AudioBriefingCard briefing={insightsArticlesBriefing} className="w-full" />
@@ -241,7 +241,7 @@ const Insights = () => {
             <div className="page-container">
               {/* Section separator */}
               <div className="mb-10 border-t border-border pt-10 flex items-center gap-3">
-                <span className="inline-flex items-center rounded-md bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
+                <span className="inline-flex items-center rounded-md bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold text-accent">
                   Ecosystem
                 </span>
               </div>

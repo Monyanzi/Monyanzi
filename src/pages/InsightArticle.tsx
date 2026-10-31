@@ -449,10 +449,10 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             {/* Back link — more prominent */}
             <a
               href="/insights"
-              className="inline-flex items-center gap-2.5 rounded-md border border-border bg-surface px-4 py-2 text-sm font-semibold text-foreground-muted hover:text-foreground hover:border-border-strong transition-interactive duration-200 mb-8 lg:mb-10 group"
+              className="inline-flex min-h-[42px] items-center gap-2 rounded-md border border-border-strong bg-transparent px-5 py-2 text-sm font-medium text-foreground transition-colors duration-150 hover:bg-surface-2 mb-8 lg:mb-10 group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              All Articles
+              All articles
             </a>
 
             <header>
@@ -503,7 +503,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             <div>
               <div className="mb-6 lg:mb-8">
                 <div className="audio-card">
-                  <p className="mb-3 inline-flex items-center rounded-md bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
+                  <p className="mb-3 inline-flex items-center rounded-md bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold text-accent">
                     Listen
                   </p>
                   <AudioBriefingCard
@@ -525,7 +525,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             <div className="hidden lg:block">
               {tocItems.length > 0 && (
                 <div className="article-toc">
-                  <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-widest text-foreground-subtle">Contents</p>
+                  <p className="mb-3 font-mono text-[10px] font-bold text-foreground-subtle">Contents</p>
                   <nav aria-label="Article table of contents">
                     {tocItems.map((item) => (
                       <a key={item.id} href={`#${item.id}`}>
@@ -558,7 +558,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
               <div className="mt-8 rounded-lg border border-accent/20 bg-accent/5 p-6">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-accent">
+                    <span className="font-mono text-[11px] font-semibold text-accent">
                       Part {pathInfo.partNumber} of {pathInfo.totalParts} · {pathInfo.path.title}
                     </span>
                     <p className="mt-1 text-sm text-foreground-muted">
@@ -580,7 +580,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
 
             {/* Bottom share section */}
             <div className="mt-8 pt-8 border-t border-border">
-              <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-foreground-subtle mb-4">
+              <p className="font-mono text-[10px] font-bold text-foreground-subtle mb-4">
                 Share this article
               </p>
               <ShareBar url={articleUrl} title={article.title} />

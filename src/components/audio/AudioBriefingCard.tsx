@@ -58,7 +58,7 @@ const AudioBriefingCard = ({ briefing, compact = false, className = "" }: AudioB
         </button>
 
         <div className="flex items-center gap-2">
-          <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-accent">
+          <span className="font-mono text-[10px] font-semibold text-accent">
             Audio
           </span>
           <span className="text-xs font-semibold text-foreground whitespace-nowrap">

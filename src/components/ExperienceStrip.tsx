@@ -35,7 +35,7 @@ const ExperienceStrip = () => {
                 <span className="font-mono text-[11px] font-medium text-accent tabular-nums">
                   {index}
                 </span>
-                <h2 className="text-xs font-semibold uppercase tracking-wider text-foreground">
+                <h2 className="text-xs font-semibold text-foreground">
                   {label}
                 </h2>
               </div>

@@ -68,7 +68,7 @@ const ArticleCard = memo(({ id, category, title, description, image, featured = 
               <div className="mb-4 flex items-center justify-between border-b border-border/70 pb-3 font-mono text-[11px] tabular-nums">
                 <div className="flex items-center gap-2.5">
                   <span className="badge-category">{category}</span>
-                  <span className="text-accent font-semibold uppercase tracking-wider">Lead Dispatch</span>
+                  <span className="text-accent font-semibold">Lead Dispatch</span>
                 </div>
                 {readingTime && (
                   <span className="text-foreground-subtle">{readingTime} min read</span>

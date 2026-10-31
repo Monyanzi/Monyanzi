@@ -45,7 +45,7 @@ const SelectedWorkSection = () => {
           {/* Top Specification Bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border bg-surface-2/40 px-6 py-3.5 font-mono text-[11px]">
             <div className="flex flex-wrap items-center gap-4 text-foreground-muted">
-              <span className="font-semibold uppercase tracking-wider text-foreground">
+              <span className="font-semibold text-foreground">
                 Case Study 01
               </span>
               <span className="text-border-strong">/</span>
@@ -70,7 +70,7 @@ const SelectedWorkSection = () => {
             {/* Left: Product Architecture & Specs */}
             <div className="flex flex-col justify-between p-6 sm:p-8 lg:p-10">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-accent font-semibold">
+                <p className="font-mono text-[10px] text-accent font-semibold">
                   Consumer Web Application
                 </p>
                 <h3 className="mt-2 font-display text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
@@ -106,9 +106,9 @@ const SelectedWorkSection = () => {
                   href="https://pawza.lovable.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-md bg-foreground px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-background transition-colors duration-150 hover:bg-accent"
+                  className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-md bg-foreground px-5 py-2 text-sm font-medium text-background transition-colors duration-150 hover:bg-accent"
                 >
-                  Launch Live Application
+                  Launch live application
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
                 <span className="font-mono text-[11px] text-foreground-subtle">

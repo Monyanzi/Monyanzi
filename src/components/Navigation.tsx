@@ -98,9 +98,6 @@ const Navigation = () => {
               <span className="font-display text-lg font-medium tracking-tight text-foreground">
                 AI Founder Garage
               </span>
-              <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-[0.12em] text-foreground-subtle">
-                Vol. 26
-              </span>
             </a>
 
             <nav

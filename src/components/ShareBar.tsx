@@ -29,7 +29,7 @@ const ShareBar = ({ url, title, className = "", variant = "inline" }: ShareBarPr
     return (
         <div className={`flex ${isSidebar ? "flex-col" : ""} items-center gap-2 ${className}`.trim()}>
             {isSidebar && (
-                <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-foreground-subtle mb-1">
+                <span className="font-mono text-[9px] font-bold text-foreground-subtle mb-1">
                     Share
                 </span>
             )}

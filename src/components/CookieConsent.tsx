@@ -66,7 +66,7 @@ const CookieConsent = ({ onConsentChange }: CookieConsentProps) => {
             <div className="p-5 lg:p-6">
               <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6">
                 <div className="flex-1">
-                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-foreground-subtle mb-1">
+                  <p className="font-mono text-[10px] font-semibold text-foreground-subtle mb-1">
                     Privacy &amp; Telemetry
                   </p>
                   <p className="text-xs sm:text-sm text-foreground-muted leading-relaxed">
@@ -77,21 +77,21 @@ const CookieConsent = ({ onConsentChange }: CookieConsentProps) => {
                 <div className="flex flex-wrap items-center gap-2.5 lg:flex-shrink-0">
                   <button
                     onClick={handleRejectAll}
-                    className="px-4 py-2 rounded border border-border bg-background font-mono text-xs uppercase tracking-wider text-foreground-muted transition-colors hover:border-border-strong hover:text-foreground"
+                    className="inline-flex min-h-[42px] items-center gap-2 rounded-md border border-border-strong bg-transparent px-5 py-2 text-sm font-medium text-foreground transition-colors duration-150 hover:bg-surface-2"
                   >
-                    Essential Only
+                    Essential only
                   </button>
                   <button
                     onClick={toggleDetails}
-                    className="px-4 py-2 rounded border border-border bg-background font-mono text-xs uppercase tracking-wider text-foreground-muted transition-colors hover:border-border-strong hover:text-foreground"
+                    className="inline-flex min-h-[42px] items-center gap-2 rounded-md border border-border-strong bg-transparent px-5 py-2 text-sm font-medium text-foreground transition-colors duration-150 hover:bg-surface-2"
                   >
                     Configure
                   </button>
                   <button
                     onClick={handleAcceptAll}
-                    className="px-4 py-2 rounded bg-foreground font-mono text-xs font-medium uppercase tracking-wider text-background transition-colors hover:bg-accent"
+                    className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-md bg-foreground px-5 py-2 text-sm font-medium text-background transition-colors duration-150 hover:bg-accent"
                   >
-                    Accept All
+                    Accept all
                   </button>
                 </div>
               </div>
@@ -112,8 +112,8 @@ const CookieConsent = ({ onConsentChange }: CookieConsentProps) => {
                             <p className="text-xs font-semibold text-foreground">Essential Storage</p>
                             <p className="text-xs text-foreground-muted">Required for theme and consent state</p>
                           </div>
-                          <span className="font-mono text-[10px] uppercase tracking-wider text-accent font-semibold">
-                            Always Active
+                          <span className="font-mono text-[10px] text-accent font-semibold">
+                            Always active
                           </span>
                         </div>
 
@@ -140,9 +140,9 @@ const CookieConsent = ({ onConsentChange }: CookieConsentProps) => {
 
                       <button
                         onClick={handleSavePreferences}
-                        className="mt-5 px-4 py-2 rounded bg-foreground font-mono text-xs font-medium uppercase tracking-wider text-background transition-colors hover:bg-accent"
+                        className="mt-5 inline-flex min-h-[42px] items-center justify-center gap-2 rounded-md bg-foreground px-5 py-2 text-sm font-medium text-background transition-colors duration-150 hover:bg-accent"
                       >
-                        Save Preferences
+                        Save preferences
                       </button>
                     </div>
                   </motion.div>

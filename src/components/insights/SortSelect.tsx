@@ -15,7 +15,7 @@ const SortSelect = memo(({ value, onChange }: SortSelectProps) => {
         aria-label="Sort insights"
         value={value}
         onChange={(e) => onChange(e.target.value as SortOption)}
-        className="appearance-none rounded border border-border bg-surface py-1.5 pl-3 pr-8 font-mono text-[11px] uppercase tracking-wider text-foreground outline-none transition-colors duration-150 hover:border-border-strong focus:border-border-strong cursor-pointer"
+        className="appearance-none rounded-md border border-border bg-surface py-1.5 pl-3 pr-8 font-mono text-[11px] text-foreground outline-none transition-colors duration-150 hover:border-border-strong focus:border-border-strong cursor-pointer"
       >
         <option value="default">Sort: Latest</option>
         <option value="alphabetical">Sort: A–Z</option>

@@ -118,7 +118,7 @@ const SearchModal = ({
                       <p className="text-sm font-medium text-foreground truncate group-hover:text-accent transition-colors">
                         {article.title}
                       </p>
-                      <p className="font-mono text-[10px] uppercase tracking-wider text-foreground-subtle mt-0.5">
+                      <p className="font-mono text-[10px] text-foreground-subtle mt-0.5">
                         {article.category}
                       </p>
                     </div>

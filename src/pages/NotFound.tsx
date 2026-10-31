@@ -13,7 +13,7 @@ const NotFound = () => {
       <Navigation />
       <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6 pt-20">
         <div className="max-w-md text-center border border-border bg-surface p-8 sm:p-10 rounded-lg">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent mb-2">
+          <p className="font-mono text-xs font-semibold text-accent mb-2">
             Error 404
           </p>
           <h1 className="font-display text-3xl font-medium text-foreground mb-3">
@@ -25,16 +25,16 @@ const NotFound = () => {
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <a
               href="/"
-              className="inline-flex items-center gap-2 rounded bg-foreground px-5 py-2.5 font-mono text-xs font-medium uppercase tracking-wider text-background transition-colors hover:bg-accent"
+              className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-md bg-foreground px-5 py-2 text-sm font-medium text-background transition-colors duration-150 hover:bg-accent"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
-              Return to Index
+              Return to index
             </a>
             <a
               href="/insights"
-              className="inline-flex items-center gap-2 rounded border border-border bg-background px-5 py-2.5 font-mono text-xs font-medium uppercase tracking-wider text-foreground transition-colors hover:border-border-strong"
+              className="inline-flex min-h-[42px] items-center gap-2 rounded-md border border-border-strong bg-transparent px-5 py-2 text-sm font-medium text-foreground transition-colors duration-150 hover:bg-surface-2"
             >
-              Browse Field Guides
+              Browse field guides
             </a>
           </div>
         </div>

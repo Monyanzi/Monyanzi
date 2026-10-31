@@ -42,7 +42,7 @@ const FeaturedInsightsSection = () => {
               <a
                 key={chip.label}
                 href={chip.href}
-                className={`inline-flex items-center rounded px-3 py-1 font-mono text-[11px] uppercase tracking-wider transition-colors duration-150 ${
+                className={`inline-flex items-center rounded px-3 py-1 font-mono text-[11px] transition-colors duration-150 ${
                   index === 0
                     ? "bg-foreground text-background"
                     : "border border-border bg-surface text-foreground-muted hover:border-border-strong hover:text-foreground"
@@ -80,10 +80,10 @@ const FeaturedInsightsSection = () => {
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.42)_45%,rgba(0,0,0,0.86))]" />
                 <div className="relative z-10 p-6 sm:p-8">
                   <div className="mb-3 flex flex-wrap items-center gap-3">
-                    <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-white/90 border border-white/25 bg-black/30 px-2 py-0.5 rounded-sm">
+                    <span className="font-mono text-[10px] font-semibold text-white/90 border border-white/25 bg-black/30 px-2 py-0.5 rounded-sm">
                       {featured.category}
                     </span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-white/70">
+                    <span className="font-mono text-[10px] text-white/70">
                       Lead Guide
                     </span>
                     <ReadingTime id={featured.id} tone="light" />

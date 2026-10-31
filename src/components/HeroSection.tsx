@@ -23,7 +23,7 @@ const ToolCard = ({ tool, index }: { tool: ToolItem; index: number }) => {
           </span>
         </div>
         {tool.primary ? (
-          <span className="font-mono text-[10px] uppercase tracking-wider text-accent font-semibold">
+          <span className="font-mono text-[10px] text-accent font-semibold">
             Core
           </span>
         ) : (
@@ -64,7 +64,7 @@ const HeroSection = () => {
         <div className="relative mx-auto flex min-h-[600px] w-full max-w-[1360px] flex-col justify-start px-5 pb-36 pt-28 sm:px-8 sm:pt-32 lg:min-h-[780px] lg:px-12 lg:pt-36">
           <div className="max-w-[760px]">
             <div>
-              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-foreground-muted">
+              <p className="font-mono text-[11px] font-medium text-foreground-muted">
                 Field Manual &middot; Small Business AI &amp; Automation
               </p>
             </div>
@@ -95,16 +95,16 @@ const HeroSection = () => {
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
               <a
                 href="/insights"
-                className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-md bg-foreground px-5 py-2 text-xs font-semibold uppercase tracking-wider text-background transition-colors duration-150 hover:bg-accent"
+                className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-md bg-foreground px-5 py-2 text-sm font-medium text-background transition-colors duration-150 hover:bg-accent"
               >
-                Read Field Guides
+                Read field guides
                 <ArrowRight className="h-3.5 w-3.5" />
               </a>
               <a
                 href="/stack"
-                className="inline-flex min-h-[42px] items-center gap-2 rounded-md border border-foreground/20 bg-surface/90 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-foreground transition-colors duration-150 hover:bg-surface-2"
+                className="inline-flex min-h-[42px] items-center gap-2 rounded-md border border-border-strong bg-transparent px-5 py-2 text-sm font-medium text-foreground transition-colors duration-150 hover:bg-surface-2"
               >
-                Inspect 2026 Stack
+                Inspect 2026 stack
               </a>
             </div>
           </div>
@@ -115,7 +115,7 @@ const HeroSection = () => {
       <div className="relative z-10 mx-auto -mt-28 w-full max-w-[1360px] px-5 pb-12 sm:px-8 lg:-mt-32 lg:px-12 lg:pb-16">
         <div className="overflow-hidden rounded-lg border border-border bg-surface shadow-card">
           <div className="flex items-center justify-between border-b border-border bg-surface-2/50 px-4 py-2.5 font-mono text-[11px]">
-            <span className="uppercase tracking-[0.1em] text-foreground-muted">
+            <span className="text-foreground-muted">
               Index 01 &mdash; Production Tool Stack (12 Tested Systems)
             </span>
             <a

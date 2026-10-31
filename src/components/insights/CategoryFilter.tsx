@@ -14,7 +14,7 @@ const CategoryFilter = memo(({ categories, activeCategory, onCategoryChange, cou
       <button
         type="button"
         onClick={() => onCategoryChange(null)}
-        className={`shrink-0 rounded px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider transition-colors duration-150 ${
+        className={`shrink-0 rounded px-3 py-1.5 font-mono text-[11px] transition-colors duration-150 ${
           activeCategory === null
             ? "bg-foreground text-background font-semibold"
             : "border border-border bg-surface text-foreground-muted hover:border-border-strong hover:text-foreground"
@@ -34,7 +34,7 @@ const CategoryFilter = memo(({ categories, activeCategory, onCategoryChange, cou
             key={category}
             type="button"
             onClick={() => onCategoryChange(category)}
-            className={`shrink-0 rounded px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider transition-colors duration-150 ${
+            className={`shrink-0 rounded px-3 py-1.5 font-mono text-[11px] transition-colors duration-150 ${
               active
                 ? "bg-foreground text-background font-semibold"
                 : "border border-border bg-surface text-foreground-muted hover:border-border-strong hover:text-foreground"

@@ -57,7 +57,7 @@ const ReadingPathsSection = memo(({
                 <div className="mt-6 pt-4 border-t border-border/70">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-foreground-subtle">
+                      <span className="font-mono text-[10px] text-foreground-subtle">
                         Tools:
                       </span>
                       <div className="flex -space-x-1 overflow-hidden">
