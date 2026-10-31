@@ -147,8 +147,8 @@ Everywhere else, remove uppercase and any `tracking-[...]`, `tracking-wide`, `tr
 - [x] **T3.9 "Where to begin", footer and 404** — Refactor `CollaborateSection.tsx`, `SiteFooter.tsx`, `NotFound.tsx`.
 
 ### Phase P4: Copy Pass
-- [ ] **T4.1 Apply copy dictionary** — Enforce §2.8 exact replacements.
-- [ ] **T4.2 Em-dash and Title Case pass** — Replace visible em-dashes and convert non-title headings to sentence case.
+- [x] **T4.1 Apply copy dictionary** — Enforce §2.8 exact replacements.
+- [x] **T4.2 Em-dash and Title Case pass** — Replace visible em-dashes and convert non-title headings to sentence case.
 
 ### Phase P5: Incremental Stack Upgrades
 - [ ] **T5.1 react-helmet → react-helmet-async** — Migrate helmet dependency across 5 pages.
@@ -176,7 +176,8 @@ Everywhere else, remove uppercase and any `tracking-[...]`, `tracking-wide`, `tr
 | T1.1–T1.4 | DONE | 5 | DESIGN.md, unslop skill, tokens (radius, jacarta) updated; 3 external skills vendored |
 | T2.1–T2.10 | DONE | 0 | Dropped page transitions & hero motion; purged glass/premium/purple/blur/glow/hover lift/jacarta; tight radius & button normalization applied; unused animations removed |
 | T3.1–T3.9 | DONE | 0 | Redesigned Home hero, removed value strip, lead+list featured insights, numbered reading paths, editorial PAWZA case study, stack ledger table, insights index listing, book-like article page, simplified start/footer/404 |
-| T4.1–T4.2 | | | |
+| T4.1–T4.2 | DONE | 0 | Removed themed jargon per §2.8 copy dictionary; converted non-title headings to sentence case; replaced UI em-dashes |
+| T5.1–T5.2 | | | |
 | T4.1–T4.2 | | | |
 | T5.1–T5.2 | | | |
 | T6.1–T6.3 | | | |
