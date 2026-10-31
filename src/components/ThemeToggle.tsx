@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Sun, Moon } from "lucide-react";
-import { getStoredTheme, getSystemTheme, toggleTheme, type Theme } from "@/utils/theme";
+import { getStoredTheme, getSystemTheme, toggleTheme } from "@/utils/theme";
 
 export const ThemeToggle = ({ className = "" }: { className?: string }) => {
   const [isDark, setIsDark] = useState(false);

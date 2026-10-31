@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import ArticleCard from "@/components/insights/ArticleCard";

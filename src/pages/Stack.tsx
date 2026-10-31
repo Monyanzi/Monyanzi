@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import SiteFooter from "@/components/SiteFooter";
-import { toolsData, type ToolItem } from "@/data/tools";
+import { toolsData } from "@/data/tools";
 import { articleSummaries } from "@/data/articleSummaries";
 import { SITE_NAME, SITE_URL, SOCIAL_IMAGE_URL } from "@/config/site";
 import { ExternalLink, Layers, ArrowRight } from "lucide-react";
