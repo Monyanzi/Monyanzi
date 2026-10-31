@@ -124,16 +124,16 @@ Everywhere else, remove uppercase and any `tracking-[...]`, `tracking-wide`, `tr
 - [x] **T1.4 (Optional) Vendor external design skills** — Vendor into `.agent/skills/` if permissive.
 
 ### Phase P2: Global Primitives
-- [ ] **T2.1 Remove route page transitions** — Replace AnimatePresence in `App.tsx`, delete `PageTransition.tsx`.
-- [ ] **T2.2 Remove hero stagger animation** — Remove motion in `HeroSection.tsx`. Target: tsc = 0.
-- [ ] **T2.3 Purge glass, premium cards and purple CSS** — Clean `src/index.css`, `Insights.tsx`, `InsightArticle.tsx`.
-- [ ] **T2.4 Remove backdrop blur from components** — Clean blur and opacity classes in navigation and cards.
-- [ ] **T2.5 Remove radial glow blobs and alternating colours** — Clean `Insights.tsx`, `Stack.tsx`.
-- [ ] **T2.6 Remove hover lift and bounce** — Remove translate, scale, shadow in `ShareBar.tsx`, `BottomNavigation.tsx`, `InsightArticle.tsx`.
-- [ ] **T2.7 Replace jacarta usages** — Replace with accent or foreground across components.
-- [ ] **T2.8 Apply radius map site-wide** — Map `rounded-(full|xl|2xl|3xl)` to `rounded-lg` / `rounded-md`.
-- [ ] **T2.9 Buttons and uppercase pass** — Normalize buttons to §2.4 and enforce uppercase allowlist §2.3.
-- [ ] **T2.10 Remove unused keyframes** — Clean Tailwind animations and CSS keyframes.
+- [x] **T2.1 Remove route page transitions** — Replace AnimatePresence in `App.tsx`, delete `PageTransition.tsx`.
+- [x] **T2.2 Remove hero stagger animation** — Remove motion in `HeroSection.tsx`. Target: tsc = 0.
+- [x] **T2.3 Purge glass, premium cards and purple CSS** — Clean `src/index.css`, `Insights.tsx`, `InsightArticle.tsx`.
+- [x] **T2.4 Remove backdrop blur from components** — Clean blur and opacity classes in navigation and cards.
+- [x] **T2.5 Remove radial glow blobs and alternating colours** — Clean `Insights.tsx`, `Stack.tsx`.
+- [x] **T2.6 Remove hover lift and bounce** — Remove translate, scale, shadow in `ShareBar.tsx`, `BottomNavigation.tsx`, `InsightArticle.tsx`, `ThemeToggle.tsx`, `CollaborateSection.tsx`, `Stack.tsx`.
+- [x] **T2.7 Replace jacarta usages** — Replace with accent or foreground across components.
+- [x] **T2.8 Apply radius map site-wide** — Map `rounded-(full|xl|2xl|3xl)` to `rounded-lg` / `rounded-md`.
+- [x] **T2.9 Buttons and uppercase pass** — Normalize buttons to §2.4 and enforce uppercase allowlist §2.3.
+- [x] **T2.10 Remove unused keyframes** — Clean Tailwind animations and CSS keyframes.
 
 ### Phase P3: Page Redesigns
 - [ ] **T3.1 Home hero** — Clean eyebrow, quiet stats strip, un-overlap tool panel, remove tile numbers.
@@ -174,7 +174,7 @@ Everywhere else, remove uppercase and any `tracking-[...]`, `tracking-wide`, `tr
 | T0.7 | DONE | 5 | Added /stack SPA fallback rewrite and updated route test |
 | T0.8 | DONE | 5 | Corrected zero-padding using padStart(2, "0") |
 | T1.1–T1.4 | DONE | 5 | DESIGN.md, unslop skill, tokens (radius, jacarta) updated; 3 external skills vendored |
-| T2.1–T2.10 | | 0 after T2.2 | |
+| T2.1–T2.10 | DONE | 0 | Dropped page transitions & hero motion; purged glass/premium/purple/blur/glow/hover lift/jacarta; tight radius & button normalization applied; unused animations removed |
 | T3.1–T3.9 | | | |
 | T4.1–T4.2 | | | |
 | T5.1–T5.2 | | | |
