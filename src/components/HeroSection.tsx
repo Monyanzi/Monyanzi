@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { articleSummaries } from "@/data/articleSummaries";
 import heroGarage from "@/assets/hero-garage.jpg";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
@@ -43,29 +42,6 @@ const ToolCard = ({ tool, index }: { tool: ToolItem; index: number }) => {
   );
 };
 
-const heroContainerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.06,
-      delayChildren: 0.04,
-    },
-  },
-};
-
-const heroItemVariants = {
-  hidden: { opacity: 0, y: 12 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.45,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
 const HeroSection = () => {
   const articleCount = articleSummaries.length;
   const coreToolCount = toolsData.filter((t) => t.primary).length;
@@ -86,37 +62,23 @@ const HeroSection = () => {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-background via-background/60 to-transparent" />
 
         <div className="relative mx-auto flex min-h-[600px] w-full max-w-[1360px] flex-col justify-start px-5 pb-36 pt-28 sm:px-8 sm:pt-32 lg:min-h-[780px] lg:px-12 lg:pt-36">
-          <motion.div
-            variants={heroContainerVariants}
-            initial="hidden"
-            animate="visible"
-            className="max-w-[760px]"
-          >
-            <motion.div variants={heroItemVariants}>
+          <div className="max-w-[760px]">
+            <div>
               <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-foreground-muted">
                 Field Manual &middot; Small Business AI &amp; Automation
               </p>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              variants={heroItemVariants}
-              className="mt-4 text-balance font-display text-[2.75rem] font-medium leading-[1.01] tracking-[-0.03em] text-foreground sm:text-[3.85rem] lg:text-[4.65rem]"
-            >
+            <h1 className="mt-4 text-balance font-display text-[2.75rem] font-medium leading-[1.01] tracking-[-0.03em] text-foreground sm:text-[3.85rem] lg:text-[4.65rem]">
               Practical AI systems for small business.
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              variants={heroItemVariants}
-              className="mt-5 max-w-[34rem] text-base sm:text-lg leading-relaxed text-foreground-muted"
-            >
+            <p className="mt-5 max-w-[34rem] text-base sm:text-lg leading-relaxed text-foreground-muted">
               Tested workflows, working prompts, and production tools to build software and automate operations without a large engineering team.
-            </motion.p>
+            </p>
 
             {/* Architectural Index Ledger (replaces slop pills) */}
-            <motion.div
-              variants={heroItemVariants}
-              className="mt-6 inline-flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-foreground/15 bg-surface/85 px-4 py-2 font-mono text-[11px] text-foreground-muted backdrop-blur-sm tabular-nums"
-            >
+            <div className="mt-6 inline-flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-foreground/15 bg-surface/85 px-4 py-2 font-mono text-[11px] text-foreground-muted backdrop-blur-sm tabular-nums">
               <span>
                 <strong className="font-semibold text-foreground">{String(coreToolCount).padStart(2, "0")}</strong> Core Models
               </span>
@@ -128,12 +90,9 @@ const HeroSection = () => {
               <span>
                 <strong className="font-semibold text-foreground">{String(articleCount).padStart(2, "0")}</strong> Field Guides
               </span>
-            </motion.div>
+            </div>
 
-            <motion.div
-              variants={heroItemVariants}
-              className="mt-8 flex flex-wrap items-center gap-3.5"
-            >
+            <div className="mt-8 flex flex-wrap items-center gap-3.5">
               <a
                 href="/insights"
                 className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-md bg-foreground px-5 py-2 text-xs font-semibold uppercase tracking-wider text-background transition-colors duration-150 hover:bg-accent"
@@ -147,8 +106,8 @@ const HeroSection = () => {
               >
                 Inspect 2026 Stack
               </a>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
 
