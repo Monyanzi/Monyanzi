@@ -412,15 +412,15 @@ export const articles: Record<string, ArticleContent> = {
             See it in action: PAWZA
           </h2>
           <p className="text-sm text-foreground-muted mb-5 max-w-2xl">
-            Want to see what a lean stack ships? Inspect <strong className="text-foreground font-semibold">PAWZA</strong>, a live South African pet care and emergency veterinary directory built with AI coding tools and modern web architecture.
+            Want to see what a lean stack ships? Take a look at <strong className="text-foreground font-semibold">PAWZA</strong>, a live South African pet care and emergency veterinary directory built with AI coding tools and modern web architecture.
           </p>
           <a
             href="https://pawza.lovable.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded bg-foreground px-4 py-2 font-mono text-xs font-medium uppercase tracking-wider text-background transition-colors hover:bg-accent"
+            className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-md bg-foreground px-5 py-2 text-sm font-medium text-background transition-colors duration-150 hover:bg-accent"
           >
-            <span>Inspect PAWZA Live</span>
+            <span>Visit PAWZA</span>
             <span>&rarr;</span>
           </a>
         </section>

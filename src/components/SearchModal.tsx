@@ -101,7 +101,7 @@ const SearchModal = ({
             <div className="max-h-[50vh] overflow-y-auto divide-y divide-border/60">
               {results.length === 0 ? (
                 <p className="text-xs font-mono text-foreground-subtle text-center py-10">
-                  No dispatches match &ldquo;{query}&rdquo;
+                  No guides match &ldquo;{query}&rdquo;
                 </p>
               ) : (
                 results.map((article, idx) => (
