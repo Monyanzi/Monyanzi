@@ -12,14 +12,14 @@ const NotFound = () => {
       </Helmet>
       <Navigation />
       <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6 pt-20">
-        <div className="max-w-md text-center border border-border bg-surface p-8 sm:p-10 rounded-lg">
+        <div className="max-w-md text-center">
           <p className="font-mono text-xs font-semibold text-accent mb-2">
             Error 404
           </p>
-          <h1 className="font-display text-3xl font-medium text-foreground mb-3">
-            Dispatch not found
+          <h1 className="font-display text-3xl sm:text-4xl font-medium tracking-tight text-foreground mb-3">
+            Page not found
           </h1>
-          <p className="mb-8 text-xs sm:text-sm leading-relaxed text-foreground-muted">
+          <p className="mb-8 text-sm leading-relaxed text-foreground-muted">
             The page you requested does not exist or has been relocated in the archive.
           </p>
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">

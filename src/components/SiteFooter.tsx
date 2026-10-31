@@ -79,7 +79,7 @@ const SiteFooter = ({ className = "" }: SiteFooterProps) => {
         {/* Bottom Ledger */}
         <div className="pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 font-mono text-[11px] text-foreground-subtle">
           <span>&copy; {currentYear} Moses Nyanzi &middot; Published from South Africa</span>
-          <span>Set in Newsreader, Plus Jakarta Sans &amp; JetBrains Mono</span>
+          <span>Set in Newsreader, Instrument Sans &amp; JetBrains Mono</span>
         </div>
       </div>
     </footer>
