@@ -27,16 +27,17 @@ Independent publication, not a SaaS template.
   - Dark mode: `30 24% 72%`
 
 ## 4. Shape
-- **Token:** `--radius`: `0.25rem` (4px). Delete Tailwind `borderRadius` `4xl` and `5xl`.
+- **Token:** `--radius`: `0.75rem` (12px continuous squircle).
 - **Radius Map:**
-  - `rounded-3xl`, `rounded-2xl`, `rounded-xl` → `rounded-lg` (4px via token)
-  - `rounded-full` → `rounded-md` (Exception: keep as-is when the element is a dot `h-1.5 w-1.5`, `h-2 w-2`, a toggle switch track or knob in `CookieConsent`, or a circular play button in the audio player)
-  - `lg:rounded-2xl`, `lg:rounded-xl` → delete
+  - `rounded-2xl`: 1.25rem (outer tray frames and showcase cards)
+  - `rounded-xl`: 1rem (instrument cards and preview plates)
+  - `rounded-lg`: 0.75rem (buttons, pills, and tool logo jewel-boxes)
+  - `rounded-full`: for badge pills, indicators, and circular controls
 
 ## 5. Components
 - **Buttons:**
-  - **Primary:** `inline-flex min-h-[42px] items-center justify-center gap-2 rounded-md bg-foreground px-5 py-2 text-sm font-medium text-background transition-colors duration-150 hover:bg-accent`
-  - **Secondary:** `inline-flex min-h-[42px] items-center gap-2 rounded-md border border-border-strong bg-transparent px-5 py-2 text-sm font-medium text-foreground transition-colors duration-150 hover:bg-surface-2`
+  - **Primary:** `inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-foreground px-6 py-2.5 text-sm font-medium text-background shadow-keycap transition-all duration-150 hover:bg-accent hover:shadow-[0_4px_16px_rgba(18,74,44,0.28)] active:scale-[0.98]`
+  - **Secondary:** `inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-border-strong/60 bg-surface/80 backdrop-blur-sm px-6 py-2.5 text-sm font-medium text-foreground shadow-sm transition-all duration-150 hover:bg-surface-2 hover:border-foreground/30 active:scale-[0.98]`
   - **Text link CTA:** `inline-flex items-center gap-1.5 text-sm font-medium text-foreground underline decoration-border-strong underline-offset-4 hover:decoration-foreground`
 - **Chips & Filters:**
   - **Category tag:** `font-mono text-[11px] text-foreground-muted` with no background, border, or radius.

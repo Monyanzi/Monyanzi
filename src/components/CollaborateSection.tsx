@@ -39,14 +39,14 @@ const CollaborateSection = () => {
             </p>
           </div>
 
-          <div className="divide-y divide-border border-y border-border">
+          <div className="flex flex-col gap-3.5">
             {starterPaths.map(({ index, title, detail, href, cta }) => (
               <a
                 key={title}
                 href={href}
-                className="group grid grid-cols-[auto_1fr_auto] items-start gap-5 p-5 sm:p-6 transition-colors duration-150 hover:bg-surface-2/40"
+                className="group grid grid-cols-[auto_1fr_auto] items-start gap-5 p-5 sm:p-6 rounded-xl border border-border/80 bg-surface shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-craft active:scale-[0.99]"
               >
-                <span className="font-mono text-xs font-semibold text-accent tabular-nums pt-0.5">
+                <span className="flex h-7 w-7 items-center justify-center rounded-md bg-accent/10 font-mono text-xs font-semibold text-accent tabular-nums">
                   {index}
                 </span>
                 <div className="min-w-0">
@@ -56,11 +56,11 @@ const CollaborateSection = () => {
                   <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-foreground-muted">
                     {detail}
                   </p>
-                  <span className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] font-medium text-foreground group-hover:text-accent">
+                  <span className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] font-medium text-foreground group-hover:text-accent transition-colors">
                     {cta}
                   </span>
                 </div>
-                <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-foreground-subtle transition-colors duration-150 group-hover:text-accent" />
+                <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-foreground-subtle transition-all duration-150 group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             ))}
           </div>

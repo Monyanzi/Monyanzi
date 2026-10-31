@@ -81,9 +81,9 @@ const Navigation = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div
-        className={`transition-colors duration-200 border-b ${isScrolled
-            ? "border-border bg-background py-3"
-            : "border-border/50 bg-background py-3.5"
+        className={`transition-all duration-200 border-b ${isScrolled
+            ? "border-border/80 bg-background/90 backdrop-blur-md py-3 shadow-[0_1px_3px_rgba(0,0,0,0.03)]"
+            : "border-border/40 bg-background/70 backdrop-blur-sm py-3.5"
           }`}
       >
         <div className="mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-12">
@@ -100,7 +100,7 @@ const Navigation = () => {
             </a>
 
             <nav
-              className="hidden lg:flex items-center gap-1"
+              className="hidden lg:flex items-center gap-1.5"
               aria-label="Primary navigation"
             >
               {navItems.map((item, idx) => {
@@ -110,9 +110,9 @@ const Navigation = () => {
                     key={item.label}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`inline-flex items-center gap-1.5 rounded-md px-3.5 py-1.5 text-xs font-medium transition-colors duration-150 ${active
-                        ? "bg-surface-2 text-foreground"
-                        : "text-foreground-muted hover:text-foreground hover:bg-surface-2/60"
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-1.5 text-xs font-medium transition-all duration-150 ${active
+                        ? "bg-surface text-foreground shadow-xs border border-border/60"
+                        : "text-foreground-muted hover:text-foreground hover:bg-surface-2/70"
                       }`}
                   >
                     <span className="font-mono text-[10px] text-foreground-subtle tabular-nums">
@@ -128,7 +128,7 @@ const Navigation = () => {
               <button
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
-                className="inline-flex min-h-[36px] items-center gap-2.5 rounded-md border border-border bg-surface px-3 py-1.5 text-xs font-medium text-foreground-muted transition-colors duration-150 hover:border-border-strong hover:text-foreground"
+                className="inline-flex min-h-[36px] items-center gap-2.5 rounded-lg border border-border/80 bg-surface/80 backdrop-blur-sm px-3.5 py-1.5 text-xs font-medium text-foreground-muted shadow-xs transition-all duration-150 hover:border-border-strong hover:text-foreground hover:bg-surface active:scale-[0.98]"
                 aria-label="Search"
               >
                 <Search className="h-3.5 w-3.5 text-foreground-subtle" />

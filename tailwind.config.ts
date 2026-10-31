@@ -76,6 +76,8 @@ export default {
         },
       },
       borderRadius: {
+        "2xl": "1.25rem",
+        xl: "1rem",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
@@ -120,6 +122,9 @@ export default {
         "card": "0 4px 12px -2px hsl(0 0% 0% / 0.04), 0 2px 6px -2px hsl(0 0% 0% / 0.03)",
         "card-hover": "0 0 0 1px hsl(0 0% 0% / 0.2)",
         "card-elevated": "0 24px 60px -12px rgba(0, 0, 0, 0.1), 0 8px 24px -4px rgba(0, 0, 0, 0.06)",
+        "craft": "0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px -4px rgba(0, 0, 0, 0.06), inset 0 1px 0 0 rgba(255, 255, 255, 0.75)",
+        "craft-hover": "0 2px 6px rgba(0, 0, 0, 0.05), 0 16px 32px -8px rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.95)",
+        "keycap": "0 2px 4px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.22)",
         "nav": "none",
         "accent-glow": "none",
       },

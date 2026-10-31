@@ -120,26 +120,28 @@ const Stack = () => {
             </div>
 
             {/* Desktop Table (lg and up) */}
-            <div className="hidden lg:block overflow-x-auto">
-              <table className="w-full border-t border-border text-left">
+            <div className="hidden lg:block overflow-hidden rounded-2xl border border-border/80 bg-surface shadow-sm">
+              <table className="w-full text-left">
                 <thead>
-                  <tr className="border-b border-border font-mono text-[11px] uppercase tracking-[0.08em] text-foreground-subtle">
-                    <th className="py-3 pr-6 font-medium">Tool</th>
-                    <th className="py-3 pr-6 font-medium">Category</th>
-                    <th className="py-3 pr-6 font-medium">Purpose</th>
-                    <th className="py-3 pr-6 font-medium">Guides</th>
+                  <tr className="border-b border-border/80 bg-surface-2/50 font-mono text-[11px] uppercase tracking-[0.08em] text-foreground-subtle">
+                    <th className="py-3.5 pl-6 pr-6 font-semibold">Tool</th>
+                    <th className="py-3.5 pr-6 font-semibold">Category</th>
+                    <th className="py-3.5 pr-6 font-semibold">Purpose</th>
+                    <th className="py-3.5 pr-6 font-semibold">Guides</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="divide-y divide-border/60">
                   {filteredTools.map((tool) => (
-                    <tr key={tool.id} className="border-b border-border">
-                      <td className="py-4 pr-6 align-top">
-                        <div className="flex items-center gap-2.5">
-                          <img
-                            src={tool.logo}
-                            alt={`${tool.name} logo`}
-                            className="h-5 w-5 object-contain"
-                          />
+                    <tr key={tool.id} className="hover:bg-surface-2/40 transition-colors">
+                      <td className="py-4 pl-6 pr-6 align-top">
+                        <div className="flex items-center gap-3">
+                          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-black/5 bg-white p-1.5 shadow-xs">
+                            <img
+                              src={tool.logo}
+                              alt={`${tool.name} logo`}
+                              className="h-full w-full object-contain"
+                            />
+                          </div>
                           <a
                             href={tool.href}
                             target="_blank"
@@ -150,7 +152,7 @@ const Stack = () => {
                             <ExternalLink className="h-3 w-3 text-foreground-subtle" />
                           </a>
                           {tool.primary && (
-                            <span className="font-mono text-[11px] text-foreground-muted">
+                            <span className="inline-flex items-center rounded-full bg-accent/10 px-2 py-0.5 font-mono text-[10px] font-semibold text-accent">
                               Core
                             </span>
                           )}
@@ -158,7 +160,9 @@ const Stack = () => {
                       </td>
 
                       <td className="py-4 pr-6 align-top font-mono text-[11px] text-foreground-muted">
-                        {tool.category}
+                        <span className="inline-flex items-center rounded-full bg-surface-2 px-2.5 py-0.5">
+                          {tool.category}
+                        </span>
                       </td>
 
                       <td className="py-4 pr-6 align-top max-w-md">
@@ -203,16 +207,18 @@ const Stack = () => {
             </div>
 
             {/* Mobile / Tablet List (below lg) */}
-            <div className="lg:hidden divide-y divide-border border-y border-border">
+            <div className="lg:hidden flex flex-col gap-3">
               {filteredTools.map((tool) => (
-                <div key={tool.id} className="py-4 space-y-2">
+                <div key={tool.id} className="rounded-xl border border-border/80 bg-surface p-4 shadow-sm space-y-2.5">
                   <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2">
-                      <img
-                        src={tool.logo}
-                        alt={`${tool.name} logo`}
-                        className="h-5 w-5 object-contain"
-                      />
+                    <div className="flex items-center gap-2.5">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-black/5 bg-white p-1.5 shadow-xs">
+                        <img
+                          src={tool.logo}
+                          alt={`${tool.name} logo`}
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
                       <a
                         href={tool.href}
                         target="_blank"
@@ -223,12 +229,12 @@ const Stack = () => {
                         <ExternalLink className="h-3 w-3 text-foreground-subtle" />
                       </a>
                       {tool.primary && (
-                        <span className="font-mono text-[11px] text-foreground-muted">
+                        <span className="inline-flex items-center rounded-full bg-accent/10 px-2 py-0.5 font-mono text-[10px] font-semibold text-accent">
                           Core
                         </span>
                       )}
                     </div>
-                    <span className="font-mono text-[11px] text-foreground-muted">
+                    <span className="inline-flex items-center rounded-full bg-surface-2 px-2 py-0.5 font-mono text-[10px] text-foreground-muted">
                       {tool.category}
                     </span>
                   </div>

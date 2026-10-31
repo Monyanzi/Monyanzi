@@ -8,16 +8,16 @@ const SiteFooter = ({ className = "" }: SiteFooterProps) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className={`border-t border-border bg-surface/50 pb-24 lg:pb-0 ${className}`.trim()}>
+    <footer className={`border-t border-border/80 bg-surface/60 pb-24 lg:pb-0 backdrop-blur-sm ${className}`.trim()}>
       <div className="page-container py-12 lg:py-16">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr] border-b border-border pb-10">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr] border-b border-border/60 pb-10">
           {/* Brand + Editorial Colophon */}
           <div className="max-w-sm">
             <div className="flex items-baseline gap-2.5 mb-3">
               <span className="font-display text-lg font-medium tracking-tight text-foreground">
                 AI Founder Garage
               </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-foreground-subtle">
+              <span className="inline-flex items-center rounded-full bg-surface-2 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-foreground-subtle font-semibold">
                 Edition 2026
               </span>
             </div>
