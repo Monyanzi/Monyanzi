@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import { motion, useScroll, useSpring } from "motion/react";
 import Navigation from "@/components/Navigation";
-import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import SiteFooter from "@/components/SiteFooter";
 import AudioBriefingCard from "@/components/audio/AudioBriefingCard";
 import { articles } from "@/data/insights";
@@ -451,20 +451,15 @@ const InsightArticle = ({ slug }: { slug: string }) => {
               href="/insights"
               className="inline-flex min-h-[42px] items-center gap-2 rounded-md border border-border-strong bg-transparent px-5 py-2 text-sm font-medium text-foreground transition-colors duration-150 hover:bg-surface-2 mb-8 lg:mb-10 group"
             >
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              <ArrowLeft className="w-4 h-4" />
               All articles
             </a>
 
             <header>
-              <div className="flex items-center gap-3 mb-5">
-                <span className="badge-category">
-                  {article.category}
-                </span>
+              <div className="flex items-center gap-3 mb-5 font-mono text-[11px] text-foreground-muted">
+                <span>{article.category}</span>
                 {readingTime && (
-                  <span className="inline-flex items-center gap-1.5 text-[12px] font-medium text-foreground-subtle">
-                    <Clock className="h-3.5 w-3.5" />
-                    {readingTime} min read
-                  </span>
+                  <span className="text-foreground-subtle">&middot; {readingTime} min read</span>
                 )}
               </div>
 
@@ -487,7 +482,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
               alt={`${article.title} cover image`}
               loading="eager"
               decoding="async"
-              className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-700"
+              className="w-full h-full object-cover"
             />
           </div>
 
@@ -503,9 +498,6 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             <div>
               <div className="mb-6 lg:mb-8">
                 <div className="audio-card">
-                  <p className="mb-3 inline-flex items-center rounded-md bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold text-accent">
-                    Listen
-                  </p>
                   <AudioBriefingCard
                     briefing={insightsArticlesBriefing}
                     compact
@@ -548,14 +540,14 @@ const InsightArticle = ({ slug }: { slug: string }) => {
                 href="/insights"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-foreground-muted hover:text-foreground transition-colors group"
               >
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                <ArrowLeft className="w-4 h-4" />
                 Back to All Articles
               </a>
             </div>
 
             {/* Guided Path Sequence Banner */}
             {pathInfo && (
-              <div className="mt-8 rounded-lg border border-accent/20 bg-accent/5 p-6">
+              <div className="mt-8 border-l-2 border-accent pl-6 py-2">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <span className="font-mono text-[11px] font-semibold text-accent">
@@ -568,7 +560,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
                   {pathInfo.nextArticleId && (
                     <a
                       href={`/insights/${pathInfo.nextArticleId}`}
-                      className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-4 py-2 text-xs font-semibold text-accent-foreground transition-colors hover:bg-foreground"
+                      className="inline-flex shrink-0 items-center gap-2 rounded-md bg-foreground px-4 py-2 text-xs font-medium text-background transition-colors hover:bg-accent"
                     >
                       <span>Next in sequence</span>
                       <ArrowRight className="h-3.5 w-3.5" />
@@ -588,55 +580,41 @@ const InsightArticle = ({ slug }: { slug: string }) => {
           </div>
         </section>
 
-        {/* Continue Reading — visually distinct */}
-        <section className="border-t border-border bg-surface py-14 lg:py-20">
-          <div className="container mx-auto px-5 lg:px-12">
-            <div className="mb-8 lg:mb-10">
-              <p className="label-mono mb-3">Up Next</p>
-              <h2 className="font-display text-xl lg:text-2xl font-semibold text-foreground">
-                Continue Reading
+        {/* Continue Reading */}
+        <section className="border-t border-border py-14 lg:py-20">
+          <div className="container mx-auto px-5 lg:px-12 max-w-4xl">
+            <div className="mb-8">
+              <h2 className="font-display text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-foreground">
+                Continue reading
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 lg:gap-10">
+            <div className="divide-y divide-border border-y border-border">
               {relatedSlugs.map((relatedSlug) => {
                 const relatedArticle = articles[relatedSlug];
+                if (!relatedArticle) return null;
                 const relatedReadTime = READING_TIMES[relatedSlug];
                 return (
                   <a
                     key={relatedSlug}
                     href={`/insights/${relatedSlug}`}
-                    className="group block border border-border bg-surface overflow-hidden rounded-lg transition-interactive duration-300"
+                    className="group grid gap-2 py-6 lg:grid-cols-[9rem_1fr_6rem] lg:gap-8 items-baseline transition-colors duration-150"
                   >
-                    <div className="relative aspect-[16/9] overflow-hidden bg-muted">
-                      <img
-                        src={relatedArticle.image}
-                        alt={`${relatedArticle.title} cover image`}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
+                    <div className="font-mono text-[11px] text-foreground-muted">
+                      {relatedArticle.category}
                     </div>
 
-                    <div className="p-6 lg:p-8">
-                      <span className="badge-category mb-3 inline-flex">
-                        {relatedArticle.category}
-                      </span>
-
-                      <h3 className="font-display text-lg lg:text-xl font-extrabold text-foreground leading-snug mb-2 group-hover:text-accent transition-colors duration-300 line-clamp-2">
+                    <div>
+                      <h3 className="font-display text-xl font-medium leading-tight text-foreground transition-colors duration-150 group-hover:text-accent">
                         {relatedArticle.title}
                       </h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
+                        {relatedArticle.description}
+                      </p>
+                    </div>
 
-                      {relatedReadTime && (
-                        <span className="mb-3 inline-flex items-center gap-1.5 text-[11px] font-medium text-foreground-subtle">
-                          <Clock className="h-3 w-3" />
-                          {relatedReadTime} min read
-                        </span>
-                      )}
-
-                      <div className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-accent">
-                        Read <span aria-hidden="true" className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">→</span>
-                      </div>
+                    <div className="font-mono text-xs text-foreground-muted lg:text-right">
+                      {relatedReadTime ? `${relatedReadTime} min` : ""}
                     </div>
                   </a>
                 );
