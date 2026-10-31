@@ -166,7 +166,7 @@ const Insights = () => {
                   <button
                     aria-label="Search articles (/)"
                     onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
-                    className="group inline-flex items-center gap-3 rounded-2xl border border-border bg-surface px-4 py-3 text-left transition-interactive duration-200 hover:border-border-strong hover:shadow-card focus:outline-none"
+                    className="group inline-flex items-center gap-3 rounded-lg border border-border bg-surface px-4 py-3 text-left transition-interactive duration-200 hover:border-border-strong hover:shadow-card focus:outline-none"
                   >
                     <Search className="h-4 w-4 text-foreground-subtle transition-colors duration-200 group-hover:text-foreground-muted" />
                     <span className="flex-1 text-sm text-foreground-subtle">Search articles</span>
@@ -179,7 +179,7 @@ const Insights = () => {
 
               {/* Audio briefing — full-width, below header */}
               <div className="mt-8 audio-card">
-                <p className="mb-3 inline-flex items-center rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
+                <p className="mb-3 inline-flex items-center rounded-md bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
                   Listen
                 </p>
                 <AudioBriefingCard briefing={insightsArticlesBriefing} className="w-full" />
@@ -207,7 +207,7 @@ const Insights = () => {
 
               {/* Article list */}
               {filteredAndSortedArticles.length === 0 ? (
-                <div className="flex flex-col items-center justify-center rounded-3xl border border-border py-24">
+                <div className="flex flex-col items-center justify-center rounded-lg border border-border py-24">
                   <p className="text-foreground-muted">No articles found for this category.</p>
                 </div>
               ) : (
@@ -241,7 +241,7 @@ const Insights = () => {
             <div className="page-container">
               {/* Section separator */}
               <div className="mb-10 border-t border-border pt-10 flex items-center gap-3">
-                <span className="inline-flex items-center rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
+                <span className="inline-flex items-center rounded-md bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
                   Ecosystem
                 </span>
               </div>

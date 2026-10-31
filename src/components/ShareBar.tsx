@@ -39,7 +39,7 @@ const ShareBar = ({ url, title, className = "", variant = "inline" }: ShareBarPr
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Share via email"
-                className={`${isSidebar ? "w-10 h-10" : "w-9 h-9"} rounded-full flex items-center justify-center border border-border bg-surface text-foreground-muted 
+                className={`${isSidebar ? "w-10 h-10" : "w-9 h-9"} rounded-md flex items-center justify-center border border-border bg-surface text-foreground-muted 
             hover:text-foreground hover:border-border-strong hover:bg-surface-2 transition-interactive duration-200`}
             >
                 <Mail className={`${isSidebar ? "w-4 h-4" : "w-3.5 h-3.5"}`} />
@@ -48,7 +48,7 @@ const ShareBar = ({ url, title, className = "", variant = "inline" }: ShareBarPr
             <button
                 onClick={handleCopy}
                 aria-label="Copy link"
-                className={`${isSidebar ? "w-10 h-10" : "w-9 h-9"} rounded-full flex items-center justify-center border border-border bg-surface text-foreground-muted 
+                className={`${isSidebar ? "w-10 h-10" : "w-9 h-9"} rounded-md flex items-center justify-center border border-border bg-surface text-foreground-muted 
            hover:text-foreground hover:border-border-strong hover:bg-surface-2 transition-interactive duration-200 relative`}
             >
                 <AnimatePresence mode="wait" initial={false}>

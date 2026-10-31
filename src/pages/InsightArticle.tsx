@@ -300,7 +300,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             <p className="text-muted-foreground mb-6">The article you are looking for does not exist.</p>
             <a
               href="/insights"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm bg-foreground text-background"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md font-medium text-sm bg-foreground text-background"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Insights
@@ -449,7 +449,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             {/* Back link — more prominent */}
             <a
               href="/insights"
-              className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface px-4 py-2 text-sm font-semibold text-foreground-muted hover:text-foreground hover:border-border-strong transition-interactive duration-200 mb-8 lg:mb-10 group"
+              className="inline-flex items-center gap-2.5 rounded-md border border-border bg-surface px-4 py-2 text-sm font-semibold text-foreground-muted hover:text-foreground hover:border-border-strong transition-interactive duration-200 mb-8 lg:mb-10 group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               All Articles
@@ -481,7 +481,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
 
         {/* Hero image — no card wrapper, just rounded border */}
         <section className="container mx-auto px-5 lg:px-12 mb-8 lg:mb-12">
-          <div className="relative aspect-[2/1] lg:aspect-[21/9] rounded-xl lg:rounded-2xl overflow-hidden bg-muted max-w-6xl mx-auto">
+          <div className="relative aspect-[2/1] lg:aspect-[21/9] rounded-lg overflow-hidden bg-muted max-w-6xl mx-auto">
             <img
               src={article.image}
               alt={`${article.title} cover image`}
@@ -503,7 +503,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             <div>
               <div className="mb-6 lg:mb-8">
                 <div className="audio-card">
-                  <p className="mb-3 inline-flex items-center rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
+                  <p className="mb-3 inline-flex items-center rounded-md bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
                     Listen
                   </p>
                   <AudioBriefingCard
@@ -555,7 +555,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
 
             {/* Guided Path Sequence Banner */}
             {pathInfo && (
-              <div className="mt-8 rounded-2xl border border-accent/20 bg-accent/5 p-6">
+              <div className="mt-8 rounded-lg border border-accent/20 bg-accent/5 p-6">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-accent">
@@ -606,7 +606,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
                   <a
                     key={relatedSlug}
                     href={`/insights/${relatedSlug}`}
-                    className="group block border border-border bg-surface overflow-hidden rounded-2xl transition-interactive duration-300"
+                    className="group block border border-border bg-surface overflow-hidden rounded-lg transition-interactive duration-300"
                   >
                     <div className="relative aspect-[16/9] overflow-hidden bg-muted">
                       <img

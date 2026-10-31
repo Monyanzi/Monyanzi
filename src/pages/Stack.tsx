@@ -78,7 +78,7 @@ const Stack = () => {
         <section className="relative overflow-hidden border-b border-border pt-28 pb-16 lg:pt-36 lg:pb-20">
           <div className="page-container relative z-10">
             <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider text-accent mb-4">
+              <span className="inline-flex items-center gap-1.5 rounded-md border border-accent/20 bg-accent/10 px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider text-accent mb-4">
                 <Layers className="h-3 w-3" />
                 Production Stack
               </span>
@@ -91,11 +91,11 @@ const Stack = () => {
 
               {/* Metrics strip */}
               <div className="mt-6 flex flex-wrap items-center gap-3 text-xs font-medium text-foreground-muted">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-border bg-surface px-3 py-1">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                   {coreCount} Core Models (Claude · ChatGPT · Gemini)
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1">
+                <span className="inline-flex items-center gap-1.5 rounded-md border border-border bg-surface px-3 py-1">
                   <span className="h-1.5 w-1.5 rounded-full bg-foreground-subtle" />
                   {toolsData.length - coreCount} Specialized Tools
                 </span>
@@ -117,12 +117,12 @@ const Stack = () => {
                     key={cat}
                     type="button"
                     onClick={() => setSelectedCategory(cat)}
-                    className={`relative shrink-0 rounded-full px-3.5 py-1.5 text-[12px] font-semibold tracking-wide outline-none transition-colors duration-200 ${active ? "bg-foreground text-background" : "border border-border bg-surface text-foreground-muted hover:text-foreground"
+                    className={`relative shrink-0 rounded-md px-3.5 py-1.5 text-[12px] font-semibold tracking-wide outline-none transition-colors duration-200 ${active ? "bg-foreground text-background" : "border border-border bg-surface text-foreground-muted hover:text-foreground"
                       }`}
                   >
                     <span className="flex items-center gap-1.5">
                       <span>{cat}</span>
-                      <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-mono leading-none ${active ? "bg-background/20 text-background" : "bg-surface-2 text-foreground-subtle"}`}>
+                      <span className={`rounded-md px-1.5 py-0.5 text-[10px] font-mono leading-none ${active ? "bg-background/20 text-background" : "bg-surface-2 text-foreground-subtle"}`}>
                         {count}
                       </span>
                     </span>
@@ -142,12 +142,12 @@ const Stack = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.96 }}
                     transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex flex-col justify-between rounded-2xl border border-border bg-surface p-6 transition-interactive duration-300 hover:border-border-strong"
+                    className="flex flex-col justify-between rounded-lg border border-border bg-surface p-6 transition-interactive duration-300 hover:border-border-strong"
                   >
                     <div>
                       {/* Top Bar: Logo + Badges */}
                       <div className="flex items-start justify-between mb-4">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-border bg-white shadow-sm">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-white shadow-sm">
                           <img src={tool.logo} alt={`${tool.name} logo`} className="h-7 w-7 object-contain" />
                         </div>
                         <div className="flex items-center gap-2">
@@ -182,7 +182,7 @@ const Stack = () => {
                       </p>
 
                       {/* Founder Notes */}
-                      <div className="mt-4 rounded-xl border border-border/60 bg-surface-2/60 p-3 text-[11px] leading-relaxed text-foreground-muted">
+                      <div className="mt-4 rounded-lg border border-border/60 bg-surface-2/60 p-3 text-[11px] leading-relaxed text-foreground-muted">
                         <span className="font-semibold text-foreground">Field Note: </span>
                         {tool.notes}
                       </div>
