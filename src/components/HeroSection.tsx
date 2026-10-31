@@ -45,14 +45,16 @@ const HeroSection = () => {
   return (
     <section className="relative border-b border-border">
       <div className="relative overflow-hidden">
-        <img
-          src={heroGarage}
-          alt="A wooden workshop garage on a green hillside above a lake, with a builder working at a bench inside"
-          width={1376}
-          height={768}
-          fetchPriority="high"
-          className="absolute -inset-[2%] h-[104%] w-[104%] max-w-none object-cover object-[75%_bottom]"
-        />
+        <picture>
+          <img
+            src={heroGarage}
+            alt="A wooden workshop garage on a green hillside above a lake, with a builder working at a bench inside"
+            width={1376}
+            height={768}
+            fetchPriority="high"
+            className="absolute -inset-[2%] h-[104%] w-[104%] max-w-none object-cover object-[75%_bottom]"
+          />
+        </picture>
         <div className="pointer-events-none absolute inset-0 bg-background/0 dark:bg-background/78 transition-colors duration-300" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background via-background/60 to-transparent" />
 
