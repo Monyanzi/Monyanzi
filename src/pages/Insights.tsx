@@ -147,8 +147,6 @@ const Insights = () => {
 
           {/* Hero */}
           <section className="relative overflow-hidden border-b border-border pt-28 pb-16 lg:pt-36 lg:pb-20">
-            <div className="pointer-events-none absolute inset-x-0 -top-20 h-80 bg-[radial-gradient(ellipse_50%_50%_at_50%_0%,hsl(38_55%_42%/0.06),transparent)]" />
-
             <div className="page-container relative z-10">
               <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
                 {/* Left — title */}
@@ -263,14 +261,14 @@ const Insights = () => {
                     rel="noopener noreferrer"
                     className="group border border-border bg-surface flex flex-col p-7 lg:p-8"
                   >
-                    <p className={`label-mono mb-5 ${i % 2 === 0 ? "text-accent" : "text-jacarta"}`}>{resource.category}</p>
-                    <h3 className={`mb-3 text-[1.125rem] font-bold text-foreground transition-colors duration-200 ${i % 2 === 0 ? "group-hover:text-accent" : "group-hover:text-jacarta"}`}>
+                    <p className="label-mono mb-5 text-accent">{resource.category}</p>
+                    <h3 className="mb-3 text-[1.125rem] font-bold text-foreground transition-colors duration-200 group-hover:text-accent">
                       {resource.title}
                     </h3>
                     <p className="mb-8 flex-grow text-[0.875rem] leading-relaxed text-foreground-muted">
                       {resource.description}
                     </p>
-                    <div className={`mt-auto inline-flex items-center gap-2 text-[12px] font-bold tracking-wide text-foreground transition-colors duration-200 ${i % 2 === 0 ? "group-hover:text-accent" : "group-hover:text-jacarta"}`}>
+                    <div className="mt-auto inline-flex items-center gap-2 text-[12px] font-bold tracking-wide text-foreground transition-colors duration-200 group-hover:text-accent">
                       {resource.ctaText}
                     </div>
                   </a>

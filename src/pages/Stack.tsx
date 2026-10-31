@@ -76,7 +76,6 @@ const Stack = () => {
 
         {/* Hero Section */}
         <section className="relative overflow-hidden border-b border-border pt-28 pb-16 lg:pt-36 lg:pb-20">
-          <div className="pointer-events-none absolute inset-x-0 -top-20 h-80 bg-[radial-gradient(ellipse_50%_50%_at_50%_0%,hsl(150_60%_30%/0.08),transparent)]" />
           <div className="page-container relative z-10">
             <div className="max-w-3xl">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider text-accent mb-4">
