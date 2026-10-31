@@ -180,7 +180,7 @@ const Insights = () => {
               </div>
 
               {/* Audio briefing — full-width, below header */}
-              <div className="mt-8 audio-card-purple">
+              <div className="mt-8 audio-card">
                 <p className="mb-3 inline-flex items-center rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
                   Listen
                 </p>
@@ -261,7 +261,7 @@ const Insights = () => {
                     href={resource.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group card-premium flex flex-col p-7 lg:p-8"
+                    className="group border border-border bg-surface flex flex-col p-7 lg:p-8"
                   >
                     <p className={`label-mono mb-5 ${i % 2 === 0 ? "text-accent" : "text-jacarta"}`}>{resource.category}</p>
                     <h3 className={`mb-3 text-[1.125rem] font-bold text-foreground transition-colors duration-200 ${i % 2 === 0 ? "group-hover:text-accent" : "group-hover:text-jacarta"}`}>

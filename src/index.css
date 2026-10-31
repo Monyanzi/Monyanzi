@@ -208,39 +208,6 @@
     padding-inline: clamp(1.25rem, 5vw, 3rem);
   }
 
-  /* ─── Premium Card (Glassmorphism) ─── */
-  .card-premium {
-    background: hsl(var(--surface));
-    border: 1px solid hsl(var(--foreground) / 0.1);
-    border-radius: 1rem;
-    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
-  }
-
-  .card-premium:hover {
-    border-color: hsl(var(--foreground) / 0.2);
-    background: hsl(var(--surface-2));
-  }
-
-  .card-premium.tint-accent {
-
-    background: hsl(var(--surface));
-
-  }
-
-  .card-premium.tint-accent:hover {
-    background: hsl(var(--surface-2));
-  }
-
-  .card-premium.tint-jacarta {
-
-    background: hsl(var(--surface));
-
-  }
-
-  .card-premium.tint-jacarta:hover {
-    background: hsl(var(--surface-2));
-  }
-
   /* ─── Eyebrow Label ─── */
   .label-eyebrow {
     font-size: 0.75rem;
@@ -346,8 +313,7 @@
     font-weight: 600;
   }
 
-  /* ─── Audio Briefing Card — Purple Tint ─── */
-  .audio-card-purple {
+  .audio-card {
     background: hsl(var(--surface-2));
     border: 1px solid hsl(var(--border));
     border-radius: 12px;
@@ -408,7 +374,6 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: hsl(var(--jacarta));
-    backdrop-filter: blur(8px);
   }
 
   /* ─── Status Pill ─── */
@@ -597,13 +562,6 @@
   /* Text balance */
   .text-balance {
     text-wrap: balance;
-  }
-
-  /* Blur-behind (glass) */
-  .glass {
-    background: hsl(var(--surface));
-    border: 1px solid hsl(var(--foreground) / 0.1);
-    border-radius: 1rem;
   }
 
 

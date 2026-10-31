@@ -502,7 +502,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             {/* Article content */}
             <div>
               <div className="mb-6 lg:mb-8">
-                <div className="audio-card-purple">
+                <div className="audio-card">
                   <p className="mb-3 inline-flex items-center rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
                     Listen
                   </p>
@@ -606,7 +606,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
                   <a
                     key={relatedSlug}
                     href={`/insights/${relatedSlug}`}
-                    className="group block card-premium overflow-hidden rounded-2xl transition-interactive duration-300 hover:-translate-y-[2px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.07)]"
+                    className="group block border border-border bg-surface overflow-hidden rounded-2xl transition-interactive duration-300 hover:-translate-y-[2px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.07)]"
                   >
                     <div className="relative aspect-[16/9] overflow-hidden bg-muted">
                       <img
