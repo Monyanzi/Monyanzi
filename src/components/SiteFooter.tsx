@@ -22,7 +22,7 @@ const SiteFooter = ({ className = "" }: SiteFooterProps) => {
               </span>
             </div>
             <p className="text-xs leading-relaxed text-foreground-muted">
-              A field manual of tested AI systems, coding agents, and operational workflows for lean teams and founders.
+              AI systems, coding agents, and workflows for lean teams.
             </p>
           </div>
 
@@ -33,13 +33,13 @@ const SiteFooter = ({ className = "" }: SiteFooterProps) => {
             </p>
             <ul className="space-y-2 text-xs font-medium text-foreground-muted">
               <li>
-                <a href="/" className="hover:text-foreground transition-colors">01 / Home Index</a>
+                <a href="/" className="hover:text-foreground transition-colors">01 / Index</a>
               </li>
               <li>
-                <a href="/insights" className="hover:text-foreground transition-colors">02 / Field Guides & Checklists</a>
+                <a href="/insights" className="hover:text-foreground transition-colors">02 / Guides</a>
               </li>
               <li>
-                <a href="/stack" className="hover:text-foreground transition-colors">03 / 2026 Production Stack</a>
+                <a href="/stack" className="hover:text-foreground transition-colors">03 / Stack</a>
               </li>
             </ul>
           </div>
@@ -47,7 +47,7 @@ const SiteFooter = ({ className = "" }: SiteFooterProps) => {
           {/* Live Systems */}
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-foreground-subtle mb-3">
-              Live Build & Contact
+              Links
             </p>
             <ul className="space-y-2 text-xs font-medium text-foreground-muted">
               <li>
@@ -57,7 +57,7 @@ const SiteFooter = ({ className = "" }: SiteFooterProps) => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 hover:text-foreground transition-colors"
                 >
-                  PAWZA Directory (ZA)
+                  PAWZA
                   <ArrowUpRight className="h-3 w-3 text-foreground-subtle" />
                 </a>
               </li>
@@ -68,7 +68,7 @@ const SiteFooter = ({ className = "" }: SiteFooterProps) => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 hover:text-foreground transition-colors"
                 >
-                  Moses Nyanzi on LinkedIn
+                  LinkedIn
                   <ArrowUpRight className="h-3 w-3 text-foreground-subtle" />
                 </a>
               </li>
@@ -78,8 +78,8 @@ const SiteFooter = ({ className = "" }: SiteFooterProps) => {
 
         {/* Bottom Ledger */}
         <div className="pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 font-mono text-[11px] text-foreground-subtle">
-          <span>&copy; {currentYear} Moses Nyanzi &middot; Published from South Africa</span>
-          <span>Set in Newsreader, Instrument Sans &amp; JetBrains Mono</span>
+          <span>&copy; {currentYear} Moses Nyanzi &middot; South Africa</span>
+          <span>Newsreader, Instrument Sans, JetBrains Mono</span>
         </div>
       </div>
     </footer>

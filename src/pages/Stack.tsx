@@ -78,14 +78,14 @@ const Stack = () => {
           <div className="page-container relative z-10">
             <div className="max-w-3xl">
               <h1 className="text-display-lg text-balance text-foreground">
-                The 2026 AI tool stack
+                AI tool stack
               </h1>
               <p className="mt-4 text-body-lg text-foreground-muted max-w-2xl">
-                The software I use to build apps, automate tasks, and run research. Filter by category or start with the core three.
+                Tools used to build software, automate operations, and run research.
               </p>
 
               <p className="mt-6 font-mono text-[12px] text-foreground-muted">
-                {coreCount} core models &middot; {toolsData.length - coreCount} specialised tools
+                {coreCount} core &middot; {toolsData.length - coreCount} specialist
               </p>
             </div>
           </div>
@@ -126,8 +126,8 @@ const Stack = () => {
                   <tr className="border-b border-border font-mono text-[11px] uppercase tracking-[0.08em] text-foreground-subtle">
                     <th className="py-3 pr-6 font-medium">Tool</th>
                     <th className="py-3 pr-6 font-medium">Category</th>
-                    <th className="py-3 pr-6 font-medium">What I use it for</th>
-                    <th className="py-3 pr-6 font-medium">Featured in</th>
+                    <th className="py-3 pr-6 font-medium">Purpose</th>
+                    <th className="py-3 pr-6 font-medium">Guides</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -246,7 +246,7 @@ const Stack = () => {
 
                   {tool.relatedArticleIds.length > 0 && (
                     <div className="pt-1 text-xs text-foreground-muted">
-                      <span className="font-mono text-[11px] text-foreground-subtle mr-1">Featured in:</span>
+                      <span className="font-mono text-[11px] text-foreground-subtle mr-1">Guides:</span>
                       {tool.relatedArticleIds.map((artId, idx) => {
                         const art = articleMap[artId];
                         if (!art) return null;

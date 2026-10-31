@@ -20,7 +20,7 @@ const NotFound = () => {
             Page not found
           </h1>
           <p className="mb-8 text-sm leading-relaxed text-foreground-muted">
-            The page you requested does not exist or has been relocated in the archive.
+            This page does not exist or has moved.
           </p>
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <a
@@ -28,13 +28,13 @@ const NotFound = () => {
               className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-md bg-foreground px-5 py-2 text-sm font-medium text-background transition-colors duration-150 hover:bg-accent"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
-              Return to index
+              Return home
             </a>
             <a
               href="/insights"
               className="inline-flex min-h-[42px] items-center gap-2 rounded-md border border-border-strong bg-transparent px-5 py-2 text-sm font-medium text-foreground transition-colors duration-150 hover:bg-surface-2"
             >
-              Browse field guides
+              Browse guides
             </a>
           </div>
         </div>

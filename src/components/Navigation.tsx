@@ -6,8 +6,8 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 const navItems = [
   { label: "Index", href: "/" },
-  { label: "Field Guides", href: "/insights" },
-  { label: "2026 Stack", href: "/stack" },
+  { label: "Guides", href: "/insights" },
+  { label: "Stack", href: "/stack" },
 ] as const;
 
 const Navigation = () => {
@@ -81,11 +81,10 @@ const Navigation = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div
-        className={`transition-colors duration-200 border-b ${
-          isScrolled
+        className={`transition-colors duration-200 border-b ${isScrolled
             ? "border-border bg-background py-3"
             : "border-border/50 bg-background py-3.5"
-        }`}
+          }`}
       >
         <div className="mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between">
@@ -111,11 +110,10 @@ const Navigation = () => {
                     key={item.label}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`inline-flex items-center gap-1.5 rounded-md px-3.5 py-1.5 text-xs font-medium transition-colors duration-150 ${
-                      active
+                    className={`inline-flex items-center gap-1.5 rounded-md px-3.5 py-1.5 text-xs font-medium transition-colors duration-150 ${active
                         ? "bg-surface-2 text-foreground"
                         : "text-foreground-muted hover:text-foreground hover:bg-surface-2/60"
-                    }`}
+                      }`}
                   >
                     <span className="font-mono text-[10px] text-foreground-subtle tabular-nums">
                       0{idx + 1}
@@ -131,7 +129,7 @@ const Navigation = () => {
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
                 className="inline-flex min-h-[36px] items-center gap-2.5 rounded-md border border-border bg-surface px-3 py-1.5 text-xs font-medium text-foreground-muted transition-colors duration-150 hover:border-border-strong hover:text-foreground"
-                aria-label="Search articles (/)"
+                aria-label="Search"
               >
                 <Search className="h-3.5 w-3.5 text-foreground-subtle" />
                 <span className="hidden sm:inline">Search</span>

@@ -152,23 +152,23 @@ const Insights = () => {
                 {/* Left — title */}
                 <div>
                   <h1 className="text-display-lg text-balance text-foreground">
-                    Guides &amp; articles
+                    Guides
                   </h1>
 
                   <p className="mt-4 max-w-lg text-body-lg text-foreground-muted">
-                    Step-by-step guides on using AI tools to build software and automate operations.
+                    Build software and automate operations with AI.
                   </p>
                 </div>
 
                 {/* Right — compact search */}
                 <div className="flex flex-col gap-3">
                   <button
-                    aria-label="Search articles (/)"
+                    aria-label="Search"
                     onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
                     className="group inline-flex items-center gap-3 rounded-md border border-border bg-surface px-4 py-3 text-left transition-colors duration-150 hover:border-border-strong focus:outline-none"
                   >
                     <Search className="h-4 w-4 text-foreground-subtle transition-colors duration-150 group-hover:text-foreground-muted" />
-                    <span className="flex-1 text-sm text-foreground-subtle">Search articles</span>
+                    <span className="flex-1 text-sm text-foreground-subtle">Search</span>
                     <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded-md border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-[10px] font-medium text-foreground-subtle">
                       ⌘K
                     </kbd>
@@ -203,7 +203,7 @@ const Insights = () => {
               {/* Article list */}
               {filteredAndSortedArticles.length === 0 ? (
                 <div className="flex flex-col items-center justify-center rounded-lg border border-border py-24">
-                  <p className="text-foreground-muted">No articles found for this category.</p>
+                  <p className="text-foreground-muted">No guides found.</p>
                 </div>
               ) : (
                 <div className="space-y-10 lg:space-y-12">
@@ -242,7 +242,7 @@ const Insights = () => {
               <div className="mb-8">
                 <h2 className="text-display-sm text-foreground mb-4">Tools for builders</h2>
                 <p className="max-w-xl text-body-lg text-foreground-muted">
-                  A short list of useful tools and ideas to try before you buy another subscription or start a new project.
+                  Tools and ideas to try before starting a new project.
                 </p>
               </div>
 

@@ -32,7 +32,7 @@ const FeaturedInsightsSection = () => {
         <div className="mb-10 flex flex-col gap-4 border-b border-border lg:flex-row lg:items-end lg:justify-between">
           <div className="pb-4">
             <h2 className="font-display text-3xl sm:text-4xl font-medium tracking-[-0.02em] text-foreground">
-              Practical playbooks and checklists
+              Playbooks and checklists
             </h2>
           </div>
 

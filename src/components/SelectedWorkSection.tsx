@@ -5,22 +5,22 @@ const PILLARS = [
   {
     index: "01",
     title: "Verified Places",
-    description: "Pet-friendly cafes, restaurants, parks, and hiking trails across South Africa.",
+    description: "Pet-friendly cafes, restaurants, parks, and trails.",
   },
   {
     index: "02",
     title: "24/7 Emergency Vets",
-    description: "Immediate triage directory of animal hospitals and after-hours hotlines.",
+    description: "Animal hospitals and after-hours emergency hotlines.",
   },
   {
     index: "03",
     title: "Preventative Care",
-    description: "Structured vaccination schedules, checkup checklists, and local diet guides.",
+    description: "Vaccination schedules, checkup checklists, and diet guides.",
   },
   {
     index: "04",
     title: "Vetted Essentials",
-    description: "Curated nutrition, travel gear, and everyday supplies tested by local owners.",
+    description: "Nutrition, travel gear, and supplies tested by owners.",
   },
 ] as const;
 
@@ -33,7 +33,7 @@ const SelectedWorkSection = () => {
             Shipped: PAWZA
           </h2>
           <p className="mt-2 max-w-xl text-base text-foreground-muted">
-            A live consumer directory demonstrating how lean teams combine AI coding agents and structured data to ship production software.
+            Consumer directory built with AI coding agents and structured data.
           </p>
         </div>
 
@@ -44,7 +44,7 @@ const SelectedWorkSection = () => {
               Case study 01
             </span>
             <span className="text-border-strong">/</span>
-            <span>Status: Live in South Africa</span>
+            <span>Live in South Africa</span>
             <span className="hidden sm:inline text-border-strong">/</span>
             <span className="hidden sm:inline">Stack: React &middot; TypeScript &middot; Vite &middot; Lovable</span>
           </div>
@@ -66,13 +66,13 @@ const SelectedWorkSection = () => {
           <div className="flex flex-col justify-between">
             <div>
               <p className="font-mono text-[11px] text-foreground-muted">
-                Consumer web application
+                Web application
               </p>
               <h3 className="mt-2 font-display text-2xl sm:text-3xl font-medium tracking-tight text-foreground">
-                PAWZA pet directory &amp; emergency finder
+                PAWZA directory and emergency triage
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-foreground-muted">
-                Built to solve fragmented local discovery for South African pet owners: combining instant 24/7 veterinary triage with verified dog-friendly venues.
+                Pet discovery and 24/7 emergency veterinary triage.
               </p>
 
               {/* 4 Architectural Pillars */}
@@ -119,7 +119,7 @@ const SelectedWorkSection = () => {
             </div>
 
             <div className="mt-3 flex items-center justify-between font-mono text-[11px] text-foreground-muted">
-              <span>PAWZA, live in South Africa</span>
+              <span>PAWZA, South Africa</span>
               <span className="inline-flex items-center gap-1 text-foreground group-hover:text-accent transition-colors">
                 Open site
                 <ArrowUpRight className="h-3 w-3" />

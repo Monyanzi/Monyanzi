@@ -81,7 +81,7 @@ const SearchModal = ({
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search field guides and checklists..."
+                placeholder="Search guides..."
                 className="flex-1 bg-transparent text-foreground placeholder:text-foreground-subtle outline-none text-sm"
               />
               {query && (

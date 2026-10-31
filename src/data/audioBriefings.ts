@@ -11,9 +11,9 @@ export interface AudioBriefing {
 
 export const insightsArticlesBriefing: AudioBriefing = {
   id: "insights-briefing",
-  shortLabel: "Insights Briefing",
-  title: "Articles Audio Overview",
-  subtitle: "Top-down audio overview of every current article and how to use each one.",
+  shortLabel: "Briefing",
+  title: "Audio Overview",
+  subtitle: "Audio overview of all guides and workflows.",
   duration: "04:46",
   updatedOn: "2026-02-19",
   audioSrc: "/audio/articles-briefing.m4a",

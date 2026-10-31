@@ -61,25 +61,25 @@ const HeroSection = () => {
         <div className="relative mx-auto flex min-h-[600px] w-full max-w-[1360px] flex-col justify-start px-5 pb-36 pt-28 sm:px-8 sm:pt-32 lg:min-h-[780px] lg:px-12 lg:pt-36">
           <div className="max-w-[760px]">
             <h1 className="mt-4 text-balance font-display text-[2.75rem] font-medium leading-[1.01] tracking-[-0.03em] text-foreground sm:text-[3.85rem] lg:text-[4.65rem]">
-              Practical AI systems for small business.
+              Practical AI for small business.
             </h1>
 
             <p className="mt-5 max-w-[34rem] text-base sm:text-lg leading-relaxed text-foreground-muted">
-              Tested workflows, working prompts, and production tools to build software and automate operations without a large engineering team.
+              Workflows, prompts, and tools to build software and automate operations.
             </p>
 
             {/* Architectural Index Ledger (replaces slop pills) */}
             <div className="mt-6 inline-flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] text-foreground-muted tabular-nums">
               <span>
-                <strong className="font-semibold text-foreground">{String(coreToolCount).padStart(2, "0")}</strong> Core Models
+                <strong className="font-semibold text-foreground">{String(coreToolCount).padStart(2, "0")}</strong> Core
               </span>
               <span className="text-foreground/25">/</span>
               <span>
-                <strong className="font-semibold text-foreground">{String(specialistCount).padStart(2, "0")}</strong> Specialist Tools
+                <strong className="font-semibold text-foreground">{String(specialistCount).padStart(2, "0")}</strong> Specialist
               </span>
               <span className="text-foreground/25">/</span>
               <span>
-                <strong className="font-semibold text-foreground">{String(articleCount).padStart(2, "0")}</strong> Field Guides
+                <strong className="font-semibold text-foreground">{String(articleCount).padStart(2, "0")}</strong> Guides
               </span>
             </div>
 
@@ -88,14 +88,14 @@ const HeroSection = () => {
                 href="/insights"
                 className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-md bg-foreground px-5 py-2 text-sm font-medium text-background transition-colors duration-150 hover:bg-accent"
               >
-                Read the guides
+                Read guides
                 <ArrowRight className="h-3.5 w-3.5" />
               </a>
               <a
                 href="/stack"
                 className="inline-flex min-h-[42px] items-center gap-2 rounded-md border border-border-strong bg-transparent px-5 py-2 text-sm font-medium text-foreground transition-colors duration-150 hover:bg-surface-2"
               >
-                See the 2026 stack
+                View stack
               </a>
             </div>
           </div>
@@ -108,7 +108,7 @@ const HeroSection = () => {
           <div className="flex items-center justify-between border-b border-border bg-surface-2/50 px-4 py-2.5">
             <div className="flex items-baseline gap-2">
               <span className="font-display text-lg text-foreground">
-                The tool stack
+                Tool stack
               </span>
               <span className="font-mono text-[11px] text-foreground-subtle">
                 {toolsData.length} tools
@@ -118,7 +118,7 @@ const HeroSection = () => {
               href="/stack"
               className="group inline-flex items-center gap-1.5 font-semibold text-accent hover:text-foreground transition-colors"
             >
-              <span>Full stack notes</span>
+              <span>View stack</span>
               <ArrowRight className="h-3 w-3 transition-transform duration-150 group-hover:translate-x-0.5" />
             </a>
           </div>

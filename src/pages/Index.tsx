@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import FeaturedInsightsSection from "@/components/FeaturedInsightsSection";
-import ReadingPathsSection from "@/components/insights/ReadingPathsSection";
 import SelectedWorkSection from "@/components/SelectedWorkSection";
 import CollaborateSection from "@/components/CollaborateSection";
 import { SITE_NAME, SITE_URL, SOCIAL_IMAGE_URL } from "@/config/site";
@@ -84,7 +83,6 @@ const Index = () => {
           <Navigation />
           <HeroSection />
           <FeaturedInsightsSection />
-          <ReadingPathsSection />
           <SelectedWorkSection />
           <CollaborateSection />
         </div>

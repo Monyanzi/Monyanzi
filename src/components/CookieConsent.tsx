@@ -67,10 +67,10 @@ const CookieConsent = ({ onConsentChange }: CookieConsentProps) => {
               <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6">
                 <div className="flex-1">
                   <p className="font-mono text-[10px] font-semibold text-foreground-subtle mb-1">
-                    Privacy &amp; Telemetry
+                    Privacy
                   </p>
                   <p className="text-xs sm:text-sm text-foreground-muted leading-relaxed">
-                    Essential storage is used for theme preferences. Optional analytics cookies help measure readership.
+                    Essential storage saves theme preferences. Optional cookies measure readership.
                   </p>
                 </div>
 
@@ -109,8 +109,8 @@ const CookieConsent = ({ onConsentChange }: CookieConsentProps) => {
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
                           <div>
-                            <p className="text-xs font-semibold text-foreground">Essential Storage</p>
-                            <p className="text-xs text-foreground-muted">Required for theme and consent state</p>
+                            <p className="text-xs font-semibold text-foreground">Essential storage</p>
+                            <p className="text-xs text-foreground-muted">Saves theme and consent preferences</p>
                           </div>
                           <span className="font-mono text-[10px] text-accent font-semibold">
                             Always active
@@ -119,8 +119,8 @@ const CookieConsent = ({ onConsentChange }: CookieConsentProps) => {
 
                         <div className="flex items-center justify-between">
                           <div>
-                            <p className="text-xs font-semibold text-foreground">Readership Analytics</p>
-                            <p className="text-xs text-foreground-muted">Anonymous pageview telemetry (Google Analytics)</p>
+                            <p className="text-xs font-semibold text-foreground">Analytics</p>
+                            <p className="text-xs text-foreground-muted">Anonymous pageview telemetry</p>
                           </div>
                           <button
                             onClick={toggleAnalytics}

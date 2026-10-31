@@ -452,7 +452,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
               className="inline-flex min-h-[42px] items-center gap-2 rounded-md border border-border-strong bg-transparent px-5 py-2 text-sm font-medium text-foreground transition-colors duration-150 hover:bg-surface-2 mb-8 lg:mb-10 group"
             >
               <ArrowLeft className="w-4 h-4" />
-              All articles
+              All guides
             </a>
 
             <header>
@@ -539,7 +539,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
                 className="inline-flex items-center gap-2 text-sm font-semibold text-foreground-muted hover:text-foreground transition-colors group"
               >
                 <ArrowLeft className="w-4 h-4" />
-                Back to All Articles
+                Back to guides
               </a>
             </div>
 
@@ -560,7 +560,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
                       href={`/insights/${pathInfo.nextArticleId}`}
                       className="inline-flex shrink-0 items-center gap-2 rounded-md bg-foreground px-4 py-2 text-xs font-medium text-background transition-colors hover:bg-accent"
                     >
-                      <span>Next in sequence</span>
+                      <span>Next guide</span>
                       <ArrowRight className="h-3.5 w-3.5" />
                     </a>
                   )}
@@ -571,7 +571,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             {/* Bottom share section */}
             <div className="mt-8 pt-8 border-t border-border">
               <p className="font-mono text-[10px] font-bold text-foreground-subtle mb-4">
-                Share this article
+                Share
               </p>
               <ShareBar url={articleUrl} title={article.title} />
             </div>
@@ -583,7 +583,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
           <div className="container mx-auto px-5 lg:px-12 max-w-4xl">
             <div className="mb-8">
               <h2 className="font-display text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-foreground">
-                Continue reading
+                Related guides
               </h2>
             </div>
 

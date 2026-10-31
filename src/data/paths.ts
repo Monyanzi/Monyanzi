@@ -18,9 +18,9 @@ export interface ReadingPath {
 export const readingPaths: ReadingPath[] = [
   {
     id: "practical-ai-builder",
-    title: "The AI Builder Path",
+    title: "AI Builder Path",
     tagline: "Build",
-    description: "Select your stack and ship your first software tool.",
+    description: "Select a stack and ship your first tool.",
     articleIds: [
       "the-small-business-ai-toolkit",
       "12-ai-tools-in-my-tech-stack",
@@ -37,7 +37,7 @@ export const readingPaths: ReadingPath[] = [
     id: "automation-and-research",
     title: "Research & Automate",
     tagline: "Automate",
-    description: "Turn messy documents into clear briefings and automated workflows.",
+    description: "Turn documents into briefings and automated workflows.",
     articleIds: [
       "2026-ai-power-workflow",
       "the-automation-trap",
@@ -53,7 +53,7 @@ export const readingPaths: ReadingPath[] = [
     id: "executive-ai-strategy",
     title: "AI Strategy & Systems",
     tagline: "Strategy",
-    description: "Spot stalled projects early and automate the right processes.",
+    description: "Spot stalled projects and automate key processes.",
     articleIds: [
       "wrong-question-ai-leader",
       "why-ai-projects-fail",

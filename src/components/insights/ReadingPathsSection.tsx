@@ -9,7 +9,7 @@ interface ReadingPathsSectionProps {
 
 const ReadingPathsSection = memo(({
   title = "Reading sequences",
-  subtitle = "Structured three-part sequences to solve one operational bottleneck from start to finish.",
+  subtitle = "Sequences to solve operational bottlenecks.",
 }: ReadingPathsSectionProps) => {
   return (
     <section className="py-14 lg:py-20 border-b border-border bg-surface/40">

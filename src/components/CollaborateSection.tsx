@@ -4,24 +4,24 @@ import SiteFooter from "@/components/SiteFooter";
 const starterPaths = [
   {
     index: "01",
-    title: "Build a research & synthesis pipeline",
-    detail: "Connect prompt optimization, deep web research, and NotebookLM into a 30-minute briefing workflow.",
+    title: "Research & synthesis pipeline",
+    detail: "Prompt optimization, web research, and NotebookLM briefing workflow.",
     href: "/insights/2026-ai-power-workflow",
-    cta: "Read the workflow",
+    cta: "Read workflow",
   },
   {
     index: "02",
-    title: "Assemble a lean small-business AI toolkit",
-    detail: "The 6 job-first software categories lean teams use to ship web apps and automate operations.",
+    title: "Small-business AI toolkit",
+    detail: "Six software categories to ship apps and automate operations.",
     href: "/insights/the-small-business-ai-toolkit",
-    cta: "Read toolkit guide",
+    cta: "Read guide",
   },
   {
     index: "03",
-    title: "Audit a process before automating it",
-    detail: "Run the 12-point diagnostic checklist to catch broken processes before writing a line of automation.",
+    title: "Audit processes before automating",
+    detail: "A 12-point checklist to catch broken processes before automating.",
     href: "/insights/the-automation-trap",
-    cta: "Read diagnostic checklist",
+    cta: "Read checklist",
   },
 ] as const;
 
@@ -32,10 +32,10 @@ const CollaborateSection = () => {
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div className="max-w-md">
             <h2 className="font-display text-3xl font-medium tracking-[-0.02em] leading-tight text-foreground sm:text-4xl">
-              Where do you want to begin?
+              Where to begin
             </h2>
             <p className="mt-2 text-base leading-relaxed text-foreground-muted">
-              Choose an operational bottleneck below to open the corresponding field guide and checklist.
+              Select a guide to get started.
             </p>
           </div>
 
