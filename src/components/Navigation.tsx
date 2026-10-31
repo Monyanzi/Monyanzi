@@ -83,8 +83,8 @@ const Navigation = () => {
       <div
         className={`transition-colors duration-200 border-b ${
           isScrolled
-            ? "border-border bg-background/95 backdrop-blur-md py-3"
-            : "border-border/50 bg-background/80 backdrop-blur-sm py-3.5"
+            ? "border-border bg-background py-3"
+            : "border-border/50 bg-background py-3.5"
         }`}
       >
         <div className="mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-12">

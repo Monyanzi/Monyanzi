@@ -78,7 +78,7 @@ const HeroSection = () => {
             </p>
 
             {/* Architectural Index Ledger (replaces slop pills) */}
-            <div className="mt-6 inline-flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-foreground/15 bg-surface/85 px-4 py-2 font-mono text-[11px] text-foreground-muted backdrop-blur-sm tabular-nums">
+            <div className="mt-6 inline-flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-foreground/15 bg-surface px-4 py-2 font-mono text-[11px] text-foreground-muted tabular-nums">
               <span>
                 <strong className="font-semibold text-foreground">{String(coreToolCount).padStart(2, "0")}</strong> Core Models
               </span>

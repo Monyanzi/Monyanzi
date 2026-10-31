@@ -29,7 +29,7 @@ const ShareButtons = ({ articleUrl }: { articleUrl: string }) => {
       <button
         onClick={handleCopy}
         aria-label="Copy link"
-        className="flex h-7 w-7 items-center justify-center rounded border border-white/20 bg-black/45 text-white backdrop-blur-sm transition-colors duration-150 hover:bg-black/70"
+        className="flex h-7 w-7 items-center justify-center rounded border border-white/20 bg-black/60 text-white transition-colors duration-150 hover:bg-black/70"
       >
         {copied ? <Check className="h-3.5 w-3.5 text-white" /> : <Link2 className="h-3.5 w-3.5" />}
       </button>

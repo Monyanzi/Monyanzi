@@ -555,7 +555,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
 
             {/* Guided Path Sequence Banner */}
             {pathInfo && (
-              <div className="mt-8 rounded-2xl border border-accent/20 bg-accent/5 p-6 backdrop-blur-sm">
+              <div className="mt-8 rounded-2xl border border-accent/20 bg-accent/5 p-6">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-accent">
@@ -589,7 +589,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
         </section>
 
         {/* Continue Reading — visually distinct */}
-        <section className="border-t border-border bg-surface/50 py-14 lg:py-20 backdrop-blur-sm">
+        <section className="border-t border-border bg-surface py-14 lg:py-20">
           <div className="container mx-auto px-5 lg:px-12">
             <div className="mb-8 lg:mb-10">
               <p className="label-mono mb-3">Up Next</p>
