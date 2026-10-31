@@ -3,7 +3,7 @@ import heroGarage from "@/assets/hero-garage.jpg";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { toolsData, type ToolItem } from "@/data/tools";
 
-const ToolCard = ({ tool, index }: { tool: ToolItem; index: number }) => {
+const ToolCard = ({ tool }: { tool: ToolItem }) => {
   return (
     <a
       href={tool.href}
@@ -14,16 +14,11 @@ const ToolCard = ({ tool, index }: { tool: ToolItem; index: number }) => {
       className="group relative flex flex-col justify-between bg-surface p-4 text-left transition-colors duration-150 hover:bg-surface-2/70 focus-visible:outline-accent"
     >
       <div className="flex w-full items-start justify-between mb-4">
-        <div className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded border border-border bg-white p-1.5">
-            <img src={tool.logo} alt={`${tool.name} logo`} className="h-full w-full object-contain" loading="eager" />
-          </div>
-          <span className="font-mono text-[10px] text-foreground-subtle tabular-nums">
-            {String(index + 1).padStart(2, "0")}
-          </span>
+        <div className="flex h-8 w-8 items-center justify-center rounded border border-border bg-white p-1.5">
+          <img src={tool.logo} alt={`${tool.name} logo`} className="h-full w-full object-contain" loading="eager" />
         </div>
         {tool.primary ? (
-          <span className="font-mono text-[10px] text-accent font-semibold">
+          <span className="font-mono text-[11px] text-foreground-muted">
             Core
           </span>
         ) : (
@@ -59,16 +54,10 @@ const HeroSection = () => {
           className="absolute -inset-[2%] h-[104%] w-[104%] max-w-none object-cover object-[75%_bottom]"
         />
         <div className="pointer-events-none absolute inset-0 bg-background/0 dark:bg-background/78 transition-colors duration-300" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-background via-background/60 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background via-background/60 to-transparent" />
 
         <div className="relative mx-auto flex min-h-[600px] w-full max-w-[1360px] flex-col justify-start px-5 pb-36 pt-28 sm:px-8 sm:pt-32 lg:min-h-[780px] lg:px-12 lg:pt-36">
           <div className="max-w-[760px]">
-            <div>
-              <p className="font-mono text-[11px] font-medium text-foreground-muted">
-                Field Manual &middot; Small Business AI &amp; Automation
-              </p>
-            </div>
-
             <h1 className="mt-4 text-balance font-display text-[2.75rem] font-medium leading-[1.01] tracking-[-0.03em] text-foreground sm:text-[3.85rem] lg:text-[4.65rem]">
               Practical AI systems for small business.
             </h1>
@@ -78,7 +67,7 @@ const HeroSection = () => {
             </p>
 
             {/* Architectural Index Ledger (replaces slop pills) */}
-            <div className="mt-6 inline-flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-foreground/15 bg-surface px-4 py-2 font-mono text-[11px] text-foreground-muted tabular-nums">
+            <div className="mt-6 inline-flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] text-foreground-muted tabular-nums">
               <span>
                 <strong className="font-semibold text-foreground">{String(coreToolCount).padStart(2, "0")}</strong> Core Models
               </span>
@@ -112,12 +101,17 @@ const HeroSection = () => {
       </div>
 
       {/* Architectural 12-Tool Ledger Grid */}
-      <div className="relative z-10 mx-auto -mt-28 w-full max-w-[1360px] px-5 pb-12 sm:px-8 lg:-mt-32 lg:px-12 lg:pb-16">
-        <div className="overflow-hidden rounded-lg border border-border bg-surface shadow-card">
-          <div className="flex items-center justify-between border-b border-border bg-surface-2/50 px-4 py-2.5 font-mono text-[11px]">
-            <span className="text-foreground-muted">
-              Index 01 &mdash; Production Tool Stack (12 Tested Systems)
-            </span>
+      <div className="relative z-10 mx-auto mt-12 w-full max-w-[1360px] px-5 pb-12 sm:px-8 lg:px-12 lg:pb-16">
+        <div className="overflow-hidden rounded-lg border border-border bg-surface">
+          <div className="flex items-center justify-between border-b border-border bg-surface-2/50 px-4 py-2.5">
+            <div className="flex items-baseline gap-2">
+              <span className="font-display text-lg text-foreground">
+                The tool stack
+              </span>
+              <span className="font-mono text-[11px] text-foreground-subtle">
+                {toolsData.length} tools
+              </span>
+            </div>
             <a
               href="/stack"
               className="group inline-flex items-center gap-1.5 font-semibold text-accent hover:text-foreground transition-colors"
@@ -128,8 +122,8 @@ const HeroSection = () => {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 divide-x divide-y divide-border">
-            {toolsData.map((tool, index) => (
-              <ToolCard key={tool.id} tool={tool} index={index} />
+            {toolsData.map((tool) => (
+              <ToolCard key={tool.id} tool={tool} />
             ))}
           </div>
         </div>
