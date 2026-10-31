@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import ArticleCard from "@/components/insights/ArticleCard";
 import CategoryFilter from "@/components/insights/CategoryFilter";

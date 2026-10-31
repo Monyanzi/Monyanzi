@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { motion, useScroll, useSpring } from "motion/react";
 import Navigation from "@/components/Navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";

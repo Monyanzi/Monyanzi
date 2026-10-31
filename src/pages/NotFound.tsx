@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import { SITE_NAME } from "@/config/site";
 import { ArrowLeft } from "lucide-react";
