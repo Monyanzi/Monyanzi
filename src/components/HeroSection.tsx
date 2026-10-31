@@ -118,15 +118,15 @@ const HeroSection = () => {
               className="mt-6 inline-flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-foreground/15 bg-surface/85 px-4 py-2 font-mono text-[11px] text-foreground-muted backdrop-blur-sm tabular-nums"
             >
               <span>
-                <strong className="font-semibold text-foreground">0{coreToolCount}</strong> Core Models
+                <strong className="font-semibold text-foreground">{String(coreToolCount).padStart(2, "0")}</strong> Core Models
               </span>
               <span className="text-foreground/25">/</span>
               <span>
-                <strong className="font-semibold text-foreground">0{specialistCount}</strong> Specialist Tools
+                <strong className="font-semibold text-foreground">{String(specialistCount).padStart(2, "0")}</strong> Specialist Tools
               </span>
               <span className="text-foreground/25">/</span>
               <span>
-                <strong className="font-semibold text-foreground">0{articleCount}</strong> Field Guides
+                <strong className="font-semibold text-foreground">{String(articleCount).padStart(2, "0")}</strong> Field Guides
               </span>
             </motion.div>
 
