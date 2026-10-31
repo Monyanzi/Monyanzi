@@ -23,9 +23,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
-        display: ["Newsreader", "Georgia", "Cambria", "Times New Roman", "serif"],
-        mono: ["JetBrains Mono", "Consolas", "monospace"],
+        sans: ["Instrument Sans Variable", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        display: ["Newsreader Variable", "Georgia", "serif"],
+        mono: ["JetBrains Mono Variable", "Consolas", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
