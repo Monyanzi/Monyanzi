@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
-import ExperienceStrip from "@/components/ExperienceStrip";
 import FeaturedInsightsSection from "@/components/FeaturedInsightsSection";
 import ReadingPathsSection from "@/components/insights/ReadingPathsSection";
 import SelectedWorkSection from "@/components/SelectedWorkSection";
@@ -84,7 +83,6 @@ const Index = () => {
         <div className="relative z-10">
           <Navigation />
           <HeroSection />
-          <ExperienceStrip />
           <FeaturedInsightsSection />
           <ReadingPathsSection />
           <SelectedWorkSection />
