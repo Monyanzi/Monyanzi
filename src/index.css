@@ -26,8 +26,7 @@
     /* Forest Green */
     --accent-light: 150 50% 90%;
     --accent-foreground: 0 0% 100%;
-    --jacarta: 260 42% 35%;
-    /* Rich Plum/Purple */
+    --jacarta: 28 28% 32%;
     --gold: 38 75% 55%;
     /* Warm Amber/Gold — secondary accent */
     --gold-light: 38 60% 92%;
@@ -35,14 +34,14 @@
     /* Structural */
     --border: 40 20% 86%;
     --border-strong: 0 0% 72%;
-    --ring: 260 42% 35%;
+    --ring: 28 28% 32%;
 
     /* Alias tokens for shadcn compat */
     --card: 40 50% 98%;
     --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
-    --primary: 260 42% 35%;
+    --primary: 28 28% 32%;
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 10%;
@@ -51,7 +50,7 @@
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
     --input: 0 0% 96%;
-    --radius: 1.5rem;
+    --radius: 0.25rem;
 
     /* Layout */
     --container-max: 1360px;
@@ -91,7 +90,7 @@
     --accent: 150 65% 42%;
     --accent-light: 150 40% 18%;
     --accent-foreground: 0 0% 100%;
-    --jacarta: 260 60% 70%;
+    --jacarta: 30 24% 72%;
     --gold: 38 80% 60%;
     --gold-light: 38 40% 20%;
 
