@@ -93,7 +93,7 @@ const Navigation = () => {
               href="/"
               onClick={handleLogoClick}
               className="group flex items-baseline gap-2.5 py-1"
-              aria-label="AI Founder Garage — Home"
+              aria-label="AI Founder Garage · Home"
             >
               <span className="font-display text-lg font-medium tracking-tight text-foreground">
                 AI Founder Garage

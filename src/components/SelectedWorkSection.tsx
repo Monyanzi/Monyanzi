@@ -69,10 +69,10 @@ const SelectedWorkSection = () => {
                 Consumer web application
               </p>
               <h3 className="mt-2 font-display text-2xl sm:text-3xl font-medium tracking-tight text-foreground">
-                PAWZA Pet Directory &amp; Emergency Finder
+                PAWZA pet directory &amp; emergency finder
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-foreground-muted">
-                Built to solve fragmented local discovery for South African pet owners—combining instant 24/7 veterinary triage with verified dog-friendly venues.
+                Built to solve fragmented local discovery for South African pet owners: combining instant 24/7 veterinary triage with verified dog-friendly venues.
               </p>
 
               {/* 4 Architectural Pillars */}

@@ -152,7 +152,7 @@ const Insights = () => {
                 {/* Left — title */}
                 <div>
                   <h1 className="text-display-lg text-balance text-foreground">
-                    Guides &amp; Articles
+                    Guides &amp; articles
                   </h1>
 
                   <p className="mt-4 max-w-lg text-body-lg text-foreground-muted">

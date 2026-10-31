@@ -78,7 +78,7 @@ const Stack = () => {
           <div className="page-container relative z-10">
             <div className="max-w-3xl">
               <h1 className="text-display-lg text-balance text-foreground">
-                The 2026 AI Tool Stack
+                The 2026 AI tool stack
               </h1>
               <p className="mt-4 text-body-lg text-foreground-muted max-w-2xl">
                 The software I use to build apps, automate tasks, and run research. Filter by category or start with the core three.
@@ -193,7 +193,7 @@ const Stack = () => {
                             })}
                           </div>
                         ) : (
-                          <span className="font-mono text-[11px] text-foreground-subtle">&mdash;</span>
+                          <span className="font-mono text-[11px] text-foreground-subtle">&middot;</span>
                         )}
                       </td>
                     </tr>
