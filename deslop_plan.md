@@ -118,10 +118,10 @@ Everywhere else, remove uppercase and any `tracking-[...]`, `tracking-wide`, `tr
 - [x] **T0.8 Fix zero-padded hero counts** — Fix padding in `src/components/HeroSection.tsx`.
 
 ### Phase P1: Spec and Tokens
-- [ ] **T1.1 Rewrite DESIGN.md** — Update with 8 sections matching §2.
-- [ ] **T1.2 Rewrite local unslop skill** — Update `.agent/skills/unslop/SKILL.md`.
-- [ ] **T1.3 Apply tokens** — Update `--radius` and `--jacarta` in `src/index.css` & `tailwind.config.ts`.
-- [ ] **T1.4 (Optional) Vendor external design skills** — Vendor into `.agent/skills/` if permissive.
+- [x] **T1.1 Rewrite DESIGN.md** — Update with 8 sections matching §2.
+- [x] **T1.2 Rewrite local unslop skill** — Update `.agent/skills/unslop/SKILL.md`.
+- [x] **T1.3 Apply tokens** — Update `--radius` and `--jacarta` in `src/index.css` & `tailwind.config.ts`.
+- [x] **T1.4 (Optional) Vendor external design skills** — Vendor into `.agent/skills/` if permissive.
 
 ### Phase P2: Global Primitives
 - [ ] **T2.1 Remove route page transitions** — Replace AnimatePresence in `App.tsx`, delete `PageTransition.tsx`.
@@ -173,7 +173,7 @@ Everywhere else, remove uppercase and any `tracking-[...]`, `tracking-wide`, `tr
 | T0.6 | DONE | 5 | Self-hosted Newsreader, Instrument Sans, JetBrains Mono; CSP passing |
 | T0.7 | DONE | 5 | Added /stack SPA fallback rewrite and updated route test |
 | T0.8 | DONE | 5 | Corrected zero-padding using padStart(2, "0") |
-| T1.1–T1.4 | | | |
+| T1.1–T1.4 | DONE | 5 | DESIGN.md, unslop skill, tokens (radius, jacarta) updated; 3 external skills vendored |
 | T2.1–T2.10 | | 0 after T2.2 | |
 | T3.1–T3.9 | | | |
 | T4.1–T4.2 | | | |
