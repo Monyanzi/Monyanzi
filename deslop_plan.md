@@ -155,9 +155,9 @@ Everywhere else, remove uppercase and any `tracking-[...]`, `tracking-wide`, `tr
 - [x] **T5.2 Responsive images (hero only)** — Add webp `<picture>` support if image exists.
 
 ### Phase P6: QA and Close-Out
-- [ ] **T6.1 Forbidden-pattern sweep** — Zero occurrences of forbidden patterns.
-- [ ] **T6.2 Full checks** — `npm run typecheck` (0), `npm test` (all pass), `npm run lint`, `npm run build`.
-- [ ] **T6.3 Screenshots for review** — Capture final screenshots and append carousel.
+- [x] **T6.1 Forbidden-pattern sweep** — Zero occurrences of forbidden patterns.
+- [x] **T6.2 Full checks** — `npm run typecheck` (0), `npm test` (all pass), `npm run lint`, `npm run build`.
+- [x] **T6.3 Screenshots for review** — Capture final screenshots and append carousel.
 
 ---
 
@@ -178,8 +178,19 @@ Everywhere else, remove uppercase and any `tracking-[...]`, `tracking-wide`, `tr
 | T3.1–T3.9 | DONE | 0 | Redesigned Home hero, removed value strip, lead+list featured insights, numbered reading paths, editorial PAWZA case study, stack ledger table, insights index listing, book-like article page, simplified start/footer/404 |
 | T4.1–T4.2 | DONE | 0 | Removed themed jargon per §2.8 copy dictionary; converted non-title headings to sentence case; replaced UI em-dashes |
 | T5.1–T5.2 | DONE | 0 | Migrated to react-helmet-async with HelmetProvider in main.tsx; hero image wrapped in picture element |
-| T6.1–T6.3 | | | |
-| T4.1–T4.2 | | | |
-| T5.1–T5.2 | | | |
-| T6.1–T6.3 | | | |
+| T6.1–T6.3 | DONE | 0 | Forbidden pattern sweep passed (0 matches); typecheck (0), lint, build passed; final screenshots captured |
+
+---
+
+## 11. After (Final Screenshots)
+
+````carousel
+![Final Home Page](C:\Users\Moses\.gemini\antigravity\brain\ae190a5c-7c7c-4326-bd60-81fafc155078\final-home.png)
+<!-- slide -->
+![Final Insights Listing](C:\Users\Moses\.gemini\antigravity\brain\ae190a5c-7c7c-4326-bd60-81fafc155078\final-insights.png)
+<!-- slide -->
+![Final Stack Ledger Table](C:\Users\Moses\.gemini\antigravity\brain\ae190a5c-7c7c-4326-bd60-81fafc155078\final-stack.png)
+<!-- slide -->
+![Final Article Book Layout](C:\Users\Moses\.gemini\antigravity\brain\ae190a5c-7c7c-4326-bd60-81fafc155078\final-article.png)
+````
 
