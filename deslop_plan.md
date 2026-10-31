@@ -136,15 +136,15 @@ Everywhere else, remove uppercase and any `tracking-[...]`, `tracking-wide`, `tr
 - [x] **T2.10 Remove unused keyframes** — Clean Tailwind animations and CSS keyframes.
 
 ### Phase P3: Page Redesigns
-- [ ] **T3.1 Home hero** — Clean eyebrow, quiet stats strip, un-overlap tool panel, remove tile numbers.
-- [ ] **T3.2 Delete 4-up value strip** — Remove `ExperienceStrip.tsx` from `Index.tsx` and delete file.
-- [ ] **T3.3 Featured insights: lead article plus list** — Redesign `FeaturedInsightsSection.tsx`.
-- [ ] **T3.4 Reading paths: numbered list** — Redesign `ReadingPathsSection.tsx` into `<ol>` list.
-- [ ] **T3.5 PAWZA case study** — Redesign `SelectedWorkSection.tsx` with `<dl>` features.
-- [ ] **T3.6 Stack page: ledger table** — Redesign `Stack.tsx` as table ledger.
-- [ ] **T3.7 Insights listing: editorial index** — Redesign `Insights.tsx`, `ArticleCard.tsx`, filters into index.
-- [ ] **T3.8 Article page** — Refactor `InsightArticle.tsx` into book-like layout.
-- [ ] **T3.9 "Where to begin", footer and 404** — Refactor `CollaborateSection.tsx`, `SiteFooter.tsx`, `NotFound.tsx`.
+- [x] **T3.1 Home hero** — Clean eyebrow, quiet stats strip, un-overlap tool panel, remove tile numbers.
+- [x] **T3.2 Delete 4-up value strip** — Remove `ExperienceStrip.tsx` from `Index.tsx` and delete file.
+- [x] **T3.3 Featured insights: lead article plus list** — Redesign `FeaturedInsightsSection.tsx`.
+- [x] **T3.4 Reading paths: numbered list** — Redesign `ReadingPathsSection.tsx` into `<ol>` list.
+- [x] **T3.5 PAWZA case study** — Redesign `SelectedWorkSection.tsx` with `<dl>` features.
+- [x] **T3.6 Stack page: ledger table** — Redesign `Stack.tsx` as table ledger.
+- [x] **T3.7 Insights listing: editorial index** — Redesign `Insights.tsx`, `ArticleCard.tsx`, filters into index.
+- [x] **T3.8 Article page** — Refactor `InsightArticle.tsx` into book-like layout.
+- [x] **T3.9 "Where to begin", footer and 404** — Refactor `CollaborateSection.tsx`, `SiteFooter.tsx`, `NotFound.tsx`.
 
 ### Phase P4: Copy Pass
 - [ ] **T4.1 Apply copy dictionary** — Enforce §2.8 exact replacements.
@@ -175,7 +175,8 @@ Everywhere else, remove uppercase and any `tracking-[...]`, `tracking-wide`, `tr
 | T0.8 | DONE | 5 | Corrected zero-padding using padStart(2, "0") |
 | T1.1–T1.4 | DONE | 5 | DESIGN.md, unslop skill, tokens (radius, jacarta) updated; 3 external skills vendored |
 | T2.1–T2.10 | DONE | 0 | Dropped page transitions & hero motion; purged glass/premium/purple/blur/glow/hover lift/jacarta; tight radius & button normalization applied; unused animations removed |
-| T3.1–T3.9 | | | |
+| T3.1–T3.9 | DONE | 0 | Redesigned Home hero, removed value strip, lead+list featured insights, numbered reading paths, editorial PAWZA case study, stack ledger table, insights index listing, book-like article page, simplified start/footer/404 |
+| T4.1–T4.2 | | | |
 | T4.1–T4.2 | | | |
 | T5.1–T5.2 | | | |
 | T6.1–T6.3 | | | |
