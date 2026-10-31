@@ -49,7 +49,7 @@ const BottomNavigation = ({ currentPath }: { currentPath: string }) => {
               key={label}
               href={href}
               onClick={(e) => handleNavClick(e, href)}
-              className="flex min-h-[56px] flex-col items-center justify-center gap-1 rounded-xl text-center transition-colors duration-200 active:scale-95"
+              className="flex min-h-[56px] flex-col items-center justify-center gap-1 rounded-xl text-center transition-colors duration-200"
               aria-label={label}
             >
               <Icon
@@ -70,7 +70,7 @@ const BottomNavigation = ({ currentPath }: { currentPath: string }) => {
         <button
           type="button"
           onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
-          className="flex min-h-[56px] flex-col items-center justify-center gap-1 rounded-xl text-center text-foreground-subtle transition-colors duration-200 hover:text-foreground active:scale-95"
+          className="flex min-h-[56px] flex-col items-center justify-center gap-1 rounded-xl text-center text-foreground-subtle transition-colors duration-200 hover:text-foreground"
           aria-label="Search articles"
         >
           <Search className="h-5 w-5" strokeWidth={1.75} />

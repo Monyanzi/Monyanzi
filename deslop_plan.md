@@ -169,7 +169,7 @@ Everywhere else, remove uppercase and any `tracking-[...]`, `tracking-wide`, `tr
 | T0.2 | DONE | 8 | Added `test` and `typecheck` npm scripts |
 | T0.3 | DONE | 8 | Removed stale design tests (ferrari-theme, home-redesign) |
 | T0.4 | DONE | 5 | Removed unused imports from ThemeToggle, Insights, Stack |
-| T0.5 | DONE | 5 | Removed lovable-tagger plugin and pruned package |
+| T0.5 | REVERTED | 5 | User retained lovable-tagger dependency and plugin |
 | T0.6 | DONE | 5 | Self-hosted Newsreader, Instrument Sans, JetBrains Mono; CSP passing |
 | T0.7 | DONE | 5 | Added /stack SPA fallback rewrite and updated route test |
 | T0.8 | DONE | 5 | Corrected zero-padding using padStart(2, "0") |

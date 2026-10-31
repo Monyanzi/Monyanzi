@@ -142,7 +142,7 @@ const Stack = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.96 }}
                     transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex flex-col justify-between rounded-2xl border border-border bg-surface p-6 transition-interactive duration-300 hover:border-border-strong hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)]"
+                    className="flex flex-col justify-between rounded-2xl border border-border bg-surface p-6 transition-interactive duration-300 hover:border-border-strong"
                   >
                     <div>
                       {/* Top Bar: Logo + Badges */}

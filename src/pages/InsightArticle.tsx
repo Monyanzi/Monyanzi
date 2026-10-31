@@ -568,7 +568,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
                   {pathInfo.nextArticleId && (
                     <a
                       href={`/insights/${pathInfo.nextArticleId}`}
-                      className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-4 py-2 text-xs font-semibold text-accent-foreground transition-colors hover:bg-foreground active:scale-[0.98]"
+                      className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-4 py-2 text-xs font-semibold text-accent-foreground transition-colors hover:bg-foreground"
                     >
                       <span>Next in sequence</span>
                       <ArrowRight className="h-3.5 w-3.5" />
@@ -606,7 +606,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
                   <a
                     key={relatedSlug}
                     href={`/insights/${relatedSlug}`}
-                    className="group block border border-border bg-surface overflow-hidden rounded-2xl transition-interactive duration-300 hover:-translate-y-[2px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.07)]"
+                    className="group block border border-border bg-surface overflow-hidden rounded-2xl transition-interactive duration-300"
                   >
                     <div className="relative aspect-[16/9] overflow-hidden bg-muted">
                       <img

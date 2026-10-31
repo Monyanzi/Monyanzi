@@ -25,7 +25,7 @@ export const ThemeToggle = ({ className = "" }: { className?: string }) => {
     <button
       type="button"
       onClick={handleToggle}
-      className={`inline-flex min-h-[38px] min-w-[38px] items-center justify-center rounded-lg border border-border bg-surface text-foreground-muted transition-colors duration-200 hover:border-border-strong hover:text-foreground active:scale-[0.95] ${className}`}
+      className={`inline-flex min-h-[38px] min-w-[38px] items-center justify-center rounded-lg border border-border bg-surface text-foreground-muted transition-colors duration-200 hover:border-border-strong hover:text-foreground ${className}`}
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
