@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import { SITE_NAME } from "@/config/site";
+import { ArrowLeft } from "lucide-react";
 
 const NotFound = () => {
   return (
@@ -11,30 +12,30 @@ const NotFound = () => {
       </Helmet>
       <Navigation />
       <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6 pt-20">
-        <div className="text-center">
-          {/* Large 404 */}
-          <p className="font-mono text-[10rem] font-bold leading-none text-foreground/5 select-none mb-0">
-            404
+        <div className="max-w-md text-center border border-border bg-surface p-8 sm:p-10 rounded-lg">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent mb-2">
+            Error 404
           </p>
-          <div className="-mt-8">
-            <h1 className="text-display-sm text-foreground mb-3">Page not found</h1>
-            <p className="mb-8 text-foreground-muted">
-              The page you're looking for doesn't exist or has been moved.
-            </p>
-            <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-              <a
-                href="/"
-                className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-[13px] font-semibold text-background transition-all duration-300 hover:bg-foreground/85 hover:scale-[0.97]"
-              >
-                Go Home
-              </a>
-              <a
-                href="/insights"
-                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-[13px] font-semibold text-foreground-muted transition-all duration-300 hover:border-border-strong hover:text-foreground hover:shadow-card"
-              >
-                Browse Articles
-              </a>
-            </div>
+          <h1 className="font-display text-3xl font-medium text-foreground mb-3">
+            Dispatch not found
+          </h1>
+          <p className="mb-8 text-xs sm:text-sm leading-relaxed text-foreground-muted">
+            The page you requested does not exist or has been relocated in the archive.
+          </p>
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <a
+              href="/"
+              className="inline-flex items-center gap-2 rounded bg-foreground px-5 py-2.5 font-mono text-xs font-medium uppercase tracking-wider text-background transition-colors hover:bg-accent"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+              Return to Index
+            </a>
+            <a
+              href="/insights"
+              className="inline-flex items-center gap-2 rounded border border-border bg-background px-5 py-2.5 font-mono text-xs font-medium uppercase tracking-wider text-foreground transition-colors hover:border-border-strong"
+            >
+              Browse Field Guides
+            </a>
           </div>
         </div>
       </div>

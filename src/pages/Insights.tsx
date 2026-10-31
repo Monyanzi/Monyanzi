@@ -9,9 +9,8 @@ import SiteFooter from "@/components/SiteFooter";
 import { articleSummaries, entrepreneurResources } from "@/data/articleSummaries";
 import { insightsArticlesBriefing } from "@/data/audioBriefings";
 import { SITE_NAME, SITE_URL, SOCIAL_IMAGE_URL } from "@/config/site";
-import SearchModal from "@/components/SearchModal";
+import ReadingPathsSection from "@/components/insights/ReadingPathsSection";
 import { Search } from "lucide-react";
-import { LiquidEffectAnimation } from "@/components/ui/liquid-effect-animation";
 
 const INSIGHTS_URL = `${SITE_URL}/insights`;
 const INSIGHTS_TITLE = `AI Tools, Automation & Founder Field Notes | ${SITE_NAME}`;
@@ -60,23 +59,31 @@ const readyAudioSchemas = [insightsArticlesBriefing]
   }));
 
 const Insights = () => {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(() => {
+    if (typeof window === "undefined") return null;
+    const param = new URLSearchParams(window.location.search).get("cat");
+    if (!param) return null;
+    return categories.find((c) => c.toLowerCase() === param.toLowerCase()) ?? null;
+  });
   const [sortOption, setSortOption] = useState<SortOption>("default");
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault();
-        setIsSearchOpen(true);
-      }
-    };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const a of articles) {
+      counts[a.category] = (counts[a.category] || 0) + 1;
+    }
+    return counts;
   }, []);
 
   const handleCategoryChange = useCallback((category: string | null) => {
     setActiveCategory(category);
+    const url = new URL(window.location.href);
+    if (category) {
+      url.searchParams.set("cat", category.toLowerCase());
+    } else {
+      url.searchParams.delete("cat");
+    }
+    window.history.replaceState(null, "", url.pathname + url.search);
   }, []);
 
   const handleSortChange = useCallback((option: SortOption) => {
@@ -135,147 +142,146 @@ const Insights = () => {
       </Helmet>
 
       <main className="min-h-screen">
-        <LiquidEffectAnimation text={[]} textColor="#111111" />
         <div className="relative z-10">
-      <Navigation />
+          <Navigation />
 
-        {/* Hero */}
-        <section className="relative overflow-hidden border-b border-border pt-28 pb-16 lg:pt-36 lg:pb-20">
-          <div className="pointer-events-none absolute inset-x-0 -top-20 h-80 bg-[radial-gradient(ellipse_50%_50%_at_50%_0%,hsl(38_55%_42%/0.06),transparent)]" />
+          {/* Hero */}
+          <section className="relative overflow-hidden border-b border-border pt-28 pb-16 lg:pt-36 lg:pb-20">
+            <div className="pointer-events-none absolute inset-x-0 -top-20 h-80 bg-[radial-gradient(ellipse_50%_50%_at_50%_0%,hsl(38_55%_42%/0.06),transparent)]" />
 
-          <div className="page-container relative z-10">
-            <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
-              {/* Left — title */}
-              <div>
-                <h1 className="text-display-lg text-balance text-foreground">
-                  Articles
-                </h1>
+            <div className="page-container relative z-10">
+              <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
+                {/* Left — title */}
+                <div>
+                  <h1 className="text-display-lg text-balance text-foreground">
+                    Guides & Articles
+                  </h1>
 
-                <p className="mt-4 max-w-lg text-body-lg" style={{ color: '#6B7280' }}>
-                  Practical advice on using AI and automation without wasting time or money.
+                  <p className="mt-4 max-w-lg text-body-lg text-foreground-muted">
+                    Step-by-step guides on using AI tools to build software and automate operations.
+                  </p>
+                </div>
+
+                {/* Right — compact search */}
+                <div className="flex flex-col gap-3">
+                  {/* Compact search button */}
+                  <button
+                    aria-label="Search articles (/)"
+                    onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
+                    className="group inline-flex items-center gap-3 rounded-2xl border border-border bg-surface px-4 py-3 text-left transition-interactive duration-200 hover:border-border-strong hover:shadow-card focus:outline-none"
+                  >
+                    <Search className="h-4 w-4 text-foreground-subtle transition-colors duration-200 group-hover:text-foreground-muted" />
+                    <span className="flex-1 text-sm text-foreground-subtle">Search articles</span>
+                    <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded-md border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-[10px] font-medium text-foreground-subtle">
+                      ⌘K
+                    </kbd>
+                  </button>
+                </div>
+              </div>
+
+              {/* Audio briefing — full-width, below header */}
+              <div className="mt-8 audio-card-purple">
+                <p className="mb-3 inline-flex items-center rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
+                  Listen
+                </p>
+                <AudioBriefingCard briefing={insightsArticlesBriefing} className="w-full" />
+              </div>
+            </div>
+          </section>
+
+          {/* Articles section */}
+          <section className="py-section">
+            <div className="page-container">
+              {/* Controls */}
+              <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <h2 className="text-[1.375rem] font-bold text-foreground">Latest Articles</h2>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <CategoryFilter
+                    categories={categories}
+                    activeCategory={activeCategory}
+                    onCategoryChange={handleCategoryChange}
+                    counts={categoryCounts}
+                    totalCount={articles.length}
+                  />
+                  <SortSelect value={sortOption} onChange={handleSortChange} />
+                </div>
+              </div>
+
+              {/* Article list */}
+              {filteredAndSortedArticles.length === 0 ? (
+                <div className="flex flex-col items-center justify-center rounded-3xl border border-border py-24">
+                  <p className="text-foreground-muted">No articles found for this category.</p>
+                </div>
+              ) : (
+                <div className="space-y-10 lg:space-y-12">
+                  {/* Featured */}
+                  {featuredArticle && (
+                    <div>
+                      <ArticleCard {...featuredArticle} featured />
+                    </div>
+                  )}
+
+                  {/* Grid — 2 columns */}
+                  <div className="grid gap-6 md:grid-cols-2">
+                    {remainingArticles.map((article) => (
+                      <div
+                        key={article.id}
+                      >
+                        <ArticleCard {...article} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </section>
+          {/* Curated Reading Paths inspired by Appllama Flows */}
+          <ReadingPathsSection />
+
+          {/* Resources section */}
+          <section className="py-section">
+            <div className="page-container">
+              {/* Section separator */}
+              <div className="mb-10 border-t border-border pt-10 flex items-center gap-3">
+                <span className="inline-flex items-center rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
+                  Ecosystem
+                </span>
+              </div>
+              <div className="mb-8">
+                <h2 className="text-display-sm text-foreground mb-4">Tools for builders</h2>
+                <p className="max-w-xl text-body-lg text-foreground-muted">
+                  A short list of useful tools and ideas to try before you buy another subscription or start a new project.
                 </p>
               </div>
 
-              {/* Right — compact search */}
-              <div className="flex flex-col gap-3">
-                {/* Compact search button */}
-                <button
-                  aria-label="Search articles (Ctrl+K)"
-                  onClick={() => setIsSearchOpen(true)}
-                  className="group inline-flex items-center gap-3 rounded-2xl border border-border bg-surface px-4 py-3 text-left transition-all duration-200 hover:border-border-strong hover:shadow-card focus:outline-none"
-                >
-                  <Search className="h-4 w-4 text-foreground-subtle transition-colors duration-200 group-hover:text-foreground-muted" />
-                  <span className="flex-1 text-sm text-foreground-subtle">Search articles</span>
-                  <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded-md border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-[10px] font-medium text-foreground-subtle">
-                    ⌘K
-                  </kbd>
-                </button>
-              </div>
-            </div>
-
-            {/* Audio briefing — full-width, below header */}
-            <div className="mt-8 audio-card-purple">
-              <p className="mb-3 inline-flex items-center rounded-full bg-[#6D28D9]/10 border border-[#6D28D9]/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#6D28D9]">
-                Listen
-              </p>
-              <AudioBriefingCard briefing={insightsArticlesBriefing} className="w-full" />
-            </div>
-          </div>
-        </section>
-
-        {/* Articles section */}
-        <section className="py-section">
-          <div className="page-container">
-            {/* Controls */}
-            <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <h2 className="text-[1.375rem] font-bold text-foreground">Latest Articles</h2>
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <CategoryFilter
-                  categories={categories}
-                  activeCategory={activeCategory}
-                  onCategoryChange={handleCategoryChange}
-                />
-                <SortSelect value={sortOption} onChange={handleSortChange} />
-              </div>
-            </div>
-
-            {/* Article list */}
-            {filteredAndSortedArticles.length === 0 ? (
-              <div className="flex flex-col items-center justify-center rounded-3xl border border-border py-24">
-                <p className="text-foreground-muted">No articles found for this category.</p>
-              </div>
-            ) : (
-              <div className="space-y-10 lg:space-y-12">
-                {/* Featured */}
-                {featuredArticle && (
-                  <div>
-                    <ArticleCard {...featuredArticle} featured />
-                  </div>
-                )}
-
-                {/* Grid — 2 columns */}
-                <div className="grid gap-6 md:grid-cols-2">
-                  {remainingArticles.map((article) => (
-                    <div
-                      key={article.id}
-                    >
-                      <ArticleCard {...article} />
+              <div className="grid gap-5 md:grid-cols-3">
+                {entrepreneurResources.map((resource, i) => (
+                  <a
+                    key={i}
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group card-premium flex flex-col p-7 lg:p-8"
+                  >
+                    <p className={`label-mono mb-5 ${i % 2 === 0 ? "text-accent" : "text-jacarta"}`}>{resource.category}</p>
+                    <h3 className={`mb-3 text-[1.125rem] font-bold text-foreground transition-colors duration-200 ${i % 2 === 0 ? "group-hover:text-accent" : "group-hover:text-jacarta"}`}>
+                      {resource.title}
+                    </h3>
+                    <p className="mb-8 flex-grow text-[0.875rem] leading-relaxed text-foreground-muted">
+                      {resource.description}
+                    </p>
+                    <div className={`mt-auto inline-flex items-center gap-2 text-[12px] font-bold tracking-wide text-foreground transition-colors duration-200 ${i % 2 === 0 ? "group-hover:text-accent" : "group-hover:text-jacarta"}`}>
+                      {resource.ctaText}
                     </div>
-                  ))}
-                </div>
+                  </a>
+                ))}
               </div>
-            )}
-          </div>
-        </section>
-
-        {/* Resources section */}
-        <section className="py-section">
-          <div className="page-container">
-            {/* Section separator */}
-            <div className="mb-10 border-t border-[#E4E4EF] pt-10 flex items-center gap-3">
-              <span className="inline-flex items-center rounded-full bg-[#6D28D9]/10 border border-[#6D28D9]/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#6D28D9]">
-                Ecosystem
-              </span>
             </div>
-            <div className="mb-8">
-              <h2 className="text-display-sm text-foreground mb-4">Tools for builders</h2>
-              <p className="max-w-xl text-body-lg text-foreground-muted">
-                A short list of useful tools and ideas to try before you buy another subscription or start a new project.
-              </p>
-            </div>
+          </section>
 
-            <div className="grid gap-5 md:grid-cols-3">
-              {entrepreneurResources.map((resource, i) => (
-                <a
-                  key={i}
-                  href={resource.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group card-premium flex flex-col p-7 lg:p-8"
-                >
-                  <p className={`label-mono mb-5 ${i % 2 === 0 ? "text-accent" : "text-jacarta"}`}>{resource.category}</p>
-                  <h3 className={`mb-3 text-[1.125rem] font-bold text-foreground transition-colors duration-200 ${i % 2 === 0 ? "group-hover:text-accent" : "group-hover:text-jacarta"}`}>
-                    {resource.title}
-                  </h3>
-                  <p className="mb-8 flex-grow text-[0.875rem] leading-relaxed text-foreground-muted">
-                    {resource.description}
-                  </p>
-                  <div className={`mt-auto inline-flex items-center gap-2 text-[12px] font-bold tracking-wide text-foreground transition-all duration-300 group-hover:gap-3 ${i % 2 === 0 ? "group-hover:text-accent" : "group-hover:text-jacarta"}`}>
-                    {resource.ctaText}
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-
-
-
-        <SiteFooter />
+          <SiteFooter />
         </div>
       </main>
-
-      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   );
 };

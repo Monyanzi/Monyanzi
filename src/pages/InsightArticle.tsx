@@ -2,10 +2,12 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import { motion, useScroll, useSpring } from "motion/react";
 import Navigation from "@/components/Navigation";
-import { ArrowLeft, Clock } from "lucide-react";
+import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
 import SiteFooter from "@/components/SiteFooter";
 import AudioBriefingCard from "@/components/audio/AudioBriefingCard";
 import { articles } from "@/data/insights";
+import { READING_TIMES } from "@/data/articleSummaries";
+import { getPathForArticle } from "@/data/paths";
 import { insightsArticlesBriefing } from "@/data/audioBriefings";
 import { SITE_URL, SITE_NAME, SOCIAL_IMAGE_URL } from "@/config/site";
 import ShareBar from "@/components/ShareBar";
@@ -19,17 +21,6 @@ interface ArticleSeoMeta {
   modifiedTime?: string;
 }
 
-const READING_TIMES: Record<string, number> = {
-  "the-small-business-ai-toolkit": 12,
-  "10-ai-agent-implementation-mistakes-checklist": 10,
-  "2026-ai-power-workflow": 8,
-  "wrong-question-ai-leader": 9,
-  "black-mirror-lessons-ai-leaders": 11,
-  "the-automation-trap": 7,
-  "why-ai-projects-fail": 6,
-  "5-signs-always-done-this-way": 5,
-  "12-ai-tools-in-my-tech-stack": 14,
-};
 
 const ARTICLE_SEO: Record<string, ArticleSeoMeta> = {
   "the-small-business-ai-toolkit": {
@@ -280,6 +271,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
   const articlePath = `/insights/${resolvedSlug}`;
   const articleUrl = `${SITE_URL}${articlePath}`;
   const readingTime = READING_TIMES[resolvedSlug];
+  const pathInfo = useMemo(() => getPathForArticle(resolvedSlug), [resolvedSlug]);
   const relatedSlugs = useMemo(() => {
     const configured = (RELATED_SLUGS_BY_ARTICLE[resolvedSlug] ?? []).filter(
       (relatedSlug) => relatedSlug !== resolvedSlug && Boolean(articles[relatedSlug]),
@@ -457,7 +449,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             {/* Back link — more prominent */}
             <a
               href="/insights"
-              className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface px-4 py-2 text-sm font-semibold text-foreground-muted hover:text-foreground hover:border-border-strong transition-all duration-200 mb-8 lg:mb-10 group"
+              className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface px-4 py-2 text-sm font-semibold text-foreground-muted hover:text-foreground hover:border-border-strong transition-interactive duration-200 mb-8 lg:mb-10 group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               All Articles
@@ -511,7 +503,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             <div>
               <div className="mb-6 lg:mb-8">
                 <div className="audio-card-purple">
-                  <p className="mb-3 inline-flex items-center rounded-full bg-[#6D28D9]/10 border border-[#6D28D9]/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#6D28D9]">
+                  <p className="mb-3 inline-flex items-center rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
                     Listen
                   </p>
                   <AudioBriefingCard
@@ -561,6 +553,31 @@ const InsightArticle = ({ slug }: { slug: string }) => {
               </a>
             </div>
 
+            {/* Guided Path Sequence Banner */}
+            {pathInfo && (
+              <div className="mt-8 rounded-2xl border border-accent/20 bg-accent/5 p-6 backdrop-blur-sm">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-accent">
+                      Part {pathInfo.partNumber} of {pathInfo.totalParts} · {pathInfo.path.title}
+                    </span>
+                    <p className="mt-1 text-sm text-foreground-muted">
+                      {pathInfo.path.description}
+                    </p>
+                  </div>
+                  {pathInfo.nextArticleId && (
+                    <a
+                      href={`/insights/${pathInfo.nextArticleId}`}
+                      className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-4 py-2 text-xs font-semibold text-accent-foreground transition-colors hover:bg-foreground active:scale-[0.98]"
+                    >
+                      <span>Next in sequence</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            )}
+
             {/* Bottom share section */}
             <div className="mt-8 pt-8 border-t border-border">
               <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-foreground-subtle mb-4">
@@ -589,7 +606,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
                   <a
                     key={relatedSlug}
                     href={`/insights/${relatedSlug}`}
-                    className="group block card-premium overflow-hidden rounded-[1.5rem] transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.07)]"
+                    className="group block card-premium overflow-hidden rounded-2xl transition-interactive duration-300 hover:-translate-y-[2px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.07)]"
                   >
                     <div className="relative aspect-[16/9] overflow-hidden bg-muted">
                       <img
@@ -617,8 +634,8 @@ const InsightArticle = ({ slug }: { slug: string }) => {
                         </span>
                       )}
 
-                      <div className="mt-4 inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all duration-300 text-jacarta">
-                        Read →
+                      <div className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-jacarta">
+                        Read <span aria-hidden="true" className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1">→</span>
                       </div>
                     </div>
                   </a>

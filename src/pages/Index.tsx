@@ -3,9 +3,9 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import ExperienceStrip from "@/components/ExperienceStrip";
 import FeaturedInsightsSection from "@/components/FeaturedInsightsSection";
+import ReadingPathsSection from "@/components/insights/ReadingPathsSection";
 import SelectedWorkSection from "@/components/SelectedWorkSection";
 import CollaborateSection from "@/components/CollaborateSection";
-import { LiquidEffectAnimation } from "@/components/ui/liquid-effect-animation";
 import { SITE_NAME, SITE_URL, SOCIAL_IMAGE_URL } from "@/config/site";
 
 const HOME_URL = `${SITE_URL}/`;
@@ -47,10 +47,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>AI Tools & Builds for Small Businesses | AI Founder Garage</title>
+        <title>AI Tools for Small Business | AI Founder Garage</title>
         <meta
           name="description"
-          content="Simple tools, builds, and advice for running a better business."
+          content="Workflows, code, and guides to build software and automate operations."
         />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <meta name="author" content={SITE_NAME} />
@@ -61,8 +61,8 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={HOME_URL} />
         <meta property="og:locale" content="en_ZA" />
-        <meta property="og:title" content="AI Tools & Builds for Small Businesses" />
-        <meta property="og:description" content="Simple tools, builds, and advice for running a better business." />
+        <meta property="og:title" content="AI Tools for Small Business" />
+        <meta property="og:description" content="Workflows, code, and guides to build software and automate operations." />
         <meta property="og:image" content={SOCIAL_IMAGE_URL} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -70,8 +70,8 @@ const Index = () => {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content={HOME_URL} />
-        <meta name="twitter:title" content="AI Tools & Builds for Small Businesses" />
-        <meta name="twitter:description" content="Simple tools, builds, and advice for running a better business." />
+        <meta name="twitter:title" content="AI Tools for Small Business" />
+        <meta name="twitter:description" content="Workflows, code, and guides to build software and automate operations." />
         <meta name="twitter:image" content={SOCIAL_IMAGE_URL} />
         <meta name="twitter:image:alt" content="AI Founder Garage resource hub" />
 
@@ -81,12 +81,12 @@ const Index = () => {
       </Helmet>
 
       <main className="min-h-screen">
-        <LiquidEffectAnimation text={[]} textColor="#111111" />
         <div className="relative z-10">
           <Navigation />
           <HeroSection />
           <ExperienceStrip />
           <FeaturedInsightsSection />
+          <ReadingPathsSection />
           <SelectedWorkSection />
           <CollaborateSection />
         </div>

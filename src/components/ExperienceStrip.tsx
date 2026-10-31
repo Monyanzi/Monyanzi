@@ -1,49 +1,47 @@
-import { BookOpenCheck, GitBranch, Radar, RefreshCw } from "lucide-react";
-
 const highlights = [
   {
-    label: "Practical",
-    detail: "Step-by-step guides you can use today.",
-    icon: BookOpenCheck,
+    index: "01",
+    label: "Tested in production",
+    detail: "Run in live client systems, not synthetic benchmarks.",
   },
   {
-    label: "Workflows",
-    detail: "End-to-end systems that save time and money.",
-    icon: GitBranch,
+    index: "02",
+    label: "Built for small teams",
+    detail: "Tailored for lean operations with 1 to 10 people.",
   },
   {
-    label: "Founder-first",
-    detail: "Built for small teams and lean budgets.",
-    icon: Radar,
+    index: "03",
+    label: "Working code & prompts",
+    detail: "Ready to copy, adapt, and deploy immediately.",
   },
   {
-    label: "Stay current",
-    detail: "Updated regularly as tools and models evolve.",
-    icon: RefreshCw,
+    index: "04",
+    label: "Updated monthly",
+    detail: "Re-tested whenever model capabilities shift.",
   },
 ] as const;
 
 const ExperienceStrip = () => {
   return (
-    <section aria-label="Homepage highlights" className="relative z-10 border-b border-border/80 bg-white/55 backdrop-blur-xl">
+    <section aria-label="Editorial standards" className="relative z-10 border-b border-border bg-surface">
       <div className="mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-12">
-        <div className="grid md:grid-cols-4">
-          {highlights.map(({ label, detail, icon: Icon }) => (
+        <div className="grid md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border">
+          {highlights.map(({ index, label, detail }) => (
             <div
               key={label}
-              className="grid min-h-[104px] grid-cols-[auto_1fr] gap-4 border-border/80 py-5 md:grid-cols-[auto_1fr] md:border-l md:px-8 md:first:border-l-0 lg:px-10"
+              className="py-5 md:px-6 md:first:pl-0 md:last:pr-0 lg:py-6 lg:px-8"
             >
-              <div className="flex h-9 w-9 items-center justify-center text-accent">
-                <Icon className="h-[18px] w-[18px]" />
-              </div>
-              <div>
-                <h2 className="font-mono text-[11px] font-bold uppercase tracking-[0.13em] text-foreground">
+              <div className="flex items-baseline gap-2.5">
+                <span className="font-mono text-[11px] font-medium text-accent tabular-nums">
+                  {index}
+                </span>
+                <h2 className="text-xs font-semibold uppercase tracking-wider text-foreground">
                   {label}
                 </h2>
-                <p className="mt-1.5 text-[0.82rem] leading-5 text-foreground-muted">
-                  {detail}
-                </p>
               </div>
+              <p className="mt-2 text-xs leading-relaxed text-foreground-muted">
+                {detail}
+              </p>
             </div>
           ))}
         </div>

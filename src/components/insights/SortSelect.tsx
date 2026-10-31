@@ -15,12 +15,12 @@ const SortSelect = memo(({ value, onChange }: SortSelectProps) => {
         aria-label="Sort insights"
         value={value}
         onChange={(e) => onChange(e.target.value as SortOption)}
-        className="appearance-none rounded-full border border-border bg-surface py-1.5 pl-4 pr-9 text-[12px] font-semibold text-foreground shadow-none outline-none transition-all duration-200 hover:border-border-strong focus:border-border-strong cursor-pointer"
+        className="appearance-none rounded border border-border bg-surface py-1.5 pl-3 pr-8 font-mono text-[11px] uppercase tracking-wider text-foreground outline-none transition-colors duration-150 hover:border-border-strong focus:border-border-strong cursor-pointer"
       >
-        <option value="default">Newest first</option>
-        <option value="alphabetical">A–Z</option>
+        <option value="default">Sort: Latest</option>
+        <option value="alphabetical">Sort: A–Z</option>
       </select>
-      <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-foreground-subtle" />
+      <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-foreground-subtle" />
     </div>
   );
 });

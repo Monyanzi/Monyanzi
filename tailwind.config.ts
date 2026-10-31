@@ -94,9 +94,14 @@ export default {
         "22": "5.5rem",
         "section": "clamp(2rem, 3vw, 2.5rem)",
       },
+      transitionProperty: {
+        // Paint/compositor-only properties. Use instead of `transition-all` so
+        // layout properties (width, padding, gap…) never animate by accident.
+        interactive:
+          "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform",
+      },
       transitionTimingFunction: {
         "spring": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "spring-soft": "cubic-bezier(0.34, 1.56, 0.64, 1)",
         "out-expo": "cubic-bezier(0.19, 1, 0.22, 1)",
       },
       keyframes: {
@@ -136,10 +141,10 @@ export default {
       },
       boxShadow: {
         "card": "0 4px 12px -2px hsl(0 0% 0% / 0.04), 0 2px 6px -2px hsl(0 0% 0% / 0.03)",
-        "card-hover": "0 24px 48px -12px hsl(var(--jacarta) / 0.15), 0 12px 24px -8px hsl(0 0% 0% / 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.4)",
+        "card-hover": "0 0 0 1px hsl(0 0% 0% / 0.2)",
         "card-elevated": "0 24px 60px -12px rgba(0, 0, 0, 0.1), 0 8px 24px -4px rgba(0, 0, 0, 0.06)",
-        "nav": "0 8px 32px -8px hsl(0 0% 0% / 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.4)",
-        "accent-glow": "0 0 40px -8px hsl(var(--accent) / 0.25)",
+        "nav": "none",
+        "accent-glow": "none",
       },
     },
   },

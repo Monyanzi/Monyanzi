@@ -30,6 +30,7 @@ const buildSitemap = (slugs) => {
   const urls = [
     { loc: `${SITE_URL}/`, changefreq: "monthly", priority: "1.0", lastmod: today },
     { loc: `${SITE_URL}/insights`, changefreq: "weekly", priority: "0.8", lastmod: today },
+    { loc: `${SITE_URL}/stack`, changefreq: "weekly", priority: "0.8", lastmod: today },
     ...slugs.map((slug) => ({
       loc: `${SITE_URL}/insights/${slug}`,
       changefreq: "monthly",
@@ -61,4 +62,4 @@ if (!slugs.length) {
 
 const sitemapXml = buildSitemap(slugs);
 fs.writeFileSync(SITEMAP_OUTPUT_PATH, sitemapXml, "utf8");
-console.log(`Generated ${SITEMAP_OUTPUT_PATH} with ${slugs.length + 2} URLs.`);
+console.log(`Generated ${SITEMAP_OUTPUT_PATH} with ${slugs.length + 3} URLs.`);

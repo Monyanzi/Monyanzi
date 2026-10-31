@@ -1,79 +1,74 @@
-import { ArrowUpRight, Bot, CheckSquare, Clock3 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import SiteFooter from "@/components/SiteFooter";
 
 const starterPaths = [
   {
-    icon: CheckSquare,
-    title: "I need a useful first AI workflow",
-    detail: "A 3-step workflow combining a prompt optimiser, deep research, and NotebookLM into a single insight engine.",
+    index: "01",
+    title: "Build a research & synthesis pipeline",
+    detail: "Connect prompt optimization, deep web research, and NotebookLM into a 30-minute briefing workflow.",
     href: "/insights/2026-ai-power-workflow",
-    cta: "Read the workflow guide",
+    cta: "Read workflow dispatch",
   },
   {
-    icon: Bot,
-    title: "I want to try building a tool",
-    detail: "Six practical software categories a lean business can use right now, from app builders to automation platforms.",
+    index: "02",
+    title: "Assemble a lean small-business AI toolkit",
+    detail: "The 6 job-first software categories lean teams use to ship web apps and automate operations.",
     href: "/insights/the-small-business-ai-toolkit",
-    cta: "Read the toolkit guide",
+    cta: "Read toolkit guide",
   },
   {
-    icon: Clock3,
-    title: "I'm thinking about automating a process",
-    detail: "12 warning signs to detect automation misfires early and avoid expensive execution drift.",
+    index: "03",
+    title: "Audit a process before automating it",
+    detail: "Run the 12-point diagnostic checklist to catch broken processes before writing a line of automation.",
     href: "/insights/the-automation-trap",
-    cta: "Read the warning signs",
+    cta: "Read diagnostic checklist",
   },
 ] as const;
 
 const CollaborateSection = () => {
   return (
-    <section id="start" className="relative z-10 overflow-hidden pt-12 lg:pt-16">
+    <section id="start" className="relative z-10 overflow-hidden pt-14 lg:pt-20">
       <div className="page-container">
-        <div className="grid gap-8 rounded-[2rem] border border-white/70 bg-white/62 p-6 shadow-[0_28px_80px_-58px_rgba(17,17,17,0.9)] backdrop-blur-3xl sm:p-8 lg:grid-cols-[0.78fr_1fr] lg:p-10">
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div className="max-w-md">
-            <p className="label-mono mb-3">Next Steps</p>
-            <h2 className="text-[2rem] font-bold leading-tight text-foreground sm:text-[2.65rem]">
-              What to do next.
+            <p className="label-eyebrow mb-2">Index 05 / Starting Points</p>
+            <h2 className="font-display text-3xl font-medium leading-tight text-foreground sm:text-4xl">
+              Where do you want to begin?
             </h2>
-            <p className="mt-4 text-[0.98rem] leading-7 text-foreground-muted">
-              One clear next move beats another folder of AI links. Pick your starting point.
+            <p className="mt-3 text-sm leading-relaxed text-foreground-muted">
+              Choose an operational bottleneck below to open the corresponding field guide and checklist.
             </p>
           </div>
 
-          <div className="grid gap-3">
-            {starterPaths.map(({ icon: Icon, title, detail, href, cta }, index) => (
+          <div className="divide-y divide-border rounded-lg border border-border bg-surface">
+            {starterPaths.map(({ index, title, detail, href, cta }) => (
               <a
                 key={title}
                 href={href}
-                className="group grid min-h-[112px] grid-cols-[auto_1fr_auto] gap-4 rounded-2xl border border-border/70 bg-[#fbfbf8]/86 p-4 shadow-[0_14px_34px_-30px_rgba(17,17,17,0.8)] transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/24 hover:bg-white hover:shadow-[0_22px_54px_-38px_hsl(var(--accent)/0.5)]"
+                className="group grid grid-cols-[auto_1fr_auto] items-start gap-5 p-5 sm:p-6 transition-colors duration-150 hover:bg-surface-2/50"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-white text-accent">
-                  <Icon className="h-5 w-5" />
-                </div>
+                <span className="font-mono text-xs font-semibold text-accent tabular-nums pt-0.5">
+                  {index}
+                </span>
                 <div className="min-w-0">
-                  <div className="mb-1 flex items-center gap-2">
-                    <span className="font-mono text-[9px] font-bold uppercase tracking-[0.1em] text-foreground-subtle">
-                      Path {index + 1}
-                    </span>
-                  </div>
-                  <h3 className="text-[0.98rem] font-bold leading-snug text-foreground">
+                  <h3 className="font-display text-xl font-medium leading-snug text-foreground group-hover:text-accent transition-colors">
                     {title}
                   </h3>
-                  <p className="mt-2 text-[0.84rem] leading-6 text-foreground-muted">
+                  <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-foreground-muted">
                     {detail}
                   </p>
-                  <span className="mt-3 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.07em] text-accent">
+                  <span className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] font-medium text-foreground group-hover:text-accent">
                     {cta}
                   </span>
                 </div>
-                <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-foreground-subtle transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
+                <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-foreground-subtle transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent" />
               </a>
             ))}
           </div>
         </div>
       </div>
 
-      <SiteFooter className="mt-12" />
+      <SiteFooter className="mt-16 lg:mt-24" />
     </section>
   );
 };

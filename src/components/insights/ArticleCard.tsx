@@ -1,6 +1,7 @@
 import { memo, useCallback, useState } from "react";
-import { Clock, Link2, Check } from "lucide-react";
+import { ArrowRight, Link2, Check } from "lucide-react";
 import { SITE_URL } from "@/config/site";
+import { READING_TIMES } from "@/data/articleSummaries";
 
 interface ArticleCardProps {
   id: string;
@@ -11,23 +12,6 @@ interface ArticleCardProps {
   featured?: boolean;
 }
 
-// Approximate reading times
-const READING_TIMES: Record<string, number> = {
-  "the-small-business-ai-toolkit": 12,
-  "10-ai-agent-implementation-mistakes-checklist": 10,
-  "2026-ai-power-workflow": 8,
-  "wrong-question-ai-leader": 9,
-  "black-mirror-lessons-ai-leaders": 11,
-  "the-automation-trap": 7,
-  "why-ai-projects-fail": 6,
-  "5-signs-always-done-this-way": 5,
-  "12-ai-tools-in-my-tech-stack": 14,
-};
-
-// Fallback gradient for missing cover images
-const FALLBACK_GRADIENT = "linear-gradient(135deg, hsl(270 50% 35% / 0.12), hsl(150 60% 30% / 0.08))";
-
-// Share buttons — on hover only (opacity-0 group-hover:opacity-100)
 const ShareButtons = ({ articleUrl }: { articleUrl: string }) => {
   const [copied, setCopied] = useState(false);
 
@@ -41,63 +25,68 @@ const ShareButtons = ({ articleUrl }: { articleUrl: string }) => {
   }, [articleUrl]);
 
   return (
-    <div className="absolute right-3 top-3 z-10 flex gap-1.5 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+    <div className="absolute right-3 top-3 z-10 flex gap-1.5 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
       <button
         onClick={handleCopy}
         aria-label="Copy link"
-        className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-md transition-all duration-200 hover:bg-black/50"
+        className="flex h-7 w-7 items-center justify-center rounded border border-white/20 bg-black/45 text-white backdrop-blur-sm transition-colors duration-150 hover:bg-black/70"
       >
-        {copied ? <Check className="h-3.5 w-3.5 text-accent" /> : <Link2 className="h-3.5 w-3.5" />}
+        {copied ? <Check className="h-3.5 w-3.5 text-white" /> : <Link2 className="h-3.5 w-3.5" />}
       </button>
     </div>
   );
 };
 
-const ArticleCard = memo(({ id, category, title, image, featured = false }: ArticleCardProps) => {
+const ArticleCard = memo(({ id, category, title, description, image, featured = false }: ArticleCardProps) => {
   const articleUrl = `${SITE_URL}/insights/${id}`;
   const readingTime = READING_TIMES[id];
 
   if (featured) {
     return (
       <article className="group">
-        <a href={`/insights/${id}`} className="block transition-all duration-300 active:scale-[0.99]">
-          {/* Full-width editorial card with image background */}
-          <div className="relative overflow-hidden rounded-[2rem] min-h-[380px] lg:min-h-[440px] flex items-end">
+        <a
+          href={`/insights/${id}`}
+          className="grid overflow-hidden rounded-lg border border-border bg-surface transition-colors duration-150 hover:border-border-strong lg:grid-cols-[1.15fr_0.85fr]"
+        >
+          <div className="relative aspect-[16/10] overflow-hidden border-b border-border lg:aspect-auto lg:min-h-[340px] lg:border-b-0 lg:border-r">
             {image ? (
               <img
                 src={image}
                 alt={`${title} cover`}
                 loading="eager"
                 decoding="async"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
             ) : (
-              <div className="absolute inset-0" style={{ background: FALLBACK_GRADIENT }} />
+              <div className="h-full w-full bg-surface-2" />
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
             <ShareButtons articleUrl={articleUrl} />
+          </div>
 
-            <div className="relative z-10 p-8 lg:p-12 max-w-3xl">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="badge-category !border-white/20 !bg-white/10 !text-white/90 backdrop-blur-md">
-                  {category}
-                </span>
-                <span className="badge-category !border-white/20 !bg-white/10 !text-white/90 backdrop-blur-md">
-                  Featured
-                </span>
+          <div className="flex flex-col justify-between p-6 sm:p-8 lg:p-10">
+            <div>
+              <div className="mb-4 flex items-center justify-between border-b border-border/70 pb-3 font-mono text-[11px] tabular-nums">
+                <div className="flex items-center gap-2.5">
+                  <span className="badge-category">{category}</span>
+                  <span className="text-accent font-semibold uppercase tracking-wider">Lead Dispatch</span>
+                </div>
                 {readingTime && (
-                  <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-white/70">
-                    <Clock className="h-3 w-3" />
-                    {readingTime} min read
-                  </span>
+                  <span className="text-foreground-subtle">{readingTime} min read</span>
                 )}
               </div>
-              <h2 className="text-display-sm mb-3 text-balance text-white line-clamp-2">
+
+              <h2 className="font-display text-2xl sm:text-3xl font-medium leading-[1.12] text-foreground transition-colors duration-150 group-hover:text-accent">
                 {title}
               </h2>
-              <div className="inline-flex items-center gap-2 text-[13px] font-semibold text-white/90 transition-all duration-300 group-hover:gap-3">
-                Read →
-              </div>
+
+              <p className="mt-3 text-sm leading-relaxed text-foreground-muted">
+                {description}
+              </p>
+            </div>
+
+            <div className="mt-8 flex items-center justify-between border-t border-border/70 pt-4 font-mono text-xs font-medium text-foreground group-hover:text-accent">
+              <span>Read complete guide</span>
+              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
             </div>
           </div>
         </a>
@@ -109,41 +98,39 @@ const ArticleCard = memo(({ id, category, title, image, featured = false }: Arti
     <article className="group h-full">
       <a
         href={`/insights/${id}`}
-        className="card-premium flex h-full flex-col overflow-hidden transition-all duration-300 active:scale-[0.98] hover:-translate-y-[2px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.07)]"
+        className="flex h-full flex-col overflow-hidden rounded-lg border border-border bg-surface transition-colors duration-150 hover:border-border-strong hover:bg-surface-2/35"
       >
-        {/* Image — consistent 16:9 aspect ratio */}
-        <div className="relative aspect-[16/9] overflow-hidden">
-          {image ? (
+        <div className="relative aspect-[16/9] overflow-hidden border-b border-border bg-surface-2">
+          {image && (
             <img
               src={image}
               alt={`${title} cover`}
               loading="lazy"
               decoding="async"
-              className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+              className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
-          ) : (
-            <div className="h-full w-full" style={{ background: FALLBACK_GRADIENT }} />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/6 to-transparent" />
-          <span className="absolute left-3 top-3 badge-category">
-            {category}
-          </span>
           <ShareButtons articleUrl={articleUrl} />
         </div>
 
-        {/* Body — no description copy */}
-        <div className="flex flex-1 flex-col p-5">
-          {readingTime && (
-            <span className="mb-2.5 inline-flex items-center gap-1.5 text-[11px] font-medium text-foreground-subtle">
-              <Clock className="h-3 w-3" />
-              {readingTime} min read
-            </span>
-          )}
-          <h2 className="mb-4 text-[1rem] font-bold leading-snug tracking-tight text-foreground transition-colors duration-200 group-hover:text-accent flex-1 line-clamp-2">
-            {title}
-          </h2>
-          <div className="mt-auto flex items-center gap-1.5 text-[13px] font-semibold text-accent">
-            Read →
+        <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
+          <div>
+            <div className="mb-3 flex items-center justify-between font-mono text-[11px] tabular-nums">
+              <span className="badge-category">{category}</span>
+              {readingTime && (
+                <span className="text-foreground-subtle">{readingTime} min read</span>
+              )}
+            </div>
+            <h2 className="font-display text-xl font-medium leading-[1.18] text-foreground transition-colors duration-150 group-hover:text-accent line-clamp-2">
+              {title}
+            </h2>
+            <p className="mt-2 text-xs leading-relaxed text-foreground-muted line-clamp-2">
+              {description}
+            </p>
+          </div>
+          <div className="mt-5 flex items-center justify-between border-t border-border/60 pt-3.5 font-mono text-xs font-medium text-foreground group-hover:text-accent">
+            <span>Read guide</span>
+            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
           </div>
         </div>
       </a>
