@@ -1,10 +1,9 @@
 import { useState, useEffect, lazy, Suspense, useMemo } from "react";
-import { AnimatePresence, MotionConfig } from "motion/react";
+import { MotionConfig } from "motion/react";
 import { Analytics } from "@vercel/analytics/react";
 import CookieConsent from "./components/CookieConsent";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import BottomNavigation from "./components/BottomNavigation";
-import PageTransition from "./components/PageTransition";
 import { hasAnalyticsConsent } from "./utils/cookieConsent";
 import { applyTheme, getStoredTheme } from "./utils/theme";
 
@@ -102,11 +101,7 @@ const App = () => {
       {shouldLoadVercelAnalytics && <Analytics />}
       {shouldLoadGoogleAnalytics && <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />}
       <Suspense fallback={<main className="min-h-screen pt-10" aria-busy="true" />}>
-        <AnimatePresence mode="wait">
-          <PageTransition pageKey={pageKey}>
-            {page}
-          </PageTransition>
-        </AnimatePresence>
+        <div key={pageKey}>{page}</div>
       </Suspense>
       <BottomNavigation currentPath={path} />
       <CookieConsent onConsentChange={() => setAnalyticsEnabled(hasAnalyticsConsent())} />
