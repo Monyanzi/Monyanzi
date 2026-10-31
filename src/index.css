@@ -428,22 +428,6 @@
 
 @layer utilities {
 
-  /* ─── Marquee ─── */
-  @keyframes marquee-slide {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  .animate-marquee {
-    animation: marquee-slide 45s linear infinite;
-    will-change: transform;
-  }
-
   /* ─── Fade-in-up ─── */
   @keyframes fade-up {
     from {
@@ -504,23 +488,6 @@
 
   .animate-pulse-scale {
     animation: none;
-  }
-
-  /* ─── Logo float ─── */
-  @keyframes logo-float {
-
-    0%,
-    100% {
-      transform: translateY(0px) rotate(0deg);
-    }
-
-    33% {
-      transform: translateY(-6px) rotate(0.5deg);
-    }
-
-    66% {
-      transform: translateY(-3px) rotate(-0.5deg);
-    }
   }
 
   /* ─── Progress bar ─── */
@@ -604,10 +571,7 @@
     scroll-behavior: auto !important;
   }
 
-  .animate-marquee,
-  .animate-pulse-scale,
-  .animate-logo-float,
-  .animate-spin-slow {
+  .animate-pulse-scale {
     animation: none !important;
   }
 

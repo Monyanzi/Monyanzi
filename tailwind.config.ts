@@ -111,31 +111,10 @@ export default {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
-        "scale-in": {
-          "0%": { opacity: "0", transform: "scale(0.95)" },
-          "100%": { opacity: "1", transform: "scale(1)" },
-        },
-        "marquee-slide": {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
-        "logo-float": {
-          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
-          "33%": { transform: "translateY(-8px) rotate(0.5deg)" },
-          "66%": { transform: "translateY(-4px) rotate(-0.5deg)" },
-        },
-        "spin-slow": {
-          "from": { transform: "rotate(0deg)" },
-          "to": { transform: "rotate(360deg)" },
-        },
       },
       animation: {
         "fade-up": "fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both",
         "fade-in": "fade-in 0.5s ease both",
-        "scale-in": "scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both",
-        "marquee": "marquee-slide 45s linear infinite",
-        "logo-float": "logo-float 6s ease-in-out infinite",
-        "spin-slow": "spin-slow 20s linear infinite",
       },
       boxShadow: {
         "card": "0 4px 12px -2px hsl(0 0% 0% / 0.04), 0 2px 6px -2px hsl(0 0% 0% / 0.03)",
