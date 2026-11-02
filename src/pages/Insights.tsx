@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
+import { ArrowUpRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import ArticleCard from "@/components/insights/ArticleCard";
 import CategoryFilter from "@/components/insights/CategoryFilter";
@@ -10,7 +11,6 @@ import { articleSummaries, entrepreneurResources } from "@/data/articleSummaries
 import { insightsArticlesBriefing } from "@/data/audioBriefings";
 import { SITE_NAME, SITE_URL, SOCIAL_IMAGE_URL } from "@/config/site";
 import ReadingPathsSection from "@/components/insights/ReadingPathsSection";
-import { Search } from "lucide-react";
 
 const INSIGHTS_URL = `${SITE_URL}/insights`;
 const INSIGHTS_TITLE = `AI Tools, Automation & Founder Field Notes | ${SITE_NAME}`;
@@ -146,34 +146,17 @@ const Insights = () => {
           <Navigation />
 
           {/* Hero */}
-          <section className="relative overflow-hidden border-b border-border pt-28 pb-16 lg:pt-36 lg:pb-20">
+          <section className="relative overflow-hidden border-b border-border/70 pt-28 pb-16 lg:pt-36 lg:pb-20">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,hsl(var(--accent)/0.1),transparent_70%)]" />
             <div className="page-container relative z-10">
-              <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
-                {/* Left — title */}
-                <div>
-                  <h1 className="text-display-lg text-balance text-foreground">
-                    Guides
-                  </h1>
+              <div className="max-w-2xl">
+                <h1 className="text-display-lg text-balance text-foreground">
+                  Guides
+                </h1>
 
-                  <p className="mt-4 max-w-lg text-body-lg text-foreground-muted">
-                    Build software and automate operations with AI.
-                  </p>
-                </div>
-
-                {/* Right — compact search */}
-                <div className="flex flex-col gap-3">
-                  <button
-                    aria-label="Search"
-                    onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
-                    className="group inline-flex items-center gap-3 rounded-md border border-border bg-surface px-4 py-3 text-left transition-colors duration-150 hover:border-border-strong focus:outline-none"
-                  >
-                    <Search className="h-4 w-4 text-foreground-subtle transition-colors duration-150 group-hover:text-foreground-muted" />
-                    <span className="flex-1 text-sm text-foreground-subtle">Search</span>
-                    <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded-md border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-[10px] font-medium text-foreground-subtle">
-                      ⌘K
-                    </kbd>
-                  </button>
-                </div>
+                <p className="mt-4 max-w-lg text-body-lg text-foreground-muted">
+                  Build software and automate operations with AI.
+                </p>
               </div>
 
               {/* Audio briefing — full-width, below header */}
@@ -187,7 +170,7 @@ const Insights = () => {
           <section className="py-section">
             <div className="page-container">
               {/* Controls */}
-              <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between border-b border-border">
+              <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-border/60 pb-5">
                 <CategoryFilter
                   categories={categories}
                   activeCategory={activeCategory}
@@ -195,18 +178,18 @@ const Insights = () => {
                   counts={categoryCounts}
                   totalCount={articles.length}
                 />
-                <div className="pb-2">
+                <div className="shrink-0">
                   <SortSelect value={sortOption} onChange={handleSortChange} />
                 </div>
               </div>
 
               {/* Article list */}
               {filteredAndSortedArticles.length === 0 ? (
-                <div className="flex flex-col items-center justify-center rounded-lg border border-border py-24">
+                <div className="glass-card flex flex-col items-center justify-center rounded-3xl py-24">
                   <p className="text-foreground-muted">No guides found.</p>
                 </div>
               ) : (
-                <div className="space-y-10 lg:space-y-12">
+                <div className="space-y-6 lg:space-y-8">
                   {/* Featured */}
                   {featuredArticle && (
                     <div>
@@ -214,9 +197,9 @@ const Insights = () => {
                     </div>
                   )}
 
-                  {/* Index list */}
+                  {/* Tactile Glass Index Cards */}
                   {remainingArticles.length > 0 && (
-                    <div className="divide-y divide-border border-y border-border">
+                    <div className="grid gap-4">
                       {remainingArticles.map((article) => (
                         <ArticleCard key={article.id} {...article} />
                       ))}
@@ -234,13 +217,13 @@ const Insights = () => {
           <section className="py-section">
             <div className="page-container">
               {/* Section separator */}
-              <div className="mb-10 border-t border-border pt-10 flex items-center gap-3">
-                <span className="inline-flex items-center rounded-md bg-accent/10 border border-accent/20 px-3 py-1 font-mono text-[11px] font-medium text-accent">
+              <div className="mb-6 flex items-center gap-3">
+                <span className="glass-pill inline-flex items-center rounded-full px-3 py-1 font-mono text-[11px] font-medium text-accent">
                   Ecosystem
                 </span>
               </div>
-              <div className="mb-8">
-                <h2 className="text-display-sm text-foreground mb-4">Tools for builders</h2>
+              <div className="mb-10">
+                <h2 className="text-display-sm text-foreground mb-3">Tools for builders</h2>
                 <p className="max-w-xl text-body-lg text-foreground-muted">
                   Tools and ideas to try before starting a new project.
                 </p>
@@ -253,16 +236,21 @@ const Insights = () => {
                     href={resource.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group border border-border bg-surface flex flex-col p-7 lg:p-8 rounded-lg transition-colors duration-150 hover:border-border-strong"
+                    className="glass-card group flex flex-col p-6 sm:p-7 rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-craft-hover"
                   >
-                    <p className="font-mono text-[11px] mb-5 text-accent">{resource.category}</p>
-                    <h3 className="mb-3 text-[1.125rem] font-medium text-foreground transition-colors duration-150 group-hover:text-accent">
+                    <div className="flex items-center justify-between mb-5">
+                      <span className="glass-pill rounded-full px-3 py-0.5 font-mono text-[10px] font-semibold text-accent">
+                        {resource.category}
+                      </span>
+                      <ArrowUpRight className="h-4 w-4 text-foreground-subtle transition-transform duration-150 group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
+                    <h3 className="mb-2.5 font-display text-xl font-medium text-foreground transition-colors duration-150 group-hover:text-accent">
                       {resource.title}
                     </h3>
-                    <p className="mb-8 flex-grow text-sm leading-relaxed text-foreground-muted">
+                    <p className="mb-6 flex-grow text-xs sm:text-sm leading-relaxed text-foreground-muted">
                       {resource.description}
                     </p>
-                    <div className="mt-auto inline-flex items-center gap-2 text-xs font-medium text-foreground transition-colors duration-150 group-hover:text-accent">
+                    <div className="mt-auto border-t border-border/50 pt-3.5 inline-flex items-center gap-2 font-mono text-xs font-medium text-foreground transition-colors duration-150 group-hover:text-accent">
                       {resource.ctaText}
                     </div>
                   </a>

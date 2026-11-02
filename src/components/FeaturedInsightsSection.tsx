@@ -1,15 +1,16 @@
 import { articleSummaries, READING_TIMES } from "@/data/articleSummaries";
 import { ArrowRight } from "lucide-react";
+import SegmentedControl, { type SegmentedItem } from "@/components/ui/SegmentedControl";
 
 const featuredArticles = articleSummaries.slice(0, 3);
 
-const topicChips = [
-  { label: "All", href: "/insights" },
-  { label: "Strategy", href: "/insights?cat=strategy" },
-  { label: "Build", href: "/insights?cat=build" },
-  { label: "Automate", href: "/insights?cat=automate" },
-  { label: "Code", href: "/insights?cat=code" },
-  { label: "Research", href: "/insights?cat=research" },
+const topicChips: SegmentedItem[] = [
+  { id: "All", label: "All", href: "/insights", count: articleSummaries.length },
+  { id: "Strategy", label: "Strategy", href: "/insights?cat=strategy" },
+  { id: "Build", label: "Build", href: "/insights?cat=build" },
+  { id: "Automate", label: "Automate", href: "/insights?cat=automate" },
+  { id: "Code", label: "Code", href: "/insights?cat=code" },
+  { id: "Research", label: "Research", href: "/insights?cat=research" },
 ];
 
 const ReadingTime = ({ id }: { id: string }) => {
@@ -36,26 +37,12 @@ const FeaturedInsightsSection = () => {
             </h2>
           </div>
 
-          <div className="glass-pill flex flex-wrap items-center gap-1.5 rounded-full p-1.5 border border-border/80">
-            {topicChips.map((chip, index) => (
-              <a
-                key={chip.label}
-                href={chip.href}
-                className={
-                  index === 0
-                    ? "rounded-full bg-accent text-accent-foreground font-medium px-4 py-1.5 text-xs shadow-sm shadow-accent/25 transition-all"
-                    : "rounded-full text-foreground-muted hover:text-foreground hover:bg-surface-2/80 px-3.5 py-1.5 text-xs font-medium transition-colors"
-                }
-              >
-                <span>{chip.label}</span>
-                {chip.label === "All" && (
-                  <span className="font-mono text-[10px] text-accent-foreground/80 ml-1">
-                    ({articleSummaries.length})
-                  </span>
-                )}
-              </a>
-            ))}
-          </div>
+          <SegmentedControl
+            items={topicChips}
+            activeId="All"
+            layoutGroupId="home-topic-chips"
+            ariaLabel="Browse guides by topic"
+          />
         </div>
 
         {/* Apple-grade Balanced Bento Grid */}

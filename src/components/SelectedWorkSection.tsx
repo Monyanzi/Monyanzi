@@ -1,24 +1,28 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MapPin, Siren, ShieldCheck, PackageCheck } from "lucide-react";
 import pawzaPreview from "@/assets/pawza_preview.jpg";
 
 const PILLARS = [
   {
     index: "01",
+    icon: MapPin,
     title: "Verified Places",
     description: "Pet-friendly cafes, restaurants, parks, and trails.",
   },
   {
     index: "02",
+    icon: Siren,
     title: "24/7 Emergency Vets",
     description: "Animal hospitals and after-hours emergency hotlines.",
   },
   {
     index: "03",
+    icon: ShieldCheck,
     title: "Preventative Care",
     description: "Vaccination schedules, checkup checklists, and diet guides.",
   },
   {
     index: "04",
+    icon: PackageCheck,
     title: "Vetted Essentials",
     description: "Nutrition, travel gear, and supplies tested by owners.",
   },
@@ -26,7 +30,7 @@ const PILLARS = [
 
 const SelectedWorkSection = () => {
   return (
-    <section id="work" className="relative border-b border-border py-16 lg:py-24">
+    <section id="work" className="relative border-b border-border/70 py-16 lg:py-24">
       <div className="page-container relative z-10">
         <div className="mb-10">
           <h2 className="font-display text-3xl font-medium tracking-[-0.02em] text-foreground sm:text-4xl lg:text-5xl">
@@ -38,7 +42,7 @@ const SelectedWorkSection = () => {
         </div>
 
         {/* Top Specification Bar */}
-        <div className="glass-card flex flex-wrap items-center justify-between gap-4 rounded-2xl px-6 py-3.5 font-mono text-[11px] text-foreground-muted shadow-sm">
+        <div className="glass-card flex flex-wrap items-center justify-between gap-4 rounded-2xl px-6 py-3.5 font-mono text-[11px] text-foreground-muted">
           <div className="flex flex-wrap items-center gap-4">
             <span className="font-semibold text-foreground">
               Case study 01
@@ -65,7 +69,7 @@ const SelectedWorkSection = () => {
           {/* Left: Product Architecture & Specs */}
           <div className="flex flex-col justify-between">
             <div>
-              <span className="inline-flex items-center rounded-full bg-surface-2 px-3 py-1 font-mono text-[11px] font-medium text-foreground-muted border border-border/50">
+              <span className="glass-pill inline-flex items-center rounded-full px-3 py-1 font-mono text-[11px] font-medium text-foreground-muted">
                 Web application
               </span>
               <h3 className="mt-4 font-display text-2xl sm:text-3xl font-medium tracking-tight text-foreground">
@@ -75,17 +79,28 @@ const SelectedWorkSection = () => {
                 Pet discovery and 24/7 emergency veterinary triage.
               </p>
 
-              {/* 4 Architectural Pillars */}
-              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {PILLARS.map(({ title, description }) => (
-                  <div key={title} className="glass-card rounded-2xl p-4 transition-transform duration-200 hover:-translate-y-0.5">
+              {/* 4 Architectural Pillars with Multi-Icon System */}
+              <dl className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {PILLARS.map(({ index, icon: Icon, title, description }) => (
+                  <div
+                    key={title}
+                    className="glass-card group rounded-2xl p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-craft-hover"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-accent/10 border border-accent/20 text-accent transition-transform duration-200 group-hover:scale-105">
+                        <Icon className="h-4 w-4" />
+                      </span>
+                      <span className="font-mono text-[10px] text-foreground-subtle tabular-nums">
+                        {index}
+                      </span>
+                    </div>
                     <dt className="font-semibold text-foreground text-xs sm:text-sm">{title}</dt>
                     <dd className="text-xs text-foreground-muted mt-1.5 leading-relaxed">
                       {description}
                     </dd>
                   </div>
                 ))}
-              </div>
+              </dl>
             </div>
 
             <div className="mt-10 flex items-center">
@@ -115,7 +130,7 @@ const SelectedWorkSection = () => {
                 <span className="h-2.5 w-2.5 rounded-full bg-border-strong/60" />
                 <span className="h-2.5 w-2.5 rounded-full bg-border-strong/60" />
               </div>
-              <div className="flex items-center gap-2 rounded-full border border-border/80 bg-surface/90 px-3.5 py-1 font-mono text-[10px] text-foreground-muted shadow-xs">
+              <div className="glass-pill flex items-center gap-2 rounded-full px-3.5 py-1 font-mono text-[10px] text-foreground-muted">
                 <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
                 <span>pawza.lovable.app</span>
               </div>

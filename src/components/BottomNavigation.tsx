@@ -37,11 +37,11 @@ const BottomNavigation = ({ currentPath }: { currentPath: string }) => {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-foreground/10 bg-surface lg:hidden"
+      className="fixed bottom-3 left-3 right-3 z-50 lg:hidden glass-panel rounded-2xl shadow-craft"
       style={navStyle}
       aria-label="Mobile navigation"
     >
-      <div className="grid h-18 grid-cols-4 px-2">
+      <div className="grid h-16 grid-cols-4 px-1.5">
         {navItems.map(({ icon: Icon, href, label }) => {
           const active = isActive(href);
           return (
@@ -49,12 +49,12 @@ const BottomNavigation = ({ currentPath }: { currentPath: string }) => {
               key={label}
               href={href}
               onClick={(e) => handleNavClick(e, href)}
-              className="flex min-h-[56px] flex-col items-center justify-center gap-1 rounded-lg text-center transition-colors duration-200"
+              className="flex min-h-[52px] flex-col items-center justify-center gap-1 rounded-xl text-center transition-colors duration-200"
               aria-label={label}
             >
               <Icon
                 className="h-5 w-5 transition-colors duration-200"
-                style={{ stroke: active ? "hsl(var(--foreground))" : "hsl(var(--foreground-subtle))" }}
+                style={{ stroke: active ? "hsl(var(--accent))" : "hsl(var(--foreground-subtle))" }}
                 strokeWidth={active ? 2.2 : 1.75}
               />
               <span
@@ -70,7 +70,7 @@ const BottomNavigation = ({ currentPath }: { currentPath: string }) => {
         <button
           type="button"
           onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
-          className="flex min-h-[56px] flex-col items-center justify-center gap-1 rounded-lg text-center text-foreground-subtle transition-colors duration-200 hover:text-foreground"
+          className="flex min-h-[52px] flex-col items-center justify-center gap-1 rounded-xl text-center text-foreground-subtle transition-colors duration-200 hover:text-foreground"
           aria-label="Search articles"
         >
           <Search className="h-5 w-5" strokeWidth={1.75} />

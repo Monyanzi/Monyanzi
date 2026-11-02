@@ -1,4 +1,5 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
+import SegmentedControl, { type SegmentedItem } from "@/components/ui/SegmentedControl";
 
 interface CategoryFilterProps {
   categories: string[];
@@ -8,48 +9,41 @@ interface CategoryFilterProps {
   totalCount?: number;
 }
 
-const CategoryFilter = memo(({ categories, activeCategory, onCategoryChange, counts, totalCount }: CategoryFilterProps) => {
-  return (
-    <div className="flex flex-nowrap items-center gap-6 overflow-x-auto scrollbar-none max-w-full -mb-px">
-      <button
-        type="button"
-        onClick={() => onCategoryChange(null)}
-        className={`shrink-0 text-sm pb-2 border-b-2 transition-colors duration-150 ${
-          activeCategory === null
-            ? "border-foreground text-foreground font-medium"
-            : "border-transparent text-foreground-muted hover:text-foreground"
-        }`}
-      >
-        <span>All</span>
-        {totalCount !== undefined && (
-          <span className="font-mono text-[11px] text-foreground-subtle ml-1">{totalCount}</span>
-        )}
-      </button>
+const CategoryFilter = memo(({
+  categories,
+  activeCategory,
+  onCategoryChange,
+  counts,
+  totalCount,
+}: CategoryFilterProps) => {
+  const items = useMemo<SegmentedItem[]>(() => {
+    const allItem: SegmentedItem = {
+      id: "__all__",
+      label: "All",
+      count: totalCount,
+    };
+    const categoryItems = categories.map((category) => ({
+      id: category,
+      label: category,
+      count: counts?.[category],
+    }));
+    return [allItem, ...categoryItems];
+  }, [categories, counts, totalCount]);
 
-      {categories.map((category) => {
-        const count = counts?.[category];
-        const active = activeCategory === category;
-        return (
-          <button
-            key={category}
-            type="button"
-            onClick={() => onCategoryChange(category)}
-            className={`shrink-0 text-sm pb-2 border-b-2 transition-colors duration-150 ${
-              active
-                ? "border-foreground text-foreground font-medium"
-                : "border-transparent text-foreground-muted hover:text-foreground"
-            }`}
-          >
-            <span>{category}</span>
-            {count !== undefined && (
-              <span className="font-mono text-[11px] text-foreground-subtle ml-1">{count}</span>
-            )}
-          </button>
-        );
-      })}
-    </div>
+  return (
+    <SegmentedControl
+      items={items}
+      activeId={activeCategory ?? "__all__"}
+      onChange={(id) => onChangeCategory(id, onCategoryChange)}
+      layoutGroupId="insights-category-segmented"
+      ariaLabel="Filter guides by category"
+    />
   );
 });
+
+function onChangeCategory(id: string, cb: (cat: string | null) => void) {
+  cb(id === "__all__" ? null : id);
+}
 
 CategoryFilter.displayName = "CategoryFilter";
 export default CategoryFilter;

@@ -378,7 +378,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
       {
         "@type": "ListItem",
         position: 3,
-        name: article.title,
+        name: "Article",
         item: articleUrl,
       },
     ],
@@ -446,18 +446,20 @@ const InsightArticle = ({ slug }: { slug: string }) => {
       <main className="min-h-screen pt-10 relative z-10">
         <section className="pt-24 lg:pt-32 pb-8 lg:pb-12">
           <div className="container mx-auto px-5 lg:px-12">
-            {/* Back link — more prominent */}
+            {/* Back link — machined glass pill */}
             <a
               href="/insights"
-              className="inline-flex min-h-[42px] items-center gap-2 rounded-md border border-border-strong bg-transparent px-5 py-2 text-sm font-medium text-foreground transition-colors duration-150 hover:bg-surface-2 mb-8 lg:mb-10 group"
+              className="glass-pill inline-flex min-h-[40px] items-center gap-2 rounded-full px-5 py-2 text-xs font-medium text-foreground transition-all duration-150 hover:border-border-strong hover:-translate-x-0.5 mb-8 lg:mb-10 group"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-3.5 h-3.5 text-accent" />
               All guides
             </a>
 
             <header>
               <div className="flex items-center gap-3 mb-5 font-mono text-[11px] text-foreground-muted">
-                <span>{article.category}</span>
+                <span className="glass-pill rounded-full px-3 py-0.5 text-[10px] font-medium text-foreground">
+                  {article.category}
+                </span>
                 {readingTime && (
                   <span className="text-foreground-subtle">&middot; {readingTime} min read</span>
                 )}
@@ -474,16 +476,18 @@ const InsightArticle = ({ slug }: { slug: string }) => {
           </div>
         </section>
 
-        {/* Hero image — no card wrapper, just rounded border */}
+        {/* Hero image — machined glass frame */}
         <section className="container mx-auto px-5 lg:px-12 mb-8 lg:mb-12">
-          <div className="relative aspect-[2/1] lg:aspect-[21/9] rounded-lg overflow-hidden bg-muted max-w-6xl mx-auto">
-            <img
-              src={article.image}
-              alt={`${article.title} cover image`}
-              loading="eager"
-              decoding="async"
-              className="w-full h-full object-cover"
-            />
+          <div className="glass-panel rounded-3xl p-2.5 sm:p-3.5 max-w-6xl mx-auto">
+            <div className="relative aspect-[2/1] lg:aspect-[21/9] rounded-2xl overflow-hidden bg-muted">
+              <img
+                src={article.image}
+                alt={`${article.title} cover image`}
+                loading="eager"
+                decoding="async"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
 
           {/* Share bar — below hero image */}
@@ -514,8 +518,8 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             {/* Sticky right column: TOC (desktop only) */}
             <div className="hidden lg:block">
               {tocItems.length > 0 && (
-                <div className="article-toc">
-                  <p className="mb-3 font-mono text-[10px] font-bold text-foreground-subtle">Contents</p>
+                <div className="article-toc glass-card rounded-2xl p-4">
+                  <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-foreground-subtle">Contents</p>
                   <nav aria-label="Article table of contents">
                     {tocItems.map((item) => (
                       <a key={item.id} href={`#${item.id}`}>
@@ -532,7 +536,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
           </div>
 
           {/* Bottom actions */}
-          <div className="mt-12 pt-8 border-t border-border max-w-4xl mx-auto">
+          <div className="mt-12 pt-8 border-t border-border/70 max-w-4xl mx-auto">
             <div className="flex items-center justify-between flex-wrap gap-4">
               <a
                 href="/insights"
@@ -545,7 +549,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
 
             {/* Guided Path Sequence Banner */}
             {pathInfo && (
-              <div className="mt-8 border-l-2 border-accent pl-6 py-2">
+              <div className="mt-8 glass-card rounded-2xl p-5 sm:p-6">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <span className="font-mono text-[11px] font-semibold text-accent">
@@ -558,7 +562,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
                   {pathInfo.nextArticleId && (
                     <a
                       href={`/insights/${pathInfo.nextArticleId}`}
-                      className="inline-flex shrink-0 items-center gap-2 rounded-md bg-foreground px-4 py-2 text-xs font-medium text-background transition-colors hover:bg-accent"
+                      className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-foreground px-4 py-2.5 text-xs font-medium text-background shadow-keycap transition-all hover:bg-accent"
                     >
                       <span>Next guide</span>
                       <ArrowRight className="h-3.5 w-3.5" />
@@ -569,7 +573,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
             )}
 
             {/* Bottom share section */}
-            <div className="mt-8 pt-8 border-t border-border">
+            <div className="mt-8 pt-8 border-t border-border/70">
               <p className="font-mono text-[10px] font-bold text-foreground-subtle mb-4">
                 Share
               </p>
@@ -579,7 +583,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
         </section>
 
         {/* Continue Reading */}
-        <section className="border-t border-border py-14 lg:py-20">
+        <section className="border-t border-border/70 py-14 lg:py-20">
           <div className="container mx-auto px-5 lg:px-12 max-w-4xl">
             <div className="mb-8">
               <h2 className="font-display text-2xl sm:text-3xl font-medium tracking-[-0.02em] text-foreground">
@@ -587,7 +591,7 @@ const InsightArticle = ({ slug }: { slug: string }) => {
               </h2>
             </div>
 
-            <div className="divide-y divide-border border-y border-border">
+            <div className="grid gap-4 sm:grid-cols-2">
               {relatedSlugs.map((relatedSlug) => {
                 const relatedArticle = articles[relatedSlug];
                 if (!relatedArticle) return null;
@@ -596,23 +600,29 @@ const InsightArticle = ({ slug }: { slug: string }) => {
                   <a
                     key={relatedSlug}
                     href={`/insights/${relatedSlug}`}
-                    className="group grid gap-2 py-6 lg:grid-cols-[9rem_1fr_6rem] lg:gap-8 items-baseline transition-colors duration-150"
+                    className="glass-card group flex flex-col justify-between rounded-2xl p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-craft-hover"
                   >
-                    <div className="font-mono text-[11px] text-foreground-muted">
-                      {relatedArticle.category}
-                    </div>
-
                     <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="glass-pill rounded-full px-2.5 py-0.5 font-mono text-[10px] text-foreground-muted">
+                          {relatedArticle.category}
+                        </span>
+                        <span className="font-mono text-xs text-foreground-subtle">
+                          {relatedReadTime ? `${relatedReadTime} min` : ""}
+                        </span>
+                      </div>
+
                       <h3 className="font-display text-xl font-medium leading-tight text-foreground transition-colors duration-150 group-hover:text-accent">
                         {relatedArticle.title}
                       </h3>
-                      <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
+                      <p className="mt-2 text-xs sm:text-sm leading-relaxed text-foreground-muted line-clamp-2">
                         {relatedArticle.description}
                       </p>
                     </div>
 
-                    <div className="font-mono text-xs text-foreground-muted lg:text-right">
-                      {relatedReadTime ? `${relatedReadTime} min` : ""}
+                    <div className="mt-5 flex items-center gap-1.5 font-mono text-xs font-medium text-accent">
+                      <span>Read guide</span>
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-1" />
                     </div>
                   </a>
                 );

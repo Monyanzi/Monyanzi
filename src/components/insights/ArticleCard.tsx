@@ -25,11 +25,12 @@ const ShareButtons = ({ articleUrl }: { articleUrl: string }) => {
   }, [articleUrl]);
 
   return (
-    <div className="absolute right-3 top-3 z-10 flex gap-1.5 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+    <div className="absolute right-3.5 top-3.5 z-10 flex gap-1.5 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
       <button
+        type="button"
         onClick={handleCopy}
         aria-label="Copy link"
-        className="flex h-7 w-7 items-center justify-center rounded-md border border-white/20 bg-black/60 text-white transition-colors duration-150 hover:bg-black/70"
+        className="flex h-8 w-8 items-center justify-center rounded-xl border border-white/25 bg-black/55 backdrop-blur-md text-white transition-colors duration-150 hover:bg-black/75"
       >
         {copied ? <Check className="h-3.5 w-3.5 text-white" /> : <Link2 className="h-3.5 w-3.5" />}
       </button>
@@ -46,16 +47,16 @@ const ArticleCard = memo(({ id, category, title, description, image, featured = 
       <article className="group">
         <a
           href={`/insights/${id}`}
-          className="grid overflow-hidden rounded-lg border border-border bg-surface transition-colors duration-150 hover:border-border-strong lg:grid-cols-[1.15fr_0.85fr]"
+          className="glass-card grid overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-craft-hover lg:grid-cols-[1.15fr_0.85fr]"
         >
-          <div className="relative aspect-[16/10] overflow-hidden border-b border-border lg:aspect-auto lg:min-h-[340px] lg:border-b-0 lg:border-r">
+          <div className="relative aspect-[16/10] overflow-hidden border-b border-border/60 lg:aspect-auto lg:min-h-[340px] lg:border-b-0 lg:border-r">
             {image ? (
               <img
                 src={image}
                 alt={`${title} cover`}
                 loading="eager"
                 decoding="async"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
             ) : (
               <div className="h-full w-full bg-surface-2" />
@@ -65,10 +66,14 @@ const ArticleCard = memo(({ id, category, title, description, image, featured = 
 
           <div className="flex flex-col justify-between p-6 sm:p-8 lg:p-10">
             <div>
-              <div className="mb-4 flex items-center justify-between border-b border-border/70 pb-3 font-mono text-[11px] tabular-nums">
-                <div className="flex items-center gap-2.5">
-                  <span className="font-mono text-[11px] text-foreground-muted">{category}</span>
-                  <span className="text-accent font-medium">Featured</span>
+              <div className="mb-4 flex items-center justify-between border-b border-border/60 pb-3.5 font-mono text-[11px] tabular-nums">
+                <div className="flex items-center gap-2">
+                  <span className="glass-pill rounded-full px-3 py-0.5 font-mono text-[10px] font-medium text-foreground-muted">
+                    {category}
+                  </span>
+                  <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-[10px] text-accent font-semibold">
+                    Featured
+                  </span>
                 </div>
                 {readingTime && (
                   <span className="text-foreground-subtle">{readingTime} min read</span>
@@ -79,14 +84,14 @@ const ArticleCard = memo(({ id, category, title, description, image, featured = 
                 {title}
               </h2>
 
-              <p className="mt-3 text-sm leading-relaxed text-foreground-muted">
+              <p className="mt-3 text-sm sm:text-base leading-relaxed text-foreground-muted">
                 {description}
               </p>
             </div>
 
-            <div className="mt-8 flex items-center justify-between border-t border-border/70 pt-4 font-mono text-xs font-medium text-foreground group-hover:text-accent">
+            <div className="mt-8 flex items-center justify-between border-t border-border/60 pt-4 font-mono text-xs font-medium text-accent">
               <span>Read guide</span>
-              <ArrowRight className="h-3.5 w-3.5" />
+              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-1" />
             </div>
           </div>
         </a>
@@ -97,23 +102,48 @@ const ArticleCard = memo(({ id, category, title, description, image, featured = 
   return (
     <a
       href={`/insights/${id}`}
-      className="group grid gap-2 py-6 lg:grid-cols-[9rem_1fr_6rem] lg:gap-8 items-baseline transition-colors duration-150"
+      className="glass-card group grid gap-4 p-5 sm:p-6 rounded-2xl items-center sm:grid-cols-[140px_1fr_auto] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-craft-hover"
     >
-      <div className="font-mono text-[11px] text-foreground-muted">
-        {category}
+      <div className="aspect-[16/10] sm:aspect-[4/3] w-full sm:w-[140px] overflow-hidden rounded-xl border border-border/70 bg-surface-2 shrink-0">
+        {image ? (
+          <img
+            src={image}
+            alt={title}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+          />
+        ) : (
+          <div className="h-full w-full bg-surface-2" />
+        )}
       </div>
 
-      <div>
-        <h2 className="font-display text-2xl font-medium leading-tight text-foreground transition-colors duration-150 group-hover:text-accent">
+      <div className="min-w-0">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="glass-pill rounded-full px-2.5 py-0.5 font-mono text-[10px] font-medium text-foreground-muted">
+            {category}
+          </span>
+          {readingTime && (
+            <span className="font-mono text-[11px] text-foreground-subtle sm:hidden">
+              {readingTime} min
+            </span>
+          )}
+        </div>
+        <h2 className="font-display text-xl sm:text-2xl font-medium leading-snug text-foreground transition-colors duration-150 group-hover:text-accent">
           {title}
         </h2>
-        <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
+        <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-foreground-muted line-clamp-2">
           {description}
         </p>
       </div>
 
-      <div className="font-mono text-xs text-foreground-muted lg:text-right">
-        {readingTime ? `${readingTime} min` : ""}
+      <div className="hidden sm:flex flex-col items-end justify-between h-full py-1 pl-4">
+        <span className="font-mono text-[11px] text-foreground-subtle tabular-nums">
+          {readingTime ? `${readingTime} min` : ""}
+        </span>
+        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 bg-surface text-foreground-subtle transition-all duration-150 group-hover:border-accent group-hover:bg-accent group-hover:text-white">
+          <ArrowRight className="h-3.5 w-3.5" />
+        </span>
       </div>
     </a>
   );

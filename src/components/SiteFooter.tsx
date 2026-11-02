@@ -8,14 +8,14 @@ const SiteFooter = ({ className = "" }: SiteFooterProps) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className={`border-t border-border/80 bg-surface/60 pb-24 lg:pb-0 backdrop-blur-sm ${className}`.trim()}>
+    <footer className={`border-t border-border/80 bg-surface/60 pb-24 lg:pb-0 backdrop-blur-xl ${className}`.trim()}>
       <div className="page-container py-12 lg:py-16">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr] border-b border-border/60 pb-10">
           {/* Brand + Editorial Colophon */}
           <div className="max-w-sm">
             <div className="flex items-center gap-2 mb-3">
               <span className="h-2 w-2 rounded-full bg-accent" />
-              <span className="inline-flex items-center rounded-full bg-surface-2 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-foreground-subtle font-semibold">
+              <span className="glass-pill inline-flex items-center rounded-full px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-foreground-subtle font-semibold">
                 Edition 2026
               </span>
             </div>
@@ -77,7 +77,7 @@ const SiteFooter = ({ className = "" }: SiteFooterProps) => {
         {/* Bottom Ledger */}
         <div className="pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 font-mono text-[11px] text-foreground-subtle">
           <span>&copy; {currentYear} Moses Nyanzi &middot; South Africa</span>
-          <span>Newsreader, Instrument Sans, JetBrains Mono</span>
+          <span>Instrument Sans &middot; JetBrains Mono</span>
         </div>
       </div>
     </footer>

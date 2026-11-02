@@ -1,39 +1,41 @@
 import { articleSummaries } from "@/data/articleSummaries";
 import techStackHero from "@/assets/insights/tech-stack/tech-stack-hero.jpg";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Search } from "lucide-react";
 import { toolsData, type ToolItem } from "@/data/tools";
+import GlassTooltip from "@/components/ui/GlassTooltip";
 
 const ToolCard = ({ tool }: { tool: ToolItem }) => {
   return (
-    <a
-      href={tool.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      title={tool.notes}
-      aria-label={`Open ${tool.name}`}
-      className="glass-card group relative flex flex-col justify-between rounded-2xl p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-craft-hover active:scale-[0.985] focus-visible:outline-accent"
-    >
-      <div>
-        <div className="flex w-full items-start justify-between mb-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-black/6 bg-white p-2.5 shadow-sm transition-transform duration-200 group-hover:scale-105">
-            <img src={tool.logo} alt={`${tool.name} logo`} className="h-full w-full object-contain" loading="eager" />
+    <GlassTooltip content={`Field note: ${tool.notes}`} className="h-full">
+      <a
+        href={tool.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Open ${tool.name}`}
+        className="glass-card group relative flex h-full flex-col justify-between rounded-2xl p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-craft-hover active:scale-[0.985] focus-visible:outline-accent"
+      >
+        <div>
+          <div className="flex w-full items-start justify-between mb-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-black/6 bg-white p-2.5 shadow-sm transition-transform duration-200 group-hover:scale-105">
+              <img src={tool.logo} alt={`${tool.name} logo`} className="h-full w-full object-contain" loading="eager" />
+            </div>
+            <span className="inline-flex items-center rounded-full bg-accent/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-accent">
+              Core
+            </span>
           </div>
-          <span className="inline-flex items-center rounded-full bg-accent/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-accent">
-            Core
+          <span className="block font-display text-xl font-medium leading-tight text-foreground group-hover:text-accent transition-colors">
+            {tool.name}
+          </span>
+          <span className="mt-2 block text-xs sm:text-sm leading-relaxed text-foreground-muted">
+            {tool.description}
           </span>
         </div>
-        <span className="block font-display text-xl font-medium leading-tight text-foreground group-hover:text-accent transition-colors">
-          {tool.name}
-        </span>
-        <span className="mt-2 block text-xs sm:text-sm leading-relaxed text-foreground-muted">
-          {tool.description}
-        </span>
-      </div>
-      <div className="mt-6 flex items-center justify-between border-t border-border/40 pt-3.5 font-mono text-[11px] text-foreground-subtle">
-        <span>Daily stack</span>
-        <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-      </div>
-    </a>
+        <div className="mt-6 flex items-center justify-between border-t border-border/40 pt-3.5 font-mono text-[11px] text-foreground-subtle">
+          <span>Daily stack</span>
+          <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </div>
+      </a>
+    </GlassTooltip>
   );
 };
 
@@ -44,9 +46,9 @@ const HeroSection = () => {
   const specialistCount = toolsData.length - coreToolCount;
 
   return (
-    <section className="relative overflow-hidden border-b border-border bg-background pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24">
+    <section className="relative overflow-hidden border-b border-border/70 pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24">
       {/* Studio Radial Ambient Illumination */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,hsl(var(--accent)/0.09),transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_55%_at_50%_-10%,hsl(var(--accent)/0.12),transparent_70%)]" />
 
       <div className="relative mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-12">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
@@ -61,7 +63,7 @@ const HeroSection = () => {
             </p>
 
             {/* Architectural Index Ledger */}
-            <div className="mt-6 inline-flex flex-wrap items-center gap-x-4 gap-y-2 rounded-full border border-border/80 bg-surface/80 px-4 py-1.5 font-mono text-[11px] text-foreground-muted backdrop-blur-sm tabular-nums shadow-sm">
+            <div className="mt-6 glass-pill inline-flex flex-wrap items-center gap-x-4 gap-y-2 rounded-full px-4 py-1.5 font-mono text-[11px] text-foreground-muted tabular-nums">
               <span>
                 <strong className="font-semibold text-foreground">{String(coreToolCount).padStart(2, "0")}</strong> Core
               </span>
@@ -83,12 +85,17 @@ const HeroSection = () => {
                 Read guides
                 <ArrowRight className="h-3.5 w-3.5" />
               </a>
-              <a
-                href="/stack"
-                className="glass-card inline-flex min-h-[46px] items-center gap-2 rounded-xl px-6 py-2.5 text-sm font-medium text-foreground transition-all duration-200 hover:bg-surface-2 hover:-translate-y-0.5 active:scale-[0.98]"
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
+                className="glass-card inline-flex min-h-[46px] items-center gap-2.5 rounded-xl px-5 py-2.5 text-sm font-medium text-foreground transition-all duration-200 hover:shadow-craft-hover hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
               >
-                View stack
-              </a>
+                <Search className="h-3.5 w-3.5 text-accent" />
+                <span>Quick search</span>
+                <kbd className="hidden sm:inline-flex items-center rounded-md border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-[10px] text-foreground-subtle">
+                  ⌘K
+                </kbd>
+              </button>
             </div>
           </div>
 
@@ -120,7 +127,7 @@ const HeroSection = () => {
 
         {/* 3 Core Tools Stack Tray */}
         <div className="mt-14 sm:mt-18">
-          <div className="glass-panel overflow-hidden rounded-3xl p-5 sm:p-8">
+          <div className="glass-panel overflow-visible rounded-3xl p-5 sm:p-8">
             <div className="flex items-center justify-between border-b border-border/60 pb-5 mb-6">
               <div className="flex items-baseline gap-2.5">
                 <span className="font-display text-2xl font-medium tracking-tight text-foreground">
@@ -134,7 +141,7 @@ const HeroSection = () => {
                 href="/stack"
                 className="group inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:text-foreground transition-colors"
               >
-                <span>View stack</span>
+                <span>Full 12-tool stack</span>
                 <ArrowRight className="h-3 w-3 transition-transform duration-150 group-hover:translate-x-0.5" />
               </a>
             </div>
